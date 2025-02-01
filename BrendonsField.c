@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
+#include <stdbool.h>
 
 
 #define FOOTBALL_PLAYERS 44
 #define BASEBALL_PLAYERS 36
 #define RUGBY_PLAYERS 60
+
 
 typedef enum{
     FOOTBALL,
@@ -13,19 +16,27 @@ typedef enum{
     RUGBY
 }Sport;
 
+typedef struct{
+    pthread_t *players;
+    pthread_t *playingPlayers;
+}Football;
+
 
 typedef struct{
     Sport currentSport;
     int requiredPlayers;
     pthread_t *players;
+    pthread_t *playingPlayers;
+
 }Field;
 
 typedef struct{
     Sport sport;
     int number;
+    bool isready;
 }Player;
 
-Field initField(Sport sport, pthread_t *tid){
+Field updateField(Sport sport, pthread_t *tid){
     //Determine how may rugby players needed
     Field field;
     FILE* seed = fopen("seed.txt","r");
@@ -34,7 +45,8 @@ Field initField(Sport sport, pthread_t *tid){
     srand(seet);
     fclose(seed);
     int rugbyPlayers = 2 * (rand() % 15 + 1);
-
+    
+    // Set fields 
     field.currentSport = sport;
     if(sport == FOOTBALL){
         field.requiredPlayers = 18;
@@ -47,20 +59,32 @@ Field initField(Sport sport, pthread_t *tid){
     return field;
 }
 
+Player initPlayer(Sport sport, int number){
+    Player player;
+    player.sport = sport;
+    player.number = number;
+    player.isready = true;
+    return player;
+}
+
 void *footballPlayer(void *arg) {
     long tid = (long)arg;
+    Player player = initPlayer(FOOTBALL, tid);
     printf("Hello, I am football player %ld of %d\n", tid, FOOTBALL_PLAYERS);
+    
     return(NULL);
 }
 
 void *baseballPlayer(void *arg) {
     long tid = (long)arg;
+    Player player = initPlayer(BASEBALL, tid);
     printf("Hello, I am baseball player %ld of %d\n", tid, BASEBALL_PLAYERS);
     return(NULL);
 }
 
 void *rugbyPlayer(void *arg) {
     long tid = (long)arg;
+    Player player = initPlayer(RUGBY, tid);
     printf("Hello, I am rugby player %ld of %d\n", tid, RUGBY_PLAYERS);
     return(NULL);
 }
