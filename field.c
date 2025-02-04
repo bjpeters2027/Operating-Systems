@@ -24,6 +24,7 @@ typedef enum{
     Rugby = 2
 } Sport;
 
+
 struct{
     Sport lastPlayed;
     pthread_cond_t sportReady;
@@ -36,12 +37,12 @@ void init_field() {
 
 struct { /* data shared by producer and consumer */
     pthread_mutex_t m;
-    int onField; // Value of how many players to bring onto field (gets reset to 0 as they enter)
-    int offField; // Value of how many players to take off the field (gets reset to 0 as the exit)
+    int onField; // Value of how many players to bring onto field (gets decremented to 0 as they enter)
+    int offField; // Value of how many players to take off the field (gets decremented to 0 as the exit)
     pthread_cond_t startGame;
     pthread_cond_t finishGame;
     int inqueue;
-    sem_t emptySpots; /* semaphores, not pointers */
+    sem_t emptySpots;
 } football;
 
 void init_football() {
@@ -57,9 +58,7 @@ void football_run_game() {
     printf("Starting football game\n");
     pthread_mutex_lock(&football.m);
     football.onField = FOOTBALL_PLAYER_CAP;
-    printf("Cureently locked to set onfield\n");
     pthread_mutex_unlock(&football.m);
-    printf("Set football onfield: %d\n", football.onField);
     pthread_cond_broadcast(&football.startGame);
 
     sleep(FOOTBALL_GAME_TIME);
@@ -100,7 +99,6 @@ void football_join_game(long tid) {
         pthread_cond_wait(&football.finishGame, &football.m);
     football.offField--;
     pthread_mutex_unlock(&football.m);
-    
 }
 
 void *footballPlayer(void *arg) {
@@ -131,7 +129,7 @@ int main () {
     init_football();
     pthread_t *tid;
     long i;
-
+    printf("Size in bytes: %d", sizeof(football));
     // allocate vector and initialize
     tid = (pthread_t *)malloc(sizeof(pthread_t)*(FOOTBALL_PLAYERS+BASEBALL_PLAYERS+RUGBY_PLAYERS));
 
