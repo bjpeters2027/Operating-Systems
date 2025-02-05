@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include <semaphore.h>
 #include <time.h>
-
 #include "field.h"
 #include "football.h"
 
@@ -14,23 +13,11 @@
 #define BASEBALL_PLAYERS 36
 #define RUGBY_PLAYERS 60
 
-void player_sleep() {
-    sleep(rand()%10 + 0);
-}
-
-
-Field field;
 
 void init_field() {
     field.lastPlayed = 0;
-    field.fieldReady = PTHREAD_COND_INITIALIZER;
-    field.gameInPlay = 0;
-    field.m = PTHREAD_MUTEX_INITIALIZER;
+    pthread_cond_init(&field.sportReady, NULL);
 }
-
-Field *getField() {return &field;}
-
-
 
 
 void *baseballPlayer(void *arg) {
