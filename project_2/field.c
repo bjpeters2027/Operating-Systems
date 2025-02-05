@@ -20,16 +20,12 @@ typedef enum{
 } Sport;
 
 
-typedef struct{
+struct{
     Sport lastPlayed;
-    pthread_cond_t sportReady;
+    pthread_cond_t fieldReady;
     bool gameInPlay;
     pthread_mutex_t m;
-} Field;
-
-Field field;
-
-Field* getField(){return &field;}
+} field;
 
 struct { /* data shared by producer and consumer */
     pthread_mutex_t m;
@@ -42,6 +38,9 @@ struct { /* data shared by producer and consumer */
     sem_t gameCaptain;
 } football;
 
+void player_sleep() {
+    sleep(rand() % 3 + 0);
+}
 
 void init_football() {
     pthread_mutex_init(&football.m, NULL);
@@ -53,22 +52,6 @@ void init_football() {
     printf("Return of sem_init: %d\n", v);
 }
 
-void football_run_game() {
-    printf("Starting football game\n");
-    pthread_mutex_lock(&football.m);
-    football.onField = FOOTBALL_PLAYER_CAP;
-    pthread_mutex_unlock(&football.m);
-    pthread_cond_broadcast(&football.startGame);
-
-    sleep(FOOTBALL_GAME_TIME);
-
-    printf("FInished football game\n");
-    pthread_mutex_lock(&football.m);
-    football.offField = FOOTBALL_PLAYER_CAP;
-    pthread_mutex_unlock(&football.m);
-    pthread_cond_broadcast(&football.finishGame);
-}
-
 int football_ready() {
     int queue;
     sem_getvalue(&football.emptySpots, &queue);
@@ -77,13 +60,13 @@ int football_ready() {
 }
 
 void football_run_game(long tid) {
-    printf("Football Player #%i (Captain): Waiting for the field to be open.\n", tid);
+    printf("Football Player #%li (Captain): Waiting for the field to be open.\n", tid);
     pthread_mutex_lock(&field.m);
-    while (getField()->gameInPlay || !football.get) {
-        pthread_cond_wait(&getField()->fieldReady, &getField()->m);
+    while (field.gameInPlay || !football_ready()) {
+        pthread_cond_wait(&field.fieldReady, &field.m);
     }
-    getField()->gameInPlay = true;
-    pthread_mutex_unlock(&getField()->m);
+    field.gameInPlay = true;
+    pthread_mutex_unlock(&field.m);
 
     printf("Football Player #%ld (Captain): Moving players to field.\n", tid);
     pthread_mutex_lock(&football.m);
@@ -94,16 +77,16 @@ void football_run_game(long tid) {
 
     sleep(FOOTBALL_GAME_TIME);
 
-    printf("Football Player #%i (Captain): Finished game, moving off field.\n", tid);
+    printf("Football Player #%li (Captain): Finished game, moving off field.\n", tid);
     pthread_mutex_lock(&football.m);
     football.offField = FOOTBALL_PLAYER_CAP-1;
     pthread_mutex_unlock(&football.m);
     pthread_cond_broadcast(&football.finishGame);
 
-    printf("Football Player #%i (Captain): Opening field for next game.\n", tid);
-    pthread_mutex_lock(&getField()->m);
-    getField()->gameInPlay = false;
-    pthread_mutex_unlock(&getField()->m);
+    printf("Football Player #%li (Captain): Opening field for next game.\n", tid);
+    pthread_mutex_lock(&field.m);
+    field.gameInPlay = false;
+    pthread_mutex_unlock(&field.m);
 }
 
 void football_join_game(long tid) {
@@ -111,7 +94,7 @@ void football_join_game(long tid) {
     printf("Football Player #%ld: Entering queue.\n", tid);
     
     if (!sem_trywait(&football.gameCaptain)) {
-        printf("Football Player #%i: I am the next game captain.\n", tid);
+        printf("Football Player #%li: I am the next game captain.\n", tid);
         football_run_game(tid);
     } else {
         sem_wait(&football.emptySpots);
@@ -148,12 +131,12 @@ void *footballPlayer(void *arg) {
     return(NULL);
 }
 
-void player_sleep();
+
 
 
 void init_field() {
     field.lastPlayed = 0;
-    pthread_cond_init(&field.sportReady, NULL);
+    pthread_cond_init(&field.fieldReady, NULL);
     field.gameInPlay = false;
 }
 
