@@ -12,6 +12,7 @@ struct { /* data shared by producer and consumer */
     pthread_cond_t finishGame;
     int inqueue;
     sem_t emptySpots;
+    sem_t gameCaptain;
 } football;
 
 
@@ -20,7 +21,8 @@ void init_football() {
     // football.ready = 0;
     football.startGame = PTHREAD_COND_INITIALIZER;
     football.finishGame = PTHREAD_COND_INITIALIZER;
-    int v = sem_init(&football.emptySpots, 0, FOOTBALL_PLAYER_CAP);
+    int v = sem_init(&football.emptySpots, 0, FOOTBALL_PLAYER_CAP-1);
+    int v = sem_init(&football.emptySpots, 0, 1);
     printf("Return of sem_init: %d\n", v);
 }
 
@@ -51,6 +53,7 @@ void football_join_game(long tid) {
     // Enter queue and wait until next up to play
     printf("Football Player #%d: Entering queue.\n", tid);
     
+
     sem_wait(&football.emptySpots);
     
     // Wait for next football game to start
