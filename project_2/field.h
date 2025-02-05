@@ -17,6 +17,8 @@ typedef struct {
     pthread_cond_t fieldReady;
 } Field;
 
+void player_sleep();
+
 Field *getField();
 
 #endif

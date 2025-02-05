@@ -24,7 +24,7 @@ void init_football() {
     football.startGame = PTHREAD_COND_INITIALIZER;
     football.finishGame = PTHREAD_COND_INITIALIZER;
     int v = sem_init(&football.emptySpots, 0, FOOTBALL_PLAYER_CAP-1);
-    sem_init(&football.emptySpots, 0, 1);
+    sem_init(&football.gameCaptain, 0, 1);
     printf("Return of sem_init: %d\n", v);
 }
 
@@ -40,15 +40,18 @@ int football_ready() {
 void football_run_game(long tid) {
     printf("Football Player #%i (Captain): Waiting for the field to be open.\n", tid);
     pthread_mutex_lock(&getField()->m);
-    while (getField()->gameInPlay) {
+    while (getField()->gameInPlay || !football.get) {
         pthread_cond_wait(&getField()->fieldReady, &getField()->m);
     }
+    getField()->gameInPlay = TRUE;
+    pthread_mutex_unlock(&getField()->m);
 
-    printf("Football Player #%i (Captain): Moving players to field.\n", tid);
+    printf("Football Player #%ld (Captain): Moving players to field.\n", tid);
     pthread_mutex_lock(&football.m);
     football.onField = FOOTBALL_PLAYER_CAP-1;
     pthread_mutex_unlock(&football.m);
     pthread_cond_broadcast(&football.startGame);
+    sem_post(&football.gameCaptain);
 
     sleep(FOOTBALL_GAME_TIME);
 
@@ -57,6 +60,11 @@ void football_run_game(long tid) {
     football.offField = FOOTBALL_PLAYER_CAP-1;
     pthread_mutex_unlock(&football.m);
     pthread_cond_broadcast(&football.finishGame);
+
+    printf("Football Player #%i (Captain): Opening field for next game.\n", tid);
+    pthread_mutex_lock(&getField()->m);
+    getField()->gameInPlay = FALSE;
+    pthread_mutex_unlock(&getField()->m);
 }
 
 void football_join_game(long tid) {
@@ -64,7 +72,7 @@ void football_join_game(long tid) {
     printf("Football Player #%d: Entering queue.\n", tid);
     
     if (!sem_trywait(&football.gameCaptain)) {
-        printf("Football Player #%i: I am the game captain.\n", tid);
+        printf("Football Player #%i: I am the next game captain.\n", tid);
         football_run_game(tid);
     } else {
         sem_wait(&football.emptySpots);
