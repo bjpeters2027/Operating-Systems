@@ -1,9 +1,10 @@
 #include <pthread.h>
 #include <semaphore.h>
-
-#include "football.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "field.h"
-
+#include "football.h"
 
 
 struct { /* data shared by producer and consumer */
@@ -19,16 +20,30 @@ struct { /* data shared by producer and consumer */
 
 
 void init_football() {
-    football.m = PTHREAD_MUTEX_INITIALIZER;
-    // football.ready = 0;
-    football.startGame = PTHREAD_COND_INITIALIZER;
-    football.finishGame = PTHREAD_COND_INITIALIZER;
+    pthread_mutex_init(&football.m, NULL);
+    pthread_cond_init(&football.startGame, NULL);
+    pthread_cond_init(&football.finishGame, NULL);
+
     int v = sem_init(&football.emptySpots, 0, FOOTBALL_PLAYER_CAP-1);
     sem_init(&football.gameCaptain, 0, 1);
     printf("Return of sem_init: %d\n", v);
 }
 
+void football_run_game() {
+    printf("Starting football game\n");
+    pthread_mutex_lock(&football.m);
+    football.onField = FOOTBALL_PLAYER_CAP;
+    pthread_mutex_unlock(&football.m);
+    pthread_cond_broadcast(&football.startGame);
 
+    sleep(FOOTBALL_GAME_TIME);
+
+    printf("FInished football game\n");
+    pthread_mutex_lock(&football.m);
+    football.offField = FOOTBALL_PLAYER_CAP;
+    pthread_mutex_unlock(&football.m);
+    pthread_cond_broadcast(&football.finishGame);
+}
 
 int football_ready() {
     int queue;
@@ -69,7 +84,7 @@ void football_run_game(long tid) {
 
 void football_join_game(long tid) {
     // Enter queue and wait until next up to play
-    printf("Football Player #%d: Entering queue.\n", tid);
+    printf("Football Player #%ld: Entering queue.\n", tid);
     
     if (!sem_trywait(&football.gameCaptain)) {
         printf("Football Player #%i: I am the next game captain.\n", tid);
@@ -79,7 +94,7 @@ void football_join_game(long tid) {
     }
     
     // Wait for next football game to start
-    printf("Football Player #%d: Next up to play football.\n", tid);
+    printf("Football Player #%ld: Next up to play football.\n", tid);
     pthread_mutex_lock(&football.m);
     while (football.onField == 0)
         pthread_cond_wait(&football.startGame, &football.m);
@@ -88,7 +103,7 @@ void football_join_game(long tid) {
     sem_post(&football.emptySpots);
 
     // Start game and wait for it to finish
-    printf("Football Player #%d: Entering the field.\n", tid);
+    printf("Football Player #%ld: Entering the field.\n", tid);
     pthread_mutex_lock(&football.m);
     while (football.offField == 0)
         pthread_cond_wait(&football.finishGame, &football.m);
@@ -103,7 +118,7 @@ void *footballPlayer(void *arg) {
     while (1) {
         player_sleep();
         football_join_game(tid);
-        printf("Football Player #%d: Finished a game.\n", tid);
+        printf("Football Player #%ld: Finished a game.\n", tid);
     }
     
     return(NULL);

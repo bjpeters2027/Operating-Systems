@@ -1,6 +1,6 @@
-#ifndef FIELD
-#define FIELD 1
 #include <pthread.h>
+#include <semaphore.h>
+#include <stdio.h>
 
 
 typedef enum{
@@ -10,15 +10,11 @@ typedef enum{
 } Sport;
 
 
-typedef struct {
-    pthread_mutex_t m;
+struct{
     Sport lastPlayed;
-    int gameInPlay;
-    pthread_cond_t fieldReady;
-} Field;
+    pthread_cond_t sportReady;
+} field;
 
 void player_sleep();
 
 Field *getField();
-
-#endif
