@@ -1,6 +1,8 @@
 #include <pthread.h>
 #include <semaphore.h>
-#include <football.h>
+
+#include "football.h"
+
 
 #define FOOTBALL_PLAYERS 44
 #define FOOTBALL_PLAYER_CAP 22

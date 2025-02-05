@@ -5,7 +5,8 @@
 #include <stdbool.h>
 #include <semaphore.h>
 #include <time.h>
-#include <football.c>
+
+#include "football.h"
 
 
 #define BASEBALL_PLAYERS 36
