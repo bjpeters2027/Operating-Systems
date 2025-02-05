@@ -6,7 +6,9 @@
 #include <semaphore.h>
 #include <time.h>
 
+#include "field.h"
 #include "football.h"
+
 
 
 #define BASEBALL_PLAYERS 36
@@ -16,17 +18,6 @@ void player_sleep() {
     sleep(rand()%10 + 0);
 }
 
-typedef enum{
-    Football = 0,
-    Baseball = 1,
-    Rugby = 2
-} Sport;
-
-
-struct{
-    Sport lastPlayed;
-    pthread_cond_t sportReady;
-} field;
 
 void init_field() {
     field.lastPlayed = 0;
@@ -49,7 +40,6 @@ int main () {
     init_football();
     pthread_t *tid;
     long i;
-    printf("Size in bytes: %d", sizeof(football));
     // allocate vector and initialize
     tid = (pthread_t *)malloc(sizeof(pthread_t)*(FOOTBALL_PLAYERS+BASEBALL_PLAYERS+RUGBY_PLAYERS));
 

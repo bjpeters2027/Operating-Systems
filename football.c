@@ -4,10 +4,6 @@
 #include "football.h"
 
 
-#define FOOTBALL_PLAYERS 44
-#define FOOTBALL_PLAYER_CAP 22
-#define FOOTBALL_GAME_TIME 5
-
 struct { /* data shared by producer and consumer */
     pthread_mutex_t m;
     int onField; // Value of how many players to bring onto field (gets decremented to 0 as they enter)

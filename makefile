@@ -1,10 +1,10 @@
 
 
-all: field
-	gcc field.c -o field
+all: field.o football.o
+	gcc field.o football.o -lm -o field
 
-field: field.c football.o
-	gcc field.c football.o -o field 
+field.o: field.c football.o
+	gcc -c field.c
 
 football.o: football.c football.h
 	gcc -c football.c
