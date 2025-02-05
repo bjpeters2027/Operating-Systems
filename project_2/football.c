@@ -2,6 +2,8 @@
 #include <semaphore.h>
 
 #include "football.h"
+#include "field.h"
+
 
 
 struct { /* data shared by producer and consumer */
@@ -22,25 +24,11 @@ void init_football() {
     football.startGame = PTHREAD_COND_INITIALIZER;
     football.finishGame = PTHREAD_COND_INITIALIZER;
     int v = sem_init(&football.emptySpots, 0, FOOTBALL_PLAYER_CAP-1);
-    int v = sem_init(&football.emptySpots, 0, 1);
+    sem_init(&football.emptySpots, 0, 1);
     printf("Return of sem_init: %d\n", v);
 }
 
-void football_run_game() {
-    printf("Starting football game\n");
-    pthread_mutex_lock(&football.m);
-    football.onField = FOOTBALL_PLAYER_CAP;
-    pthread_mutex_unlock(&football.m);
-    pthread_cond_broadcast(&football.startGame);
 
-    sleep(FOOTBALL_GAME_TIME);
-
-    printf("FInished football game\n");
-    pthread_mutex_lock(&football.m);
-    football.offField = FOOTBALL_PLAYER_CAP;
-    pthread_mutex_unlock(&football.m);
-    pthread_cond_broadcast(&football.finishGame);
-}
 
 int football_ready() {
     int queue;
@@ -49,12 +37,38 @@ int football_ready() {
     return queue <= 0;
 }
 
+void football_run_game(long tid) {
+    printf("Football Player #%i (Captain): Waiting for the field to be open.\n", tid);
+    pthread_mutex_lock(&getField()->m);
+    while (getField()->gameInPlay) {
+        pthread_cond_wait(&getField()->fieldReady, &getField()->m);
+    }
+
+    printf("Football Player #%i (Captain): Moving players to field.\n", tid);
+    pthread_mutex_lock(&football.m);
+    football.onField = FOOTBALL_PLAYER_CAP-1;
+    pthread_mutex_unlock(&football.m);
+    pthread_cond_broadcast(&football.startGame);
+
+    sleep(FOOTBALL_GAME_TIME);
+
+    printf("Football Player #%i (Captain): Finished game, moving off field.\n", tid);
+    pthread_mutex_lock(&football.m);
+    football.offField = FOOTBALL_PLAYER_CAP-1;
+    pthread_mutex_unlock(&football.m);
+    pthread_cond_broadcast(&football.finishGame);
+}
+
 void football_join_game(long tid) {
     // Enter queue and wait until next up to play
     printf("Football Player #%d: Entering queue.\n", tid);
     
-
-    sem_wait(&football.emptySpots);
+    if (!sem_trywait(&football.gameCaptain)) {
+        printf("Football Player #%i: I am the game captain.\n", tid);
+        football_run_game(tid);
+    } else {
+        sem_wait(&football.emptySpots);
+    }
     
     // Wait for next football game to start
     printf("Football Player #%d: Next up to play football.\n", tid);

@@ -19,10 +19,18 @@ void player_sleep() {
 }
 
 
+Field field;
+
 void init_field() {
     field.lastPlayed = 0;
-    field.sportReady = PTHREAD_COND_INITIALIZER;
+    field.fieldReady = PTHREAD_COND_INITIALIZER;
+    field.gameInPlay = 0;
+    field.m = PTHREAD_MUTEX_INITIALIZER;
 }
+
+Field *getField() {return &field;}
+
+
 
 
 void *baseballPlayer(void *arg) {
