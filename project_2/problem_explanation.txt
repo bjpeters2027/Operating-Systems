@@ -1,0 +1,7 @@
+Q1.
+    In order to avoid starvation our field does not allow one sport to play
+    back-to-back. It does this by the field struct containing a value known 
+    as "currentSport". Each sport has a set of associated functions that will
+    check to see if it is that sports turn on the field. Then when that sport 
+    leaves the field currentSport is incremented and modulo-ed with 3 in order
+    
