@@ -16,13 +16,13 @@
 #define FOOTBALL_PLAYERS 44
 #define FOOTBALL_PLAYER_CAP 22
 
+// #region Structs ----------------------------------------------------------------------
 
 typedef enum{
     Football = 0,
     Baseball = 1,
     Rugby = 2
 } Sport;
-
 
 struct{
     Sport currentSport;
@@ -60,9 +60,14 @@ struct { /* data shared by producer and consumer */
     pthread_cond_t startGame;
     pthread_cond_t finishGame;
     int inqueue;
+    int numOfCaps; // Ensures that only 30 players on at once
     sem_t emptySpots;
     sem_t gameCaptain;
 } rugby;
+
+// #endregion
+
+// #region General Functions --------------------------------------------------------------------
 
 void init_field() {
     field.currentSport = rand()%3;
@@ -78,25 +83,19 @@ void player_sleep() {
     usleep((rand() % 500) * 10000 + 0);
 }
 
-void football_sleep() {
-    sleep(rand() % 3 + 5);
-}
-
-void baseball_sleep() {
-    sleep(rand() % 3 + 5);
-}
-
-void rugby_sleep() {
-    sleep(rand() % 3 + 5);
-}
-
 void init_player(long int tid) {
     struct timeval t;
     gettimeofday(&t, NULL);
     srand(t.tv_usec);
 }
 
-// Football player ------------------------------------------------------------
+// #endregion
+
+// #region Football ------------------------------------------------------------
+
+void football_sleep() {
+    sleep(rand() % 3 + 5);
+}
 
 void init_football() {
     pthread_mutex_init(&football.m, NULL);
@@ -127,11 +126,11 @@ void football_run_game(long tid) {
     field.gameInPlay = true;
     pthread_mutex_unlock(&field.m);
 
-    // Move players onto feild and set current sport to football
+    // Move players onto field and set current sport to football
     printf("Football Player #%ld (Captain): Moving players to field.\n", tid);
     sem_post(&football.gameCaptain);
     pthread_mutex_lock(&football.m);
-    football.onField = FOOTBALL_PLAYER_CAP;
+    football.onField = FOOTBALL_PLAYER_CAP-1;
     pthread_mutex_unlock(&football.m);
     pthread_cond_broadcast(&football.startGame);
     pthread_mutex_lock(&field.m);
@@ -142,10 +141,10 @@ void football_run_game(long tid) {
     // Wait for the football game to be over
     football_sleep();
 
-    // Take the players of the field 
+    // Move the players off the field 
     printf("Football Player #%li (Captain): Finished game, moving players off the field.\n", tid);
     pthread_mutex_lock(&football.m);
-    football.offField = FOOTBALL_PLAYER_CAP;
+    football.offField = FOOTBALL_PLAYER_CAP-1;
     pthread_mutex_unlock(&football.m);
     pthread_cond_broadcast(&football.finishGame);
 
@@ -158,17 +157,18 @@ void football_run_game(long tid) {
 }
 
 void football_join_game(long tid) {
-    // Enter queue and wait until next up to play
-    printf("Football Player #%ld: Entering queue.\n", tid);
+    // Enter queue and wait to be the next up to play
+    printf("Football Player #%ld: Entering football queue.\n", tid);
     
     sem_wait(&football.emptySpots);
 
+    // Try to be the game captain (one per game) and manage the game
     if (!sem_trywait(&football.gameCaptain)) {
         printf("Football Player #%li: I am the next game captain.\n", tid);
         return football_run_game(tid);
     }
     
-    // Wait for next football game to start
+    // Wait for next football game to start to go on field
     printf("Football Player #%ld: Next up to play football.\n", tid);
     pthread_mutex_lock(&football.m);
     while (football.onField == 0)
@@ -177,7 +177,7 @@ void football_join_game(long tid) {
     pthread_mutex_unlock(&football.m);
     sem_post(&football.emptySpots);
 
-    // Start game and wait for it to finish
+    // Once signaled leave the field after the game
     printf("Football Player #%ld: Entering the field.\n", tid);
     pthread_mutex_lock(&football.m);
     while (football.offField == 0)
@@ -196,9 +196,13 @@ void *footballPlayer(void *arg) {
     }
     return(NULL);
 }
+// #endregion
 
+// #region Baseball ------------------------------------------------------------
 
-// Baseball player ------------------------------------------------------------
+void baseball_sleep() {
+    sleep(rand() % 3 + 5);
+}
 
 void init_baseball() {
     pthread_mutex_init(&baseball.m, NULL);
@@ -213,12 +217,11 @@ void init_baseball() {
 int baseball_ready() {
     int queue;
     sem_getvalue(&baseball.emptySpots, &queue);
-    printf("Spots left in queue: %d, people in queue: %d \n", queue, baseball.inqueue);
     return queue <= 0;
 }
 
 void baseball_run_game(long tid) {
-    // Wait untill enough players read to play a game then until the field is clear and baseball is the next sport to play
+    // Wait untill enough players ready to play a game then until the field is clear and baseball is the next sport to play
     printf("Baseball Player #%li (Captain): Waiting for the field to be open and players to be ready.\n", tid);
     pthread_mutex_lock(&field.m);
 
@@ -229,13 +232,15 @@ void baseball_run_game(long tid) {
     field.gameInPlay = true;
     pthread_mutex_unlock(&field.m);
 
-    // Move players onto feild and set current sport to baseball
+    // Move other players onto feild and set current sport to baseball
     printf("Baseball Player #%ld (Captain): Moving players to field.\n", tid);
     sem_post(&baseball.gameCaptain);
+    sem_post(&baseball.emptySpots);
     pthread_mutex_lock(&baseball.m);
-    baseball.onField = BASEBALL_PLAYER_CAP;
+    baseball.onField = BASEBALL_PLAYER_CAP-1;
     pthread_mutex_unlock(&baseball.m);
     pthread_cond_broadcast(&baseball.startGame);
+
     pthread_mutex_lock(&field.m);
     field.currentSport = Baseball;
     pthread_mutex_unlock(&field.m);
@@ -244,10 +249,10 @@ void baseball_run_game(long tid) {
     // Wait for the baseball game to be over
     baseball_sleep();
 
-    // Take the players of the field 
+    // Take the players off the field 
     printf("Baseball Player #%li (Captain): Finished game, moving players off the field.\n", tid);
     pthread_mutex_lock(&baseball.m);
-    baseball.offField = BASEBALL_PLAYER_CAP;
+    baseball.offField = BASEBALL_PLAYER_CAP-1;
     pthread_mutex_unlock(&baseball.m);
     pthread_cond_broadcast(&baseball.finishGame);
 
@@ -261,16 +266,16 @@ void baseball_run_game(long tid) {
 
 void baseball_join_game(long tid) {
     // Enter queue and wait until next up to play
-    printf("Baseball Player #%ld: Entering queue.\n", tid);
-    
+    printf("Baseball Player #%ld: Entering baseball queue.\n", tid);
     sem_wait(&baseball.emptySpots);
-
+     
+    // Try to be captain (one per game) otherwise continue as normal player
     if (!sem_trywait(&baseball.gameCaptain)) {
         printf("Baseball Player #%li: I am the next game captain.\n", tid);
         return baseball_run_game(tid);
     }
     
-    // Wait for next baseball game to start
+    // Wait for next baseball game to start before going on the field
     printf("Baseball Player #%ld: Next up to play baseball.\n", tid);
     pthread_mutex_lock(&baseball.m);
     while (baseball.onField == 0)
@@ -279,7 +284,7 @@ void baseball_join_game(long tid) {
     pthread_mutex_unlock(&baseball.m);
     sem_post(&baseball.emptySpots);
 
-    // Start game and wait for it to finish
+    // Wait for game to be finished then exit field
     printf("Baseball Player #%ld: Entering the field.\n", tid);
     pthread_mutex_lock(&baseball.m);
     while (baseball.offField == 0)
@@ -298,15 +303,19 @@ void *baseballPlayer(void *arg) {
     }
     return(NULL);
 }
+// #endregion
 
+// #region Rugby ----------------------------------------------------------------------
 
-// Rugby ----------------------------------------------------------------------
-
+void rugby_sleep() {
+    sleep(rand() % 5  + 3);
+}
 
 void init_rugby() {
     pthread_mutex_init(&rugby.m, NULL);
     rugby.onField = 0;
     rugby.offField = 0;
+    rugby.numOfCaps = 0;
     pthread_cond_init(&rugby.startGame, NULL);
     pthread_cond_init(&rugby.finishGame, NULL);
     int v = sem_init(&rugby.emptySpots, 0, RUGBY_PLAYER_CAP);
@@ -317,63 +326,81 @@ void init_rugby() {
 int rugby_ready() {
     int queue;
     sem_getvalue(&rugby.emptySpots, &queue);
-    printf("Spots left in queue: %d, people in queue: %d \n", queue, rugby.inqueue);
     return queue <= 0;
 }
 
 void rugby_run_game(long tid) {
     // Wait untill enough players read to play a game then until the field is clear and rugby is the next sport to play
+    // NOTE: because of the while loop in the if statement,
+    // the system will allow up to 30 (15 pairs) of rugby players to enter,
+    // Then once it reaches that the next captain will enter the loop and wont
+    // exit until the next start of a rugby game
+    // (because the fieldReady condition wont be signaled as rugby players leave and spots open)
     printf("Rugby Player #%li (Captain): Waiting for the field to be open and players to be ready.\n", tid);
     pthread_mutex_lock(&field.m);
+    // Wait until partner is ready to enter field
     while (!rugby_ready()) {sleep(1);}
-    while (field.gameInPlay || nextSport() != Rugby) {
-        pthread_cond_wait(&field.fieldReady, &field.m);
+    printf("Rugby Player #%li (Captain): Waiting on field to open.\n", tid);
+    //If no game in play, the current sport is rugby, and less than 30 rugby players in field move on
+    if (!field.gameInPlay || field.currentSport != Rugby || rugby.numOfCaps >= 15) {
+        // Otherwise wait untill good to start new game (if rugby currently in play with slots open still wont enter)
+        while (field.gameInPlay || nextSport() != Rugby) {
+            pthread_cond_wait(&field.fieldReady, &field.m);
+        }
     }
     field.gameInPlay = true;
     pthread_mutex_unlock(&field.m);
 
-    // Move players onto feild and set current sport to rugby
-    printf("Rugby Player #%ld (Captain): Moving players to field.\n", tid);
+
+    // Signal partner to enter field and set current sport to rugby (Also increase num of caps accordingly)
     sem_post(&rugby.gameCaptain);
+    sem_post(&rugby.emptySpots);
     pthread_mutex_lock(&rugby.m);
-    rugby.onField = RUGBY_PLAYER_CAP;
+    rugby.numOfCaps++;
+    printf("Rugby Player #%ld (Captain): Moving players to field (Players on field: %i).\n", tid, rugby.numOfCaps*2);
+    rugby.onField = RUGBY_PLAYER_CAP-1;
     pthread_mutex_unlock(&rugby.m);
-    pthread_cond_broadcast(&rugby.startGame);
+    pthread_cond_signal(&rugby.startGame);
     pthread_mutex_lock(&field.m);
     field.currentSport = Rugby;
     pthread_mutex_unlock(&field.m);
 
-    
-    // Wait for the rugby game to be over
+
+    // Sleep for rugby game length
     rugby_sleep();
 
-    // Take the players of the field 
-    printf("Rugby Player #%li (Captain): Finished game, moving players off the field.\n", tid);
+    
+    // Decrement num of captains and signal for another player to leave
     pthread_mutex_lock(&rugby.m);
-    rugby.offField = RUGBY_PLAYER_CAP;
+    int caps = --rugby.numOfCaps;
+    printf("Rugby Player #%li (Captain): Finished game, moving players off the field (Players on field: %i).\n", tid, rugby.numOfCaps * 2);
+    rugby.offField = RUGBY_PLAYER_CAP-1;
     pthread_mutex_unlock(&rugby.m);
-    pthread_cond_broadcast(&rugby.finishGame);
+    pthread_cond_signal(&rugby.finishGame);
 
-    // Broadcast that the field is now ready for the next sport to play
-    printf("Rugby Player #%li (Captain): Opening field for next game.\n", tid);
-    pthread_mutex_lock(&field.m);
-    field.gameInPlay = false;
-    pthread_mutex_unlock(&field.m);
-    pthread_cond_broadcast(&field.fieldReady);
+
+    if (caps == 0) {
+        // Broadcast that the field is now ready for the next sport to play
+        printf("---------          Rugby Player #%li (Captain): Opening field for next game.\n", tid);
+        pthread_mutex_lock(&field.m);
+        field.gameInPlay = false;
+        pthread_mutex_unlock(&field.m);
+        pthread_cond_broadcast(&field.fieldReady);
+    }
 }
 
 void rugby_join_game(long tid) {
     // Enter queue and wait until next up to play
-    printf("Rugby Player #%ld: Entering queue.\n", tid);
+    printf("Rugby Player #%ld: Entering rugby queue.\n", tid);
     
+    // Allow two players to pass and seperate out one as a captain to organize the game
     sem_wait(&rugby.emptySpots);
-
     if (!sem_trywait(&rugby.gameCaptain)) {
         printf("Rugby Player #%li: I am the next game captain.\n", tid);
         return rugby_run_game(tid);
     }
     
-    // Wait for next rugby game to start
+    // Wait for rugby game to start
     printf("Rugby Player #%ld: Next up to play rugby.\n", tid);
     pthread_mutex_lock(&rugby.m);
     while (rugby.onField == 0)
@@ -382,7 +409,7 @@ void rugby_join_game(long tid) {
     pthread_mutex_unlock(&rugby.m);
     sem_post(&rugby.emptySpots);
 
-    // Start game and wait for it to finish
+    // Wait for signal to leave field
     printf("Rugby Player #%ld: Entering the field.\n", tid);
     pthread_mutex_lock(&rugby.m);
     while (rugby.offField == 0)
@@ -402,7 +429,7 @@ void *rugbyPlayer(void *arg) {
     return(NULL);
 }
 
-
+// #endregion
 
 int main () {    
     init_field();

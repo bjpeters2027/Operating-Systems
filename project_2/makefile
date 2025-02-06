@@ -7,7 +7,7 @@ all:
 	fi
 
 field: field.c
-	gcc -Wall -Werror field.c -o field || exit 1
+	gcc -Wall  field.c -o field || exit 1
 
 clean:
-	rm field
+	rm -f field
