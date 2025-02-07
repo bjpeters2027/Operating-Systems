@@ -4,4 +4,171 @@ Q1.
     as "currentSport". Each sport has a set of associated functions that will
     check to see if it is that sports turn on the field. Then when that sport 
     leaves the field currentSport is incremented and modulo-ed with 3 in order
-    
+    to be within the bounds of the sport types (0-2) which are enumerated for 
+    readability.
+
+Q2.
+    In order to test for synchronization we have a few extra print statements for
+    when players are moving on and off the field. We also have print statements to 
+    to see when they are moving onto the fiedl so a baseball player is not entering
+    the field during a football game for example. 
+
+Example Output:
+Football Player #35: I am the next game captain.
+Football Player #35 (Next Captain): Waiting for the field to be open and players to be ready.
+Baseball Player #24: Next up to play baseball.
+Baseball Player #15: Next up to play baseball.
+Football Player #3: Next up to play football.
+Football Player #40: Next up to play football.
+Football Player #16: Next up to play football.
+Football Player #6: Next up to play football.
+Baseball Player #36: Next up to play baseball.
+Football Player #28: Next up to play football.
+Football Player #23: Next up to play football.
+Football Player #38: Next up to play football.
+Baseball Player #25: Next up to play baseball.
+Football Player #9: Next up to play football.
+Football Player #33: Next up to play football.
+Rugby Player #18 (Captain): Waiting on field to open.
+Football Player #13: Next up to play football.
+Football Player #36: Next up to play football.
+Baseball Player #7: Next up to play baseball.
+Football Player #7: Next up to play football.
+Baseball Player #10: Next up to play baseball.
+Football Player #21: Next up to play football.
+Baseball Player #6: Next up to play baseball.
+Baseball Player #3: Next up to play baseball.
+Football Player #24: Next up to play football.
+Football Player #41: Next up to play football.
+Baseball Player #18: Next up to play baseball.
+Football Player #43: Next up to play football.
+Baseball Player #21: Next up to play baseball.
+Baseball Player #13: Next up to play baseball.
+Baseball Player #11: Next up to play baseball.
+Football Player #2: Next up to play football.
+Baseball Player #27: Next up to play baseball.
+Baseball Player #14: Next up to play baseball.
+Football Player #5: Next up to play football.
+Football Player #42: Next up to play football.
+Baseball Player #31: Next up to play baseball.
+Baseball Player #28: Next up to play baseball.
+Baseball Player #35: Next up to play baseball.
+Football Player #27: Next up to play football.
+Football Player #31: Next up to play football.
+Baseball Player #9 (Captain): Moving players to field.
+The Baseball game will run for 3 seconds.
+Baseball Player #16: I am the next game captain.
+Baseball Player #23: Next up to play baseball.
+Baseball Player #16 (Next Captain): Waiting for the field to be open and players to be ready.
+Baseball Player #2: Next up to play baseball.
+Baseball Player #17: Next up to play baseball.
+Baseball Player #1: Next up to play baseball.
+Baseball Player #32: Next up to play baseball.
+Baseball Player #12: Next up to play baseball.
+Baseball Player #5: Next up to play baseball.
+Baseball Player #22: Next up to play baseball.
+Baseball Player #30: Next up to play baseball.
+Baseball Player #29: Next up to play baseball.
+Baseball Player #26: Next up to play baseball.
+Baseball Player #34: Next up to play baseball.
+Baseball Player #19: Next up to play baseball.
+Baseball Player #20: Next up to play baseball.
+Baseball Player #33: Next up to play baseball.
+Baseball Player #8: Next up to play baseball.
+Baseball Player #4: Next up to play baseball.
+Baseball Player #9 (Captain): Finished game, moving players off the field.
+Baseball Player #9 (Captain): Opening field for next game.
+Rugby Player #18 (Captain): Moving players to field (Players on field: 2).
+The Rugby game will run for 6 seconds.
+Rugby Player #37: I am the next game captain.
+Rugby Player #37 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #37 (Captain): Waiting on field to open.
+Rugby Player #37 (Captain): Moving players to field (Players on field: 4).
+The Rugby game will run for 3 seconds.
+Rugby Player #4: Next up to play rugby.
+Rugby Player #24: I am the next game captain.
+Rugby Player #24 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #24 (Captain): Waiting on field to open.
+Rugby Player #24 (Captain): Moving players to field (Players on field: 6).
+The Rugby game will run for 6 seconds.
+Rugby Player #13: Next up to play rugby.
+Rugby Player #17: Next up to play rugby.
+Rugby Player #40: I am the next game captain.
+Rugby Player #40 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #40 (Captain): Waiting on field to open.
+Rugby Player #40 (Captain): Moving players to field (Players on field: 8).
+The Rugby game will run for 6 seconds.
+Rugby Player #9: Next up to play rugby.
+Rugby Player #10: I am the next game captain.
+Rugby Player #10 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #10 (Captain): Waiting on field to open.
+Rugby Player #10 (Captain): Moving players to field (Players on field: 10).
+The Rugby game will run for 3 seconds.
+Rugby Player #48: I am the next game captain.
+Rugby Player #48 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #48 (Captain): Waiting on field to open.
+Rugby Player #55: Next up to play rugby.
+Rugby Player #36: I am the next game captain.
+Rugby Player #36 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #36 (Captain): Waiting on field to open.
+Rugby Player #48 (Captain): Moving players to field (Players on field: 12).
+The Rugby game will run for 3 seconds.
+Rugby Player #29: Next up to play rugby.
+Rugby Player #36 (Captain): Moving players to field (Players on field: 14).
+The Rugby game will run for 6 seconds.
+Rugby Player #38: I am the next game captain.
+Rugby Player #38 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #38 (Captain): Waiting on field to open.
+Rugby Player #38 (Captain): Moving players to field (Players on field: 16).
+The Rugby game will run for 7 seconds.
+Rugby Player #3: I am the next game captain.
+Rugby Player #3 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #47: Next up to play rugby.
+Rugby Player #3 (Captain): Waiting on field to open.
+Rugby Player #3 (Captain): Moving players to field (Players on field: 18).
+The Rugby game will run for 4 seconds.
+Rugby Player #6: I am the next game captain.
+Rugby Player #6 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #6 (Captain): Waiting on field to open.
+Rugby Player #6 (Captain): Moving players to field (Players on field: 20).
+The Rugby game will run for 4 seconds.
+Rugby Player #11: Next up to play rugby.
+Rugby Player #45: I am the next game captain.
+Rugby Player #45 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #2: Next up to play rugby.
+Rugby Player #45 (Captain): Waiting on field to open.
+Rugby Player #45 (Captain): Moving players to field (Players on field: 22).
+The Rugby game will run for 5 seconds.
+Rugby Player #58: I am the next game captain.
+Rugby Player #58 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #58 (Captain): Waiting on field to open.
+Rugby Player #58 (Captain): Moving players to field (Players on field: 24).
+The Rugby game will run for 4 seconds.
+Rugby Player #23: Next up to play rugby.
+Rugby Player #26: I am the next game captain.
+Rugby Player #26 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #33: Next up to play rugby.
+Rugby Player #37 (Captain): Finished game, moving players off the field (Players on field: 22).
+Rugby Player #10 (Captain): Finished game, moving players off the field (Players on field: 20).
+Rugby Player #48 (Captain): Finished game, moving players off the field (Players on field: 18).
+Rugby Player #26 (Captain): Waiting on field to open.
+Rugby Player #26 (Captain): Moving players to field (Players on field: 20).
+The Rugby game will run for 3 seconds.
+Rugby Player #52: I am the next game captain.
+Rugby Player #52 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #52 (Captain): Waiting on field to open.
+Rugby Player #52 (Captain): Moving players to field (Players on field: 22).
+The Rugby game will run for 7 seconds.
+Rugby Player #27: I am the next game captain.
+Rugby Player #27 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #34: Next up to play rugby.
+Rugby Player #27 (Captain): Waiting on field to open.
+Rugby Player #27 (Captain): Moving players to field (Players on field: 24).
+The Rugby game will run for 3 seconds.
+Rugby Player #20: I am the next game captain.
+Rugby Player #20 (Captain): Waiting for the field to be open and players to be ready.
+Rugby Player #20 (Captain): Waiting on field to open.
+Rugby Player #50: Next up to play rugby.
+Rugby Player #3 (Captain): Finished game, moving players off the field (Players on field: 22).
+Rugby Player #6 (Captain): Finished game, moving players off the field (Players on field: 20).
+^C
