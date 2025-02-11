@@ -22,16 +22,15 @@ void analysisTime(Job* j, int len){
     float totTurn = 0;
     float totWait = 0;
     for (int i = 0; i < len; i++) {
-        printf("Job %i -- Response time: %i Turnaround: %i Wait: %i\n", j[i].id, j[i].resTime, j[i].turn, j[i].waitTime);
+        printf("Job %i -- Response time: %i  Turnaround: %i  Wait: %i\n", j[i].id, j[i].resTime, j[i].turn, j[i].waitTime);
         totRes += j[i].resTime;
         totTurn += j[i].turn;
         totWait += j[i].waitTime;
     }
-    printf("Average -- Response: %.2f Turnaround %.2f Wait %.2f\n", (totRes / len), (totTurn / len), (totWait / len));
+    printf("Average -- Response: %.2f  Turnaround: %.2f  Wait: %.2f\n", (totRes / len), (totTurn / len), (totWait / len));
 }
 
 void fifo(FILE *input) {
-    printf("Execution trace with SJF:\n");
     int fileLen = 0, num;
     while (fscanf(input, "%d", &num) == 1) {
         fileLen++;
@@ -55,17 +54,16 @@ void fifo(FILE *input) {
         jobs[i].turn = clock;
         jobs[i].waitTime = jobs[i].resTime;
     }
-
-    analysisTime(jobs, fileLen);
-
-    free(jobs);
-
     printf("End of execution with FIFO.\n");
+
+    printf("Begin analyzing FIFO:\n");
+    analysisTime(jobs, fileLen);
+    printf("End analyzing FIFO.\n");
+    
+    free(jobs);
 }
 
 void sjf(FILE* input) {
-    // #region making array
-    printf("Execution trace with SJF:\n");
     int fileLen = 0, num;
     while (fscanf(input, "%d", &num) == 1) {
         fileLen++;
@@ -78,7 +76,6 @@ void sjf(FILE* input) {
     for (int i = 0; fscanf(input, "%d", &next) == 1; i++) {
         jobs[i] = (Job){ .id = i, .len = next};
     }
-    // #endregion
 
     for (int i = 0; i < fileLen - 1; i++) {
         for (int j = 0; j < fileLen - i - 1; j++) {
@@ -91,7 +88,8 @@ void sjf(FILE* input) {
     }
 
     int clock = 0;
-    
+
+    printf("Execution trace with SJF:\n");
     for (int i = 0; i < fileLen; i++){
         processJob(jobs[i]);
         jobs[i].resTime = clock;
@@ -99,15 +97,16 @@ void sjf(FILE* input) {
         jobs[i].turn = clock;
         jobs[i].waitTime = jobs[i].resTime;
     }
-
-    analysisTime(jobs, fileLen);
-
     printf("End of execution with SJF.\n");
 
+    printf("Begin analyzing SJF:\n");
+    analysisTime(jobs, fileLen);
+    printf("End analyzing SJF.\n");
+
+    free(jobs);
 }
 
 void rr(FILE* input, int time) {
-    printf("Execution trace with SJF:\n");
     int fileLen = 0, num;
     while (fscanf(input, "%d", &num) == 1) {
         fileLen++;
@@ -122,6 +121,8 @@ void rr(FILE* input, int time) {
     }
     int clock = 0;
     int numDone = 0;
+
+    printf("Execution trace with RR:\n");
     while (numDone < fileLen){
         for (int i = 0; i < fileLen; i++) {
             if (jobs[i].timeRemaning == -1){
@@ -148,10 +149,13 @@ void rr(FILE* input, int time) {
             }
         }
     }
-
-    analysisTime(jobs, fileLen);
-
     printf("End of execution with RR.\n");
+
+    printf("Begin analyzing RR:\n");
+    analysisTime(jobs, fileLen);
+    printf("End analyzing RR.\n");
+
+    free(jobs);
 }
 
 int main(int argc, char **argv){
