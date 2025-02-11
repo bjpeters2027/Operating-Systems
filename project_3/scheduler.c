@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+// Job struct
 typedef struct Job{
     int id;
     int len;
@@ -12,11 +13,12 @@ typedef struct Job{
     bool first;
 }Job;
 
-
+// pPrints a job
 void processJob(Job j) {
     printf("Job %i ran for: %i\n", j.id, j.len);
 }
 
+// Performs analysis for a list of jobs
 void analysisTime(Job* j, int len){
     float totRes = 0;
     float totTurn = 0;
@@ -30,7 +32,10 @@ void analysisTime(Job* j, int len){
     printf("Average -- Response: %.2f  Turnaround: %.2f  Wait: %.2f\n", (totRes / len), (totTurn / len), (totWait / len));
 }
 
+// FIFO implementation
 void fifo(FILE *input) {
+    
+    // Setting up the job list
     int fileLen = 0, num;
     while (fscanf(input, "%d", &num) == 1) {
         fileLen++;
@@ -46,6 +51,7 @@ void fifo(FILE *input) {
 
     int clock = 0;
 
+    // Executes in order of appearence
     printf("Execution trace with FIFO:\n");
     for (int i = 0; i < fileLen; i++){
         processJob(jobs[i]);
@@ -56,6 +62,7 @@ void fifo(FILE *input) {
     }
     printf("End of execution with FIFO.\n");
 
+    // Analysis call
     printf("Begin analyzing FIFO:\n");
     analysisTime(jobs, fileLen);
     printf("End analyzing FIFO.\n");
@@ -63,7 +70,10 @@ void fifo(FILE *input) {
     free(jobs);
 }
 
+// SJF implementation
 void sjf(FILE* input) {
+
+    // Setting up the job list
     int fileLen = 0, num;
     while (fscanf(input, "%d", &num) == 1) {
         fileLen++;
@@ -77,6 +87,7 @@ void sjf(FILE* input) {
         jobs[i] = (Job){ .id = i, .len = next};
     }
 
+    // Sorts the job list
     for (int i = 0; i < fileLen - 1; i++) {
         for (int j = 0; j < fileLen - i - 1; j++) {
             if (jobs[j].len > jobs[j + 1].len) {
@@ -89,6 +100,7 @@ void sjf(FILE* input) {
 
     int clock = 0;
 
+    // Executes in order of the sorted list
     printf("Execution trace with SJF:\n");
     for (int i = 0; i < fileLen; i++){
         processJob(jobs[i]);
@@ -99,6 +111,7 @@ void sjf(FILE* input) {
     }
     printf("End of execution with SJF.\n");
 
+    // Analysis call
     printf("Begin analyzing SJF:\n");
     analysisTime(jobs, fileLen);
     printf("End analyzing SJF.\n");
@@ -106,7 +119,9 @@ void sjf(FILE* input) {
     free(jobs);
 }
 
+// RR implementation
 void rr(FILE* input, int time) {
+    // Setting up the job list
     int fileLen = 0, num;
     while (fscanf(input, "%d", &num) == 1) {
         fileLen++;
@@ -123,16 +138,23 @@ void rr(FILE* input, int time) {
     int numDone = 0;
 
     printf("Execution trace with RR:\n");
+    // Execution loops until all jobs are done
     while (numDone < fileLen){
+        // Loops through all the jobs
         for (int i = 0; i < fileLen; i++) {
+            // Checks if jobs[i] is done
             if (jobs[i].timeRemaning == -1){
                 continue;
+            // If not done checks if the remaining time on that job is
+            // less than or equal to the time slice
             }else if (jobs[i].timeRemaning <= time) {
+            // If it is <= time slice 
                 printf("Job %i ran for: %i\n", jobs[i].id, jobs[i].timeRemaning);
-                if(jobs[i].first){
+                if(jobs[i].first){// Checks if this this is when the job starts
                     jobs[i].resTime = clock;
                     jobs[i].first = false;
                 }
+                // Updates clock and job struct fields
                 clock += jobs[i].timeRemaning;
                 jobs[i].turn = clock;
                 jobs[i].waitTime = jobs[i].turn - jobs[i].len;
@@ -140,10 +162,11 @@ void rr(FILE* input, int time) {
                 numDone++;
             }else{
                 printf("Job %i ran for: %i\n", jobs[i].id, time);
-                if(jobs[i].first){
+                if(jobs[i].first){ // Checks if this this is when the job starts
                     jobs[i].resTime = clock;
                     jobs[i].first = false;
                 }
+                // Updates clock and decreases time remaining
                 clock += time;
                 jobs[i].timeRemaning -= time;
             }
@@ -151,6 +174,7 @@ void rr(FILE* input, int time) {
     }
     printf("End of execution with RR.\n");
 
+    // Analysis call
     printf("Begin analyzing RR:\n");
     analysisTime(jobs, fileLen);
     printf("End analyzing RR.\n");
@@ -159,12 +183,15 @@ void rr(FILE* input, int time) {
 }
 
 int main(int argc, char **argv){
+    //Read file
     if (argv[2] == NULL) return -1;
     FILE *input = fopen(argv[2], "r");
     if (input == NULL) {
         printf("ERROR OPENING FILE\n");
         return -1;
     }
+
+    // Determines which schedule type to use
     switch (argv[1][0]) {
         case 'F':
             fifo(input);
@@ -182,6 +209,4 @@ int main(int argc, char **argv){
         printf("ERROR SCHEDULER TYPE\n");
         return -1;
     }
-    
-
 }
