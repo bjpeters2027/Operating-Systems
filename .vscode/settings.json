@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "memsim.h": "c"
+        "memsim.h": "c",
+        "types.h": "c"
     }
 }

@@ -1,5 +1,11 @@
 
 
 
-memsim: memsim.c, memsim.h
+memsim.o: memsim.c, memsim.h
+	gcc -c memsim.c -o memsim.o
+
+pagetable.o: pagetable.c, pagetable.h
+	gcc -c pagetable.c -o pagetable.o
+
+pagetable.o: memsim.c, memsim.h
 	gcc -c memsim.c -o memsim.o

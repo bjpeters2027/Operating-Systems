@@ -17,7 +17,7 @@ typedef struct{
 // Page table root pointer register values 
 // One stored for each process, swapped in to MMU when process is scheduled to run)
 ptRegister ptRegVals[NUM_PROCESSES]; 
-int PT_Frame;
+int PT_Frame; // TODO: find way not to need to store value
 
 typedef struct {
 	char pfn;
@@ -52,6 +52,12 @@ void entryExists_set(Entry *e, bool v) {
 	e->bits |= (v&1) << 2;
 }
 
+
+PageTable *getPageTable(int pid) {
+    if (!PT_PageTableExists(pid)) return NULL;
+    return ptRegVals[pid].ptStartPA + Memsim_GetPhysMem();
+}
+
 void PT_Init() {
     for (int i = 0; i < NUM_PROCESSES; i++) {
         ptRegVals[i].ptStartPA = 0;
@@ -60,7 +66,7 @@ void PT_Init() {
     PT_Frame = Memsim_FirstFreePFN();
 }
 
-int PT_PageTableExists(int pid) {
+bool PT_PageTableExists(int pid) {
     return ptRegVals[pid].present;
 }
 
@@ -73,7 +79,13 @@ int PT_PageTableInit(int pid, int pageAddress) {
     ptRegVals[pid].ptStartPA = (sizeof(PageTable) * i) + (PT_Frame*PAGE_SIZE);
 }
 
-void addEntry(int pid, int pageAddress, bool writable) {
+void PT_SetWritable(int pid, int vpn, bool protection) {
+    assert(PT_PageTableExists(pid)); 
+    PageTable* pt = ptRegVals[pid].ptStartPA + Memsim_GetPhysMem();
+    entryWritable_set(&pt->entries[vpn], protection);
+}
+
+void PT_AddEntry(int pid, int pageAddress, bool writable) {
     // Get page table for PID, create new one if doesn't exist
     PageTable* pt; //Array of page tables
     if (!PT_PageTableExists(pid)) { 
@@ -89,7 +101,6 @@ void addEntry(int pid, int pageAddress, bool writable) {
 	entryExists_set(&pt->entries[pageAddress], true);
 	entryWritable_set(&pt->entries[pageAddress], writable);
 	
-
     int frame = Memsim_FirstFreePFN();
 
     if (frame == -1) {
@@ -102,13 +113,23 @@ void addEntry(int pid, int pageAddress, bool writable) {
 }
 
 int getFrameAddr(int pid, int pa) {
-    if (!ptRegVals[pid].present) {
-        // TODO handle non present page
-    }
+    if (!PT_PageTableExists(pid)) return -1;
 	PageTable* pt = ptRegVals[pid].ptStartPA + Memsim_GetPhysMem();
+    if (!pt->exists) return -1;
 	return pt->entries[pa].pfn;
 }
 
 int PT_VPNtoPA(int pid, int vpn) {
-    return (getFrameAddr(pid, VPN(vpn)) * PAGE_SIZE) + PAGE_OFFSET(vpn);
+    int pageAddr = getFrameAddr(pid, VPN(vpn)) * PAGE_SIZE;
+    if (pageAddr < 0) return pageAddr;
+    return (pageAddr) + PAGE_OFFSET(vpn);
+}
+
+bool PT_PIDHasWritePerm(int pid, int vpn) {
+    assert(PT_PageTableExists(pid));
+}
+
+bool PT_HasEntry(int pid, int vpn) {
+    if (!PT_PageTableExists(pid)) return false;
+    return entryExists(getPageTable(pid)->entries[vpn]);
 }
