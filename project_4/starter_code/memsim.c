@@ -9,7 +9,6 @@
 
 // Currently 'boolean' array (bitmap would be better for scale and perf)
 short freePages[NUM_PAGES];
-
 // The simulated physical memory array (in bytes), aka physical R.A.M.
 char physmem[PHYSICAL_SIZE];
 

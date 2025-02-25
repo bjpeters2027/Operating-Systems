@@ -1,5 +1,5 @@
-// Starting code version v1.0
-
+// Starting code version 1.0
+#include <stdbool.h>
 #include <assert.h>
 #include <string.h>
 
@@ -8,8 +8,7 @@
 /* Private Internals: */
 
 // Currently 'boolean' array (bitmap would be better for scale and perf)
-short freePages[NUM_PAGES];
-
+bool freePages[NUM_PAGES];
 // The simulated physical memory array (in bytes), aka physical R.A.M.
 char physmem[PHYSICAL_SIZE];
 

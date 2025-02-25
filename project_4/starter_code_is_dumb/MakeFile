@@ -1,0 +1,5 @@
+
+
+
+memsim: memsim.c, memsim.h
+	gcc -c memsim.c -o memsim.o

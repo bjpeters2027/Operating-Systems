@@ -24,6 +24,27 @@ typedef struct{
 // One stored for each process, swapped in to MMU when process is scheduled to run)
 ptRegister ptRegVals[NUM_PROCESSES]; 
 
+typedef struct {
+	char vpn;
+	char pfn;
+	char bits;
+} Entry;
+
+int entryReadable(Entry e) {
+	return e.bits &= 0b00000010
+}
+void entryReadable_set(Entry *e, int v) {
+	e->bits |= (v&1) << 1;
+}
+
+int entryValid(Entry e) {
+	return e.bits &= 0b00000001
+}
+void entryValid_set(Entry *e, int v) {
+	e->bits |= (v&1);
+}
+
+
 /*
  * Public Interface:
  */
@@ -33,10 +54,13 @@ ptRegister ptRegVals[NUM_PROCESSES];
  * The PTE contains the PFN, valid bit, protection bit, present bit, and referenced bit.
  */
 void PT_SetPTE(int pid, int VPN, int PFN, int valid, int protection, int present, int referenced) {
-	char* physmem = Memsim_GetPhysMem();
 	assert(PT_PageTableExists(pid)); // page table should exist if this is being called
+	Entry* physmem = (Entry*)(Memsim_GetPhysMem() + ptRegVals[pid].ptStartPA);
 
-	//todo 
+	physmem->vpn = VPN;
+	physmem->pfn = PFN;
+	entryReadable_set(physmem, protection);
+	entryValid_set(*physmem, valid);
 }
 
 /* 
@@ -47,10 +71,13 @@ void PT_SetPTE(int pid, int VPN, int PFN, int valid, int protection, int present
  * Finally, return the physical address of the next free page.
  */
 int PT_PageTableInit(int pid, int pa){
-	char* physmem = Memsim_GetPhysMem();
+	Entry* physmem = (Entry*)Memsim_GetPhysMem();
 
 	// todo 
+
+
 	// zero out the page we are about to use for the page table 
+
 
 	// set the page table's root pointer register value
 

@@ -7,7 +7,7 @@
 
 /*
  * Public Interface:
- */
+*/
 
 #define PAGE_SIZE 16
 
