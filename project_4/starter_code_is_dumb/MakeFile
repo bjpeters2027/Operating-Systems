@@ -1,11 +1,20 @@
 
+all: mmu
 
+mmu: instructions.o memsim.o pagetable.o main.o disk.o
+	gcc instructions.o memsim.o pagetable.o disk.o main.o -o mmu
 
-memsim.o: memsim.c, memsim.h
+main.o: main.c
+	gcc -c main.c -o main.o
+
+instructions.o: instructions.c instructions.h
+	gcc -c instructions.c -o instructions.o
+
+memsim.o: memsim.c memsim.h
 	gcc -c memsim.c -o memsim.o
 
-pagetable.o: pagetable.c, pagetable.h
+pagetable.o: pagetable.c pagetable.h
 	gcc -c pagetable.c -o pagetable.o
 
-pagetable.o: memsim.c, memsim.h
-	gcc -c memsim.c -o memsim.o
+disk.o: disk.c disk.h
+	gcc -c disk.c -o disk.o
