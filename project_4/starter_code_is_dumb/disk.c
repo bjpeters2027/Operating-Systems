@@ -56,10 +56,10 @@ void DISK_GetPT(int pid, char* page) {
     read(PT_LOCATION(pid), page, PAGE_SIZE);
 }
 
-int DISK_GetOffset(int pid, int pa) {
+int DISK_PageGetOffset(int pid, int pa) {
     return PAGE_SIZE * (pid * NUM_PAGES + pa);
 }
 
-int DISK_GetOffset(int pid) {
-    return DISK_GetOffset(NUM_PROCESSES-1, NUM_PAGES-1) + (PAGE_SIZE * pid)
+int DISK_PTGetOffset(int pid) {
+    return DISK_PageGetOffset(NUM_PROCESSES-1, NUM_PAGES-1) + (PAGE_SIZE * pid);
 }

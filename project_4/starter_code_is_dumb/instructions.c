@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "memsim.h"
 #include "pagetable.h"
+#include "disk.h"
 
 void Instruction_Map(int pid, int virtual_address, int value){
     if (!PT_PageTableExists(pid) || !PT_HasEntry(pid,VPN(virtual_address))) {
@@ -16,31 +17,32 @@ void Instruction_Map(int pid, int virtual_address, int value){
 }
 
 void Instruction_Store(int pid, int virtual_address, int value){
-    char* physmem = Memsim_GetPhysMem();
+    uint8_t* physmem = Memsim_GetPhysMem();
+    PageTable *pt = getPageTable(pid);
+    printf("%i",pt->entries[VPN(virtual_address)].bits);
     if (!PT_PageTableExists(pid) || !PT_PIDHasWritePerm(pid,VPN(virtual_address))) {
-        
-        printf("Error: Entry does not have write perms");
+        printf("Error: virtual address %i does not have write permissions.\n", virtual_address);
     } else {
-        int pa = PT_VPNtoPA(pid,VPN(virtual_address));
+        int pa = PT_VPNtoPA(pid,virtual_address);
         if(pa >= 0){
             physmem[pa] = value;
-            pritnf("Stored value %i at virtual address %i (physical address %i)", value, virtual_address, pa);
+            printf("Stored value %u at virtual address %i (physical address %i)\n", physmem[pa], virtual_address, pa);
         } else {
-            printf("Error: Do not have access to that memory");
+            printf("Error: Do not have access to that memory\n");
         }
     }
 }
 
 
 int Instruction_Load(int pid, int va){
-    char* physmem = Memsim_GetPhysMem();
+    uint8_t* physmem = Memsim_GetPhysMem();
     if (!PT_PageTableExists(pid)) {
-        printf("Error: PT no existo");
+        printf("Error: PT no existo\n");
     } else {
-        int pa = PT_VPNtoPA(pid,VPN(va));
+        int pa = PT_VPNtoPA(pid,va);
         if(pa >= 0){
             int val = (int) physmem[pa];
-            printf("The value %i was found at virtual address %i.", val, va);
+            printf("Loaded the value %i from virtual address %i.\n", (unsigned int)val, va);
             return val;
         } else {
             printf("Error: virtual address %i does not have write permissions.\n", va);
