@@ -1,3 +1,7 @@
+#ifndef PAGETABLE
+#define PAGETABLE 1
+
+
 #include <stdbool.h>
 
 #define NUM_PROCESSES 4
@@ -6,7 +10,7 @@
 * Public Interface:
 */
 
-typedef struct {
+typedef struct{
 	char pfn;
     bool write;
     bool present;
@@ -30,3 +34,5 @@ bool PT_PIDHasWritePerm(int pid, int vpn);
 bool PT_HasEntry(int pid, int vpn);
 int PT_GetFreeFrame();
 PageTable *getPageTable(int pid);
+
+#endif

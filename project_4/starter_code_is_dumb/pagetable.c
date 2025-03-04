@@ -59,15 +59,10 @@ int PT_Evict() {
     //  if evicting page is a process' page
     //      set isPage to the coresponding entry index of its pt
     //      set pid to the pid of the page table
-    printf("Evicting\n");
 
     for (int i = 0; i < 4; i++) {
         pt = getPageTable(i);
         if (!pt || !ptRegVals[i].present) continue; //If not in phys mem disregard
-        printf("Present entries %i: \n", i);
-        for (int j = 0; j < 4; j++) {
-            printf("%i-%i  \n", pt->entries[j].present, pt->entries[j].pfn);
-        }
         if (ptRegVals[i].ptStartPA == pageToEvict) { // If page is the current pt
             // printf("Match found\n");
             isPT = i;
@@ -82,7 +77,6 @@ int PT_Evict() {
             // If nothing in phys mem break out and evict pt
             break;
         } else {
-            printf("%i - %i trying to evict %i\n", i, ptRegVals[i].ptStartPA, pageToEvict);
 
             // Check if page is an entry of the current pt
             for (int j = 0; j < 4; j++) {
@@ -107,8 +101,6 @@ int PT_Evict() {
         ptRegVals[isPT].present = false;
         DISK_StorePT(isPT, PAGE_START(pageToEvict) + Memsim_GetPhysMem());
         printf("Put page table for PID %i to disk at offset %i.\n", isPT, DISK_PTGetOffset(isPT));
-    } else {
-        printf("ERROR: invalid unreachable state in PT_Evict()\n");
     }
 
     int retPage = pageToEvict;
@@ -130,7 +122,7 @@ bool PT_PageTableExists(int pid) {
 }
 
 int PT_PageTableInit(int pid) {
-    if (PT_PageTableExists(pid)) printf("Error pt already exists");
+    if (PT_PageTableExists(pid)) printf("Error pt already exists\n");
     ptRegVals[pid].ptStartPA = PT_GetFreeFrame();
     ptRegVals[pid].present = true;
 
@@ -146,7 +138,6 @@ int PT_PageTableInit(int pid) {
 }
 
 void PT_SetWritable(int pid, int vpn, bool protection) {
-    printf("---------------- setting writability %i %i %i", pid, vpn, protection);
     assert(PT_PageTableExists(pid)); 
     PageTable* pt = PAGE_START(ptRegVals[pid].ptStartPA) + Memsim_GetPhysMem();
     pt->entries[vpn].write = protection;
@@ -183,11 +174,6 @@ void PT_AddEntry(int pid, int pageAddress, bool writable) {
 	
     pt->entries[vpn].pfn = PT_GetFreeFrame();
 	pt->entries[vpn].present = true;
-    printf("Mapping result for pid %i: ", pid);
-    for (int j = 0; j < 4; j++) {
-        printf("%i-%i  ", pt->entries[j].present, pt->entries[j].pfn);
-    }
-    printf("\n");
     printf("Mapped virtual address %i (page %i) into physical frame %i.\n",pageAddress, vpn, pt->entries[vpn].pfn);
 }
 
@@ -205,7 +191,7 @@ int PT_GetFN(int pid, int va){
 int getFrameAddr(int pid, int pa) {
     // If page table doesn't exist return error
     if (!PT_PageTableExists(pid)) {
-        printf("Error: PT not exist"); 
+        printf("Error: PT not exist\n"); 
         return -1;
     }
     // If its not in phys mem bring it into mem

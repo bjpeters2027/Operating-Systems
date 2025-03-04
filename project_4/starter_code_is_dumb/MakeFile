@@ -1,4 +1,3 @@
-
 all: mmu
 
 mmu: instructions.o memsim.o pagetable.o main.o disk.o input.o

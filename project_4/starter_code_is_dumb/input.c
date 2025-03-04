@@ -16,9 +16,9 @@ int InputStrToInt(char* inStr, int* outInt) {
 	int bytesCast;
 	bytesCast = sscanf(inStr, "%d", outInt);
 	if (bytesCast != 1) {
-		printf("Incorrectly formatted instruction.\n" \
-				  "Correct format is: process_id,instruction_type,virtual_address,value\n");
-		return false;
+		// printf("Incorrectly formatted instruction.\n" \
+		// 		  "Correct format is: process_id,instruction_type,virtual_address,value\n");
+		*outInt = -1;
 	}
 	return true;
 }

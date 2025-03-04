@@ -19,7 +19,6 @@ void Instruction_Map(int pid, int virtual_address, int value){
 void Instruction_Store(int pid, int virtual_address, int value){
     uint8_t* physmem = Memsim_GetPhysMem();
     PageTable *pt = getPageTable(pid);
-    printf("%i",pt->entries[VPN(virtual_address)].bits);
     if (!PT_PageTableExists(pid) || !PT_PIDHasWritePerm(pid,VPN(virtual_address))) {
         printf("Error: virtual address %i does not have write permissions.\n", virtual_address);
     } else {
