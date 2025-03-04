@@ -3,13 +3,11 @@
 #include <stdio.h>  
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdbool.h>
 #include "input.h"
 #include "memsim.h"
-#include "instruction.h"
-#include "mmu.h"
+#include "instructions.h"
 #include "pagetable.h"
-#include "instruction.h"
 
 
 /* Private Internals */
@@ -20,9 +18,9 @@ int InputStrToInt(char* inStr, int* outInt) {
 	if (bytesCast != 1) {
 		printf("Incorrectly formatted instruction.\n" \
 				  "Correct format is: process_id,instruction_type,virtual_address,value\n");
-		return FALSE;
+		return false;
 	}
-	return TRUE;
+	return true;
 }
 
 void InputDispatchCommand(int pid, char* instruction_type, int virtual_address, int value) {
@@ -57,21 +55,21 @@ int InputParseAndValidateLine(char* line, int* pidOut, char** instructionTypeOut
 
 	//convert string containing pid to an int
 	if (!InputStrToInt(pid_string, pidOut)) {
-		return FALSE;
+		return false;
 	} else { // validate integer value of pid
 		if (*pidOut < 0 || *pidOut > NUM_PROCESSES-1) {
 			printf("Invalid Process Id.  Process Id must be in range 0-3.\n");
-			return FALSE;
+			return false;
 		}
 	}
 
 	//convert string containing virtual address to an int
 	if (!InputStrToInt(virtual_address_string, VAOut)) {
-		return FALSE;
+		return false;
 	} else {
 		if (*VAOut < 0 || *VAOut > VIRTUAL_SIZE-1) { // validate integer value of virtual address
 			printf("Invalid Virtual Address.  Virtual Address must be in range 0-63.\n");
-			return FALSE;
+			return false;
 		}
 	}
 
@@ -81,7 +79,7 @@ int InputParseAndValidateLine(char* line, int* pidOut, char** instructionTypeOut
 		*valOut = -1;
 	} else {
 		if (!InputStrToInt(value_string, valOut)) {
-			return FALSE;
+			return false;
 		}
 	}
 }
@@ -91,7 +89,7 @@ int InputParseAndValidateLine(char* line, int* pidOut, char** instructionTypeOut
  * Public Interface: 
  */
 
-int Input_NextInstruction(char* line) {
+bool Input_NextInstruction(char* line) {
 	// integer values of the instruction
 	int pid;
 	char* instruction_type;
@@ -100,24 +98,10 @@ int Input_NextInstruction(char* line) {
 
 	// load validated values into the instruction variables, or return and try again
 	if (!InputParseAndValidateLine(line, &pid, &instruction_type, &virtual_address, &value)) {
-		return FALSE;
+		return false;
 	} 
 
 	// dispatch the instruction to the appropriate handler
 	InputDispatchCommand(pid, instruction_type, virtual_address, value);
-	return TRUE; // successful instruction execution
-}
-
-/*
- * Reads one line of input from stdin. 
- * ALLOCATES MEMORY FOR LINE. 
- * Each call ALLOCATES MAX_GELINE_CHARS bytes for line.
- * Remember to free.
- * Returns the number of characters read, or -1 if an error occurred.
- */
-int Input_GetLine(char** line) {
-	printf("Instruction? ");
-	size_t len = MAX_GETLINE_CHARS;
-	*line = (char*)malloc(sizeof(char)*len);
-	return getline(line, &len, stdin);
+	return true; // successful instruction execution
 }

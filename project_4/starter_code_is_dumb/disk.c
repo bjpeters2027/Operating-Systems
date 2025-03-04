@@ -5,7 +5,8 @@
 #include "memsim.h"
 #include "pagetable.h"
 
-#define LOCATION(PID, PA) (PAGE_SIZE * 8) * (PID * NUM_PAGES + PA)
+#define PAGE_LOCATION(PID, PA) (PAGE_SIZE * 8) * (PID * NUM_PAGES + PA)
+#define PT_LOCATION(PID) PAGE_LOCATION(NUM_PROCESSES-1, NUM_PAGES-1) + (PAGE_SIZE * 8 * PID)
 
 
 FILE *file;
@@ -40,9 +41,25 @@ void DISK_Close() {
 }
 
 void DISK_StorePage(int pid, int pa, char* page) {
-    write(LOCATION(pid, pa), page, PAGE_SIZE);
+    write(PAGE_LOCATION(pid, pa), page, PAGE_SIZE);
 }
 
 void DISK_GetPage(int pid, int pa, char* page) {
-    read(LOCATION(pid, pa), page, PAGE_SIZE);
+    read(PAGE_LOCATION(pid, pa), page, PAGE_SIZE);
+}
+
+void DISK_StorePT(int pid, char* page) {
+    write(PT_LOCATION(pid), page, PAGE_SIZE);
+}
+
+void DISK_GetPT(int pid, char* page) {
+    read(PT_LOCATION(pid), page, PAGE_SIZE);
+}
+
+int DISK_GetOffset(int pid, int pa) {
+    return PAGE_SIZE * (pid * NUM_PAGES + pa);
+}
+
+int DISK_GetOffset(int pid) {
+    return DISK_GetOffset(NUM_PROCESSES-1, NUM_PAGES-1) + (PAGE_SIZE * pid)
 }

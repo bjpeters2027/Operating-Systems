@@ -1,19 +1,28 @@
 #include "disk.h"
+#include "input.h"
+#include "instructions.h"
+#include "memsim.h"
+#include <stdio.h>
 
 
-int main() {
-    DISK_Init();
 
-    char a[16] = {0};
-    char b[16] = {0};
-    a[15] = 0xF7;
-    a[14] = 0x00;
-    a[13] = 0xFF;
-    b[2] = 0x00;
-    b[1] = 0xFF;
-    b[0] = 0x00;
-    DISK_StorePage(0, 3, a);
-    DISK_StorePage(1, 0, b);
+int main(int argc, char **argv) {
+    if (argc != 2) {
+        printf("Error: Bad input");
+        return -1;
+    }
 
-    return -1;
+    FILE* input = fopen(argv[1],"W");
+
+    char* line;
+
+    while (fscanf(input, "%s", &line) == 1){
+        if(!Input_NextInstruction(line)){
+            printf("Error: Bad input");
+            break;
+        }
+    }
+
+    
+    return 0;
 }

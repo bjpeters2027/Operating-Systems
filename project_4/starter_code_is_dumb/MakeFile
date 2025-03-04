@@ -1,8 +1,8 @@
 
 all: mmu
 
-mmu: instructions.o memsim.o pagetable.o main.o disk.o
-	gcc instructions.o memsim.o pagetable.o disk.o main.o -o mmu
+mmu: instructions.o memsim.o pagetable.o main.o disk.o input.o
+	gcc instructions.o memsim.o pagetable.o disk.o input.o main.o -o mmu
 
 main.o: main.c
 	gcc -c main.c -o main.o
@@ -18,3 +18,10 @@ pagetable.o: pagetable.c pagetable.h
 
 disk.o: disk.c disk.h
 	gcc -c disk.c -o disk.o
+
+input.o: input.c input.h
+	gcc -c input.c -o input.o
+
+clean:
+	rm *.o
+	rm mmu.exe
