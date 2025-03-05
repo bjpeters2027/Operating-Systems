@@ -8,7 +8,7 @@
 * Public Interface:
 */
 
-typedef struct {
+typedef struct{
 	char pfn;
     bool write;
     bool present;

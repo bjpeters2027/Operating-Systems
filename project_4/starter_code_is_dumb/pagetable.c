@@ -98,8 +98,6 @@ int PT_Evict() {
         ptRegVals[isPT].present = false;
         DISK_StorePT(isPT, PAGE_START(pageToEvict) + Memsim_GetPhysMem());
         printf("Put page table for PID %i to disk at offset %i.\n", isPT, DISK_PTGetOffset(isPT));
-    } else {
-        printf("ERROR: invalid unreachable state in PT_Evict()\n");
     }
 
     int retPage = pageToEvict;
@@ -119,7 +117,7 @@ bool PT_PageTableExists(int pid) {
 }
 
 int PT_PageTableInit(int pid) {
-    if (PT_PageTableExists(pid)) printf("Error pt already exists");
+    if (PT_PageTableExists(pid)) printf("Error pt already exists\n");
     ptRegVals[pid].ptStartPA = PT_GetFreeFrame();
     ptRegVals[pid].present = true;
 
@@ -191,7 +189,7 @@ int PT_GetFN(int pid, int va){
 int getFrameAddr(int pid, int vpn) {
     // If page table doesn't exist return error
     if (!PT_PageTableExists(pid)) {
-        printf("Error: PT not exist"); 
+        printf("Error: PT not exist\n"); 
         return -1;
     }
     // If its not in phys mem bring it into mem
