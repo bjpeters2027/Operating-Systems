@@ -43,7 +43,7 @@ int Instruction_Load(int pid, int va){
             printf("Loaded the value %i from virtual address %i.\n", (unsigned int)val, va);
             return val;
         } else {
-            printf("Error: virtual address %i does not have write permissions.\n", va);
+            printf("Error: bad loading.\n", va);
         }
     }
 }

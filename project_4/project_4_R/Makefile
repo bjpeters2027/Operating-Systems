@@ -1,10 +1,13 @@
 all: mmu
 
-mmu: instructions.o memsim.o pagetable.o main.o disk.o input.o
-	gcc instructions.o memsim.o pagetable.o disk.o input.o main.o -o mmu
-
-main.o: main.c
-	gcc -c main.c -o main.o
+mmu:
+	make instructions.o
+	make memsim.o
+	make pagetable.o
+	make disk.o
+	make input.o
+	gcc -c mmu.c -o mmu.o
+	gcc -o mmu mmu.o disk.o pagetable.o memsim.o instructions.o input.o
 
 instructions.o: instructions.c instructions.h
 	gcc -c instructions.c -o instructions.o

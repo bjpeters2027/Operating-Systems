@@ -2,6 +2,7 @@
 #include "input.h"
 #include "instructions.h"
 #include "memsim.h"
+#include "pagetable.h"
 #include <stdio.h>
 
 
