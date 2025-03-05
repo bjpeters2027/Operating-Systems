@@ -56,3 +56,12 @@ int Memsim_FirstFreePFN(){
     }
 	return -1;
 }
+
+void Memsim_Printmem() {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j <16; j++)
+            printf("%02x", physmem[i*16 + j]);
+        printf("  ");
+    }
+    printf("\n");
+}

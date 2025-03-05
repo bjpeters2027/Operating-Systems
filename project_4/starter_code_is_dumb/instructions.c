@@ -16,16 +16,14 @@ void Instruction_Map(int pid, int virtual_address, int value){
     }
 }
 
-void Instruction_Store(int pid, int virtual_address, int value){
+void Instruction_Store(int pid, int virtual_address, unsigned int value){
     uint8_t* physmem = Memsim_GetPhysMem();
-    PageTable *pt = getPageTable(pid);
-    printf("%i",pt->entries[VPN(virtual_address)].bits);
     if (!PT_PageTableExists(pid) || !PT_PIDHasWritePerm(pid,VPN(virtual_address))) {
         printf("Error: virtual address %i does not have write permissions.\n", virtual_address);
     } else {
         int pa = PT_VPNtoPA(pid,virtual_address);
         if(pa >= 0){
-            physmem[pa] = value;
+            physmem[pa] = (value & 0xFF);
             printf("Stored value %u at virtual address %i (physical address %i)\n", physmem[pa], virtual_address, pa);
         } else {
             printf("Error: Do not have access to that memory\n");

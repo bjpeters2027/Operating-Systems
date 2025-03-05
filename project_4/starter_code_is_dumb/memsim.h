@@ -32,4 +32,5 @@ void Memsim_Init();
 char* Memsim_GetPhysMem();
 int Memsim_FirstFreePFN();
 
+void Memsim_Printmem();
 #endif // MEMSIM_H

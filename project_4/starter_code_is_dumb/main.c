@@ -31,6 +31,7 @@ int main(int argc, char **argv) {
             break;
         }
     }
+    printf("End\n");
     DISK_Close();
     fclose(input);
 

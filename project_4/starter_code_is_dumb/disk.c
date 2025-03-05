@@ -5,8 +5,8 @@
 #include "memsim.h"
 #include "pagetable.h"
 
-#define PAGE_LOCATION(PID, PA) (PAGE_SIZE * 8) * (PID * NUM_PAGES + PA)
-#define PT_LOCATION(PID) PAGE_LOCATION(NUM_PROCESSES-1, NUM_PAGES-1) + (PAGE_SIZE * 8 * PID)
+#define PAGE_LOCATION(PID, PA) (PAGE_SIZE) * (PID * NUM_PAGES + PA)
+#define PT_LOCATION(PID) PAGE_LOCATION(NUM_PROCESSES-1, NUM_PAGES-1) + (PAGE_SIZE * PID)
 
 
 FILE *file;
@@ -15,27 +15,18 @@ FILE *file;
 
 void write(int loc, char* val, int len) {
     fseek(file, loc, SEEK_SET);
-    char *tmp = malloc(sizeof(char)*8*len);
-    for (int i = 0; i < len*8; i++) {
-        tmp[i] = '0'+ !!(val[i/8] & (0b10000000 >> i%8));
-    }
-    fwrite(tmp, sizeof(char), len*8, file);
+    fwrite(val, sizeof(char), len, file);
 }
 
 void read(int loc, char* val, int len) {
     fseek(file, loc, SEEK_SET);
-    char *tmp = malloc(sizeof(char)*8*len);
-    fread(tmp, sizeof(char), len*8, file);
-    for (int i = 0; i < len; i++) {
-        val[i] = 0;
-        for (int b = 0; b < 8; b++) 
-            val[i] |= (tmp[i*8+b]-'0') << (7-b);
-    }
+    fread(val, sizeof(char), len, file);
 }
 
 void DISK_Init() {
     file = fopen(FILENAME, "r+");
 }
+
 void DISK_Close() {
     fclose(file);
 }

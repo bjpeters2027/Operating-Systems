@@ -1,3 +1,5 @@
+#ifndef PAGETABLE
+#define PAGETABLE 1
 #include <stdbool.h>
 
 #define NUM_PROCESSES 4
@@ -15,7 +17,6 @@ typedef struct {
 
 typedef struct {
     Entry entries[4];
-    bool exists;
 } PageTable;
 
 void PT_Init();
@@ -30,3 +31,5 @@ bool PT_PIDHasWritePerm(int pid, int vpn);
 bool PT_HasEntry(int pid, int vpn);
 int PT_GetFreeFrame();
 PageTable *getPageTable(int pid);
+
+#endif
