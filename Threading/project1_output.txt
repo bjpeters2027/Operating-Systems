@@ -1,0 +1,1773 @@
+Script started on 2025-01-27 23:40:15-05:00 [TERM="xterm-256color" TTY="/dev/pts/10" COLUMNS="166" LINES="13"]
+[bjpeters@ccc-app-p-u50 project_1]$ make
+make clean
+make[1]: Entering directory '/home/bjpeters/CS3013/project_1'
+rm -f prolific generation explorer slug
+make[1]: Leaving directory '/home/bjpeters/CS3013/project_1'
+make pro
+make[1]: Entering directory '/home/bjpeters/CS3013/project_1'
+gcc -Wall -Werror prolific.c -o prolific || exit 1
+make[1]: Leaving directory '/home/bjpeters/CS3013/project_1'
+make gen
+make[1]: Entering directory '/home/bjpeters/CS3013/project_1'
+gcc -Wall -Werror generation.c -o generation || exit 1
+make[1]: Leaving directory '/home/bjpeters/CS3013/project_1'
+make exp
+make[1]: Entering directory '/home/bjpeters/CS3013/project_1'
+gcc -Wall -Werror explorer.c -o explorer || exit 1
+make[1]: Leaving directory '/home/bjpeters/CS3013/project_1'
+make slug
+make[1]: Entering directory '/home/bjpeters/CS3013/project_1'
+gcc -Wall -Werror slug.c -o slug || exit 1
+make[1]: Leaving directory '/home/bjpeters/CS3013/project_1'
+make slugrace
+make[1]: Entering directory '/home/bjpeters/CS3013/project_1'
+make[1]: 'slugrace' is up to date.
+make[1]: Leaving directory '/home/bjpeters/CS3013/project_1'
+All files compiled!
+[bjpeters@ccc-app-p-u50 project_1]$ ./prolific
+ Read seed value (converted to integer): 12345
+
+Random Child Count: 11
+I'm feeling prolific!
+[Parent]: I am waiting for PID 1182608 to finish.
+	[Child, PID: 1182608]: I am the child and I will wait 3 seconds and exit with code 22.
+	[Child, PID: 1182608]: Now exiting...
+[Parent]: Child 1182608 finished with status code 22. Onward!
+[Parent]: I am waiting for PID 1182634 to finish.
+	[Child, PID: 1182634]: I am the child and I will wait 3 seconds and exit with code 24.
+	[Child, PID: 1182634]: Now exiting...
+[Parent]: Child 1182634 finished with status code 24. Onward!
+[Parent]: I am waiting for PID 1182658 to finish.
+	[Child, PID: 1182658]: I am the child and I will wait 2 seconds and exit with code 2.
+	[Child, PID: 1182658]: Now exiting...
+[Parent]: Child 1182658 finished with status code 2. Onward!
+[Parent]: I am waiting for PID 1182659 to finish.
+	[Child, PID: 1182659]: I am the child and I will wait 1 seconds and exit with code 22.
+	[Child, PID: 1182659]: Now exiting...
+[Parent]: Child 1182659 finished with status code 22. Onward!
+[Parent]: I am waiting for PID 1182672 to finish.
+	[Child, PID: 1182672]: I am the child and I will wait 1 seconds and exit with code 5.
+	[Child, PID: 1182672]: Now exiting...
+[Parent]: Child 1182672 finished with status code 5. Onward!
+[Parent]: I am waiting for PID 1182683 to finish.
+	[Child, PID: 1182683]: I am the child and I will wait 3 seconds and exit with code 38.
+	[Child, PID: 1182683]: Now exiting...
+[Parent]: Child 1182683 finished with status code 38. Onward!
+[Parent]: I am waiting for PID 1182684 to finish.
+	[Child, PID: 1182684]: I am the child and I will wait 2 seconds and exit with code 3.
+	[Child, PID: 1182684]: Now exiting...
+[Parent]: Child 1182684 finished with status code 3. Onward!
+[Parent]: I am waiting for PID 1182708 to finish.
+	[Child, PID: 1182708]: I am the child and I will wait 2 seconds and exit with code 29.
+	[Child, PID: 1182708]: Now exiting...
+[Parent]: Child 1182708 finished with status code 29. Onward!
+[Parent]: I am waiting for PID 1182709 to finish.
+	[Child, PID: 1182709]: I am the child and I will wait 1 seconds and exit with code 29.
+	[Child, PID: 1182709]: Now exiting...
+[Parent]: Child 1182709 finished with status code 29. Onward!
+[Parent]: I am waiting for PID 1182710 to finish.
+	[Child, PID: 1182710]: I am the child and I will wait 3 seconds and exit with code 28.
+	[Child, PID: 1182710]: Now exiting...
+[Parent]: Child 1182710 finished with status code 28. Onward!
+[Parent]: I am waiting for PID 1182734 to finish.
+	[Child, PID: 1182734]: I am the child and I will wait 1 seconds and exit with code 48.
+	[Child, PID: 1182734]: Now exiting...
+[Parent]: Child 1182734 finished with status code 48. Onward!
+[bjpeters@ccc-app-p-u50 project_1]$ ./generation
+Read seed value (converted to integer): 12345
+
+Random Descendant Count: 12
+Time to meet the kids/grandkids/great grand kids/...
+[Parent, PID: 1182800]: I am waiting for PID 1182801 to finish.
+	[Child, PID: 1182801]: I was called with lifespan=12. I'll have 11 descendant(s).
+[Parent, PID: 1182801]: I am waiting for PID 1182802 to finish.
+	[Child, PID: 1182802]: I was called with lifespan=11. I'll have 10 descendant(s).
+[Parent, PID: 1182802]: I am waiting for PID 1182803 to finish.
+	[Child, PID: 1182803]: I was called with lifespan=10. I'll have 9 descendant(s).
+[Parent, PID: 1182803]: I am waiting for PID 1182804 to finish.
+	[Child, PID: 1182804]: I was called with lifespan=9. I'll have 8 descendant(s).
+[Parent, PID: 1182804]: I am waiting for PID 1182805 to finish.
+	[Child, PID: 1182805]: I was called with lifespan=8. I'll have 7 descendant(s).
+[Parent, PID: 1182805]: I am waiting for PID 1182806 to finish.
+	[Child, PID: 1182806]: I was called with lifespan=7. I'll have 6 descendant(s).
+[Parent, PID: 1182806]: I am waiting for PID 1182807 to finish.
+	[Child, PID: 1182807]: I was called with lifespan=6. I'll have 5 descendant(s).
+[Parent, PID: 1182807]: I am waiting for PID 1182808 to finish.
+	[Child, PID: 1182808]: I was called with lifespan=5. I'll have 4 descendant(s).
+[Parent, PID: 1182808]: I am waiting for PID 1182809 to finish.
+	[Child, PID: 1182809]: I was called with lifespan=4. I'll have 3 descendant(s).
+[Parent, PID: 1182809]: I am waiting for PID 1182810 to finish.
+	[Child, PID: 1182810]: I was called with lifespan=3. I'll have 2 descendant(s).
+[Parent, PID: 1182810]: I am waiting for PID 1182811 to finish.
+	[Child, PID: 1182811]: I was called with lifespan=2. I'll have 1 descendant(s).
+[Parent, PID: 1182811]: I am waiting for PID 1182812 to finish.
+	[Child, PID: 1182812]: I was called with lifespan=1. I'll have 0 descendant(s).
+[Parent, PID: 1182811]: Child 1182812 finished with status code 0. It's now my turn to exit.
+[Parent, PID: 1182810]: Child 1182811 finished with status code 1. It's now my turn to exit.
+[Parent, PID: 1182809]: Child 1182810 finished with status code 2. It's now my turn to exit.
+[Parent, PID: 1182808]: Child 1182809 finished with status code 3. It's now my turn to exit.
+[Parent, PID: 1182807]: Child 1182808 finished with status code 4. It's now my turn to exit.
+[Parent, PID: 1182806]: Child 1182807 finished with status code 5. It's now my turn to exit.
+[Parent, PID: 1182805]: Child 1182806 finished with status code 6. It's now my turn to exit.
+[Parent, PID: 1182804]: Child 1182805 finished with status code 7. It's now my turn to exit.
+[Parent, PID: 1182803]: Child 1182804 finished with status code 8. It's now my turn to exit.
+[Parent, PID: 1182802]: Child 1182803 finished with status code 9. It's now my turn to exit.
+[Parent, PID: 1182801]: Child 1182802 finished with status code 10. It's now my turn to exit.
+[Parent, PID: 1182800]: Child 1182801 finished with status code 11. It's now my turn to exit.
+[bjpeters@ccc-app-p-u50 project_1]$ ./explorer
+Read seed value (converted to integer): 12345
+
+It's time to see the world/file system!
+Selection #1: /usr [SUCCESS]
+Current reported directory: /usr
+[Parent]: I am waiting for PID 1182855 to finish.
+tmp  games  unixadmin  satellite  src  share  local  lib  libexec  lib64  sbin	include	 bin
+[Parent]: Child 1182855 finished with status code 0. Onward!.
+Selection #2: /bin [SUCCESS]
+Current reported directory: /usr/bin
+[Parent]: I am waiting for PID 1182856 to finish.
+ pwndbg				h5ls				     mariadb-admin		    find			   md5sum
+ detect_ppa			h5dump				     mariadb			    gnome-keyring		   ls
+ test_ppa			h5repart			     mariadb-check		    gnome-keyring-daemon	   logname
+ sgmlwhich			h5mkgrp				     rsvg-convert		    gnome-keyring-3		   ln
+ zipgrep			h5debug				     setfacl			    tss2_writeauthorizenv	   link
+ unicode_stop			h5clear				     getfacl			    tss2_verifysignature	   join
+ scsi_temperature		h5import			     chacl			    tss2_verifyquote		   install
+ scsi_stop			h5unjam				     toilet			    tss2_unseal			   id
+ scsi_start			h5repack			     nautilus-autorun-software	    tss2_sign			   hostid
+ scsi_ready			h5jam				     nautilus			    tss2_setdescription		   head
+ scsi_readcap			h5copy				     lsb_release		    tss2_setcertificate		   groups
+ xdg-user-dir			h5format_convert		     lsb-release		    tss2_setappdata		   fold
+ scsi_logging_level		h5stat				     ctest3			    tss2_quote			   fmt
+ scsi_mandat			h5perf_serial			     cpack3			    tss2_provision		   false
+ icu-config			h52gif				     cmake3			    tss2_pcrread		   factor
+ R				gif2h5				     ccmake3			    tss2_pcrextend		   expr
+ texi2pdf			h5watch				     cpack			    tss2_nvwrite		   expand
+ pdftexi2dvi			xzmore				     cmake			    tss2_nvsetbits		   env
+ spell				xzless				     ccmake			    tss2_nvread			   echo
+ prezip				xzgrep				     ctest			    tss2_nvincrement		   du
+ preunzip			xzdiff				     pflags			    tss2_nvextend		   dirname
+ precat				xzfgrep				     xmbind			    tss2_list			   dircolors
+ ispell				xzegrep				     uil			    tss2_import			   dir
+ gendiff			xzcmp				     mwm			    tss2_gettpmblobs		   df
+ svndiffview			xzcat				     perl5.32.1			    tss2_getrandom		   dd
+ svndiff			unxz				     perl			    tss2_getplatformcertificates   date
+ gitdiffview			xzdec				     file			    tss2_getinfo		   cut
+ gitdiff			xz				     nl-util-addr		    tss2_getdescription		   csplit
+ scsi_satl			ocprint				     nl-tctree-list		    tss2_getcertificate		   cp
+ bond2team			ncgen3				     nl-rule-list		    tss2_getappdata		   comm
+ strace-log-merge		ncgen				     nl-route-list		    tss2_exportpolicy		   cksum
+ gnome-session-custom-session	ncdump				     nl-route-get		    tss2_exportkey		   chown
+ scl_source			nccopy				     nl-route-delete		    tss2_encrypt		   chmod
+ scl_enabled			nc4print			     nl-route-add		    tss2_delete			   chgrp
+ run-with-aspell		freetype-config			     nl-qdisc-list		    tss2_decrypt		   chcon
+ word-list-compress		libgtop_server2			     nl-qdisc-delete		    tss2_createseal		   cat
+ prezip-bin			libgtop_daemon2			     nl-qdisc-add		    tss2_createnv		   basenc
+ aspell				wvunpack			     nl-pktloc-lookup		    tss2_createkey		   basename
+ asciidoc.py			wvtag				     nl-nh-list			    tss2_changeauth		   base64
+ asciidoc			wvgain				     nl-neightbl-list		    tss2_authorizepolicy	   base32
+ a2x.py				wavpack				     nl-neigh-list		    tss2			   b2sum
+ a2x				rescan-scsi-bus.sh		     nl-neigh-delete		    tpm2_zgen2phase		   arch
+ setfattr			sgp_dd				     nl-neigh-add		    tpm2_verifysignature	  '['
+ getfattr			sgm_dd				     nl-monitor			    tpm2_unseal			   kmod
+ attr				sginfo				     nl-list-sockets		    tpm2_testparms		   btrace
+ baobab				sg_zone				     nl-list-caches		    tpm2_stirrandom		   bno_plot.py
+ dc				sg_xcopy			     nl-link-stats		    tpm2_startup		   verify_blkparse
+ bc				sg_write_x			     nl-link-set		    tpm2_startauthsession	   btt
+ yacc				sg_write_verify			     nl-link-release		    tpm2_sign			   btreplay
+ byacc				sg_write_same			     nl-link-name2ifindex	    tpm2_shutdown		   btrecord
+ brltty-setcaps			sg_write_long			     nl-link-list		    tpm2_setprimarypolicy	   blktrace
+ brltty-prologue.sh		sg_write_buffer			     nl-link-ifindex2name	    tpm2_setcommandauditstatus	   blkrawverify
+ brltty-mkuser			sg_wr_mode			     nl-link-enslave		    tpm2_setclock		   blkparse
+ brltty-genkey			sg_vpd				     nl-fib-lookup		    tpm2_sessionconfig		   blkiomon
+ brltty-config.sh		sg_verify			     nl-cls-list		    tpm2_send			   lsinitrd
+ xbrlapi			sg_unmap			     nl-cls-delete		    tpm2_selftest		   dracut
+ vstp				sg_turs				     nl-cls-add			    tpm2_rsaencrypt		   redhat-access-insights
+ eutp				sg_timestamp			     nl-classid-lookup		    tpm2_rsadecrypt		   insights-client
+ brltty-tune			sg_test_rwbuf			     nl-class-list		    tpm2_readpublic		   update-ca-trust
+ brltty-ttb			sg_sync				     nl-class-delete		    tpm2_readclock		   ca-legacy
+ brltty-trtxt			sg_stream_ctl			     nl-class-add		    tpm2_rc_decode		   mkcomposefs
+ brltty-morse			sg_stpg				     nl-addr-list		    tpm2_quote			   composefs-info
+ brltty-lsinc			sg_start			     nl-addr-delete		    tpm2_print			   instperf
+ brltty-lscmds			sg_ses_microcode		     nl-addr-add		    tpm2_policyticket		   analog
+ brltty-ktb			sg_ses				     nf-queue			    tpm2_policytemplate		   anaconda-nm-disable-autocons
+ brltty-ctb			sg_senddiag			     nf-monitor			    tpm2_policysigned		   anaconda-disable-nm-ibft-plugin
+ brltty-clip			sg_seek				     nf-log			    tpm2_policysecret		   anaconda-cleanup
+ brltty-cldr			sg_scan				     nf-exp-list		    tpm2_policyrestart		   subscription-manager
+ brltty-atb			sg_sat_set_features		     nf-exp-delete		    tpm2_policypcr		   rhsm-debug
+ brltty				sg_sat_read_gplog		     nf-exp-add			    tpm2_policypassword		   rct
+ bzmore				sg_sat_phy_event		     nf-ct-list			    tpm2_policyor		   rhsmcertd
+ bzless				sg_sat_identify			     nf-ct-events		    tpm2_policynvwritten	   x86_64
+ bzip2recover			sg_sanitize			     nf-ct-add			    tpm2_policynv		   uname26
+ bzip2				sg_safte			     idiag-socket-details	    tpm2_policynamehash		   linux64
+ bzgrep				sg_rtpg				     genl-ctrl-list		    tpm2_policylocality		   linux32
+ bzfgrep			sg_rmsn				     find-debuginfo		    tpm2_policyduplicationselect   lastb
+ bzegrep			sg_reset_wp			     sepdebugcrcfix		    tpm2_policycphash		   i386
+ bzdiff				sg_reset			     find-debuginfo.sh		    tpm2_policycountertimer	   write
+ bzcmp				sg_requests			     debugedit			    tpm2_policycommandcode	   whereis
+ bzcat				sg_rep_zones			     tracer			    tpm2_policyauthvalue	   wdctl
+ bunzip2			sg_rep_pip			     vimdot			    tpm2_policyauthorizenv	   wall
+ cheese				sg_referrals			     twopi			    tpm2_policyauthorize	   uuidparse
+ bison				sg_reassign			     sfdp			    tpm2_pcrreset		   uuidgen
+ cd-convert			sg_readcap			     patchwork			    tpm2_pcrread		   utmpdump
+ colormgr			sg_read_long			     osage			    tpm2_pcrextend		   unshare
+ cd-it8				sg_read_buffer			     neato			    tpm2_pcrevent		   umount
+ cd-iccdump			sg_read_block_limits		     lneato			    tpm2_pcrallocate		   ul
+ cd-fix-profile			sg_read_attr			     gxl2dot			    tpm2_nvwritelock		   taskset
+ cd-create-profile		sg_read				     gvmap.sh			    tpm2_nvwrite		   su
+ dbus-binding-tool		sg_rdac				     gv2gxl			    tpm2_nvundefine		   setterm
+ dconf				sg_rbuf				     fdp			    tpm2_nvsetbits		   setsid
+ diffstat			sg_raw				     dotty			    tpm2_nvreadpublic		   setpriv
+ unix2mac			sg_prevent			     dot2gxl			    tpm2_nvreadlock		   setarch
+ unix2dos			sg_persist			     circo			    tpm2_nvread			   scriptreplay
+ mac2unix			sg_opcodes			     unflatten			    tpm2_nvincrement		   scriptlive
+ dos2unix			sg_modes			     tred			    tpm2_nvextend		   script
+ sdiff				sg_map26			     sccmap			    tpm2_nvdefine		   rev
+ diff3				sg_map				     prune			    tpm2_nvcertify		   renice
+ diff				sg_luns				     nop			    tpm2_makecredential		   rename
+ cmp				sg_logs				     mm2gv			    tpm2_loadexternal		   prlimit
+ red				sg_inq				     lefty			    tpm2_load			   nsenter
+ ed				sg_ident			     gxl2gv			    tpm2_incrementalselftest	   namei
+ dwz				sg_get_lba_status		     gvpr			    tpm2_import			   mountpoint
+ sliceprint			sg_get_elem_status		     gvpack			    tpm2_hmac			   mount
+ diffpp				sg_get_config			     gvmap			    tpm2_hierarchycontrol	   more
+ over				sg_format			     gvgen			    tpm2_hash			   mesg
+ states				sg_emc_trespass			     gvcolor			    tpm2_gettime		   mcookie
+ nenscript			sg_decode_sense			     gv2gml			    tpm2_gettestresult		   lsns
+ mkafmmap			sg_dd				     graphml2gv			    tpm2_getsessionauditdigest	   lsmem
+ enscript			sg_copy_results			     gml2gv			    tpm2_getrandom		   lslogins
+ enchant-lsmod-2		sg_compare_and_write		     gc				    tpm2_getpolicydigest	   lslocks
+ enchant-2			sg_bg_ctl			     edgepaint			    tpm2_getekcertificate	   lsirq
+ lex				scsi-rescan			     dot			    tpm2_geteccparameters	   lsipc
+ flex++				strace				     dijkstra			    tpm2_getcommandauditdigest	   lscpu
+ flex				update-desktop-database		     diffimg			    tpm2_getcap			   lsblk
+ foomatic-searchprinter		desktop-file-validate		     cluster			    tpm2_flushcontext		   look
+ foomatic-printjob		desktop-file-install		     ccomps			    tpm2_evictcontrol		   login
+ foomatic-ppdfile		desktop-file-edit		     bcomps			    tpm2_eventlog		   logger
+ foomatic-ppd-to-xml		tclsh				     acyclic			    tpm2_encryptdecrypt		   last
+ foomatic-ppd-options		tclsh8.6			     sm3hmac			    tpm2_encodeobject		   kill
+ foomatic-perl-data		wish				     sha512hmac			    tpm2_ecephemeral		   isosize
+ foomatic-datafile		wish8.6				     sha384hmac			    tpm2_ecdhzgen		   irqtop
+ foomatic-configure		umax_pp				     sha256hmac			    tpm2_ecdhkeygen		   ipcs
+ foomatic-compiledb		scanimage			     sha224hmac			    tpm2_duplicate		   ipcrm
+ foomatic-combo-xml		sane-find-scanner		     sha1hmac			    tpm2_dictionarylockout	   ipcmk
+ bluetooth-sendto		dbus-broker-launch		     gtk4-update-icon-cache	    tpm2_createprimary		   ionice
+ gcr-viewer			dbus-broker			     gtk4-launch		    tpm2_createpolicy		   hexdump
+ gedit				gnome-tour			     compile_et			    tpm2_createek		   hardlink
+ gnome-characters		cyrusbdb2current		     lsattr			    tpm2_createak		   getopt
+ gnome-calculator		autotrace			     fuse2fs			    tpm2_create			   flock
+ gcalccmd			apropos.man-db			     chattr			    tpm2_commit			   findmnt
+ gnome-thumbnail-font		whatis.man-db			     sedispol			    tpm2_clockrateadjust	   fincore
+ gnome-font-viewer		manpath				     sedismod			    tpm2_clearcontrol		   fallocate
+ gcm-viewer			mandb				     checkpolicy		    tpm2_clear			   eject
+ gcm-picker			man.man-db			     checkmodule		    tpm2_checkquote		   dmesg
+ gcm-inspect			man-recode			     adwaita-1-demo		    tpm2_changepps		   column
+ gcm-import			lexgrog				     sqlite3			    tpm2_changeeps		   colrm
+ gnome-disks			catman				     gnome-session		    tpm2_changeauth		   colcrt
+ gnome-disk-image-mounter	x86_64-redhat-linux-gnu-pkg-config   gnome-session-selector	    tpm2_certifycreation	   col
+ gr2fonttest			pkgconf				     gnome-session-quit		    tpm2_certifyX509certutil	   chsh
+ gsound-play			pkg-config			     gnome-session-inhibit	    tpm2_certify		   chrt
+ intltoolize			notmuch				     smime_keys			    tpm2_activatecredential	   choom
+ intltool-update		notmuch-emacs-mua		     pgpewrap			    tpm2			   chmem
+ intltool-prepare		keyctl				     mutt_pgpring		    iptc			   chfn
+ intltool-merge			xb-tool				     mutt			    ssh-copy-id			   cal
+ intltool-extract		growpart			     pkmon			    ssh-keyscan			   zipinfo
+ fgrep				orca				     pkcon			    ssh-keygen			   unzipsfx
+ egrep				mokutil				     htop			    ssh-agent			   unzip
+ grep				pango-view			     gst-transcoder-1.0		    ssh-add			   funzip
+ itstool			pango-segmentation		     pw-jack			    ssh				   curl-config
+ escputil			pango-list			     pw-record			    sftp			   curl
+ cups-calibrate			update-mime-database		     pw-play			    scp				   emacs-27.2-lucid.pdmp
+ ypdomainname			update-gtk-immodules		     pw-midirecord		    nping			   emacs-27.2-nox.pdmp
+ nisdomainname			gtk-query-immodules-2.0-64	     pw-midiplay		    nmap			   emacs-27.2.pdmp
+ hostname			tracker3			     pw-encplay			    ncat			   gctags
+ domainname			nm-connection-editor		     pw-dsdplay			    ps2ps2			   etags.emacs
+ dnsdomainname			nm-applet			     pipewire-vulkan		    ps2ps			   emacsclient
+ hunspell			osinfo-query			     pipewire-pulse		    ps2pdfwr			   emacs-27.2-nox
+ ipcalc				osinfo-install-script		     pipewire-avb		    ps2pdf14			   emacs-27.2-lucid
+ mmc-tool			osinfo-detect			     pipewire-aes67		    ps2pdf13			   emacs-27.2
+ iso-read			osinfo-db-validate		     spa-resample		    ps2pdf12			   ebrowse
+ iso-info			osinfo-db-path			     spa-monitor		    ps2pdf			   avahi-resolve-host-name
+ cdda-player			osinfo-db-import		     spa-json-dump		    ps2epsi			   avahi-resolve-address
+ cd-read			osinfo-db-export		     spa-inspect		    ps2ascii			   avahi-publish-service
+ cd-info			fc-cache			     spa-acp-tool		    printafm			   avahi-publish-address
+ cd-drive			fc-validate			     pw-top			    pphs			   avahi-browse-domains
+ cd-paranoia			fc-scan				     pw-reserve			    pfbtopfa			   avahi-set-host-name
+ printemf			fc-query			     pw-profiler		    pf2afm			   avahi-resolve
+ gkbd-keyboard-display		fc-pattern			     pw-mon			    pdf2ps			   avahi-publish
+ gsf-office-thumbnailer		fc-match			     pw-mididump		    pdf2dsc			   avahi-browse
+ libieee1284_test		fc-list				     pw-metadata		    gsnd			   micro
+ jcat-tool			fc-conflist			     pw-loopback		    gslp			   nsupdate
+ otfview			fc-cat				     pw-link			    gslj			   nslookup
+ otftobdf			fc-cache-64			     pw-dump			    gsdj500			   host
+ otflist			sscg				     pw-dot			    gsdj			   dnstap-read
+ otfdump			team2bond			     pw-config			    gsbj			   dig
+ pcap-config			teamnl				     pw-cli			    eps2eps			   delv
+ paperconf			teamdctl			     pw-cat			    ghostscript			   arpaname
+ libpng16-config		teamd				     pipewire			    gs				   qemu-ga
+ libpng-config			qmi-network			     watch			    ms_print			   bwrap
+ pngfix				qmicli				     w				    cg_merge			   flatpak
+ png-fix-itxt			qmi-firmware-update		     vmstat			    cg_diff			   sigtool
+ pwscore			oddjob_request			     uptime			    cg_annotate			   freshclam
+ pwmake				mmcli				     top			    callgrind_control		   clamsubmit
+ sndfile-resample		scl				     tload			    callgrind_annotate		   clamscan
+ secret-tool			mbim-network			     snice			    vgdb			   clamdtop
+ linuxdoc			mbimcli				     slabtop			    valgrind-listener		   clamdscan
+ sgmlsasp			zlib-flate			     skill			    valgrind-di-server		   clamconf
+ sgmlpre			qpdf				     pwdx			    valgrind			   clambc
+ sgmlcheck			fix-qdf				     ps				    wget			   update-crypto-policies
+ sgml2txt			paper				     pmap			    sim_lsmplugin		   fips-mode-setup
+ sgml2rtf			spice-vdagent			     pkill			    lsmcli			   fips-finish-install
+ sgml2lyx			pstops				     pidwait			    simc_lsmplugin		   renew-dummy-cert
+ sgml2latex			psselect			     pidof			    lsmd			   make-dummy-cert
+ sgml2info			psresize			     pgrep			    src-hilite-lesspipe.sh	   openssl
+ sgml2html			psnup				     free			    source-highlight-esc.sh	   gtester-report
+ rtf2rtf			psjoin				     sudoedit			    java2html			   glib-mkenums
+ sensors-conf-convert		psbook				     sudoreplay			    cpp2html			   glib-genmarshal
+ sensors			includeres			     sudo			    source-highlight-settings	   gdbus-codegen
+ ltrace				extractres			     cvtsudoers			    source-highlight		   glib-gettextize
+ lsof				epsffit				     smbtar			    check-regexp		   gtester
+ m17n-conv			pesign-client			     make			    mpris-proxy			   gsettings
+ luksmeta			pesign				     gmake			    l2ping			   gresource
+ xdriinfo			pesigcheck			     vm-support			    hex2hcd			   gobject-query
+ glxinfo64			efikeygen			     ldapadd			    btmon			   glib-compile-schemas
+ glxinfo			authvar				     ldapwhoami			    btmgmt			   glib-compile-resources
+ glxgears			gnome-logs			     ldapvc			    btattach			   gio-querymodules-64
+ mkfontdir			zipsplit			     ldapurl			    bluetoothctl		   gio
+ mkfontscale			zipnote				     ldapsearch			    bluemoon			   gdbus
+ updatedb			zipcloak			     ldappasswd			    avinfo			   gapplication
+ locate				zip				     ldapmodrdn			    newaliases.postfix		   stap-report
+ whiptail			sealert				     ldapmodify			    mailq.postfix		   stap-profile-annotate
+ pod2text			os-prober			     ldapexop			    rmail.postfix		   stap-prep
+ pod2man			linux-boot-prober		     ldapdelete			    gtk-update-icon-cache	   stap-merge
+ pod2usage			uxterm				     ldapcompare		    gtk-query-immodules-3.0-64	   stap
+ perldoc			koi8rxterm			     inxi			    gtk-launch			   stapsh
+ zipdetails			xterm				     bashbug-64			    ndptool			   staprun
+ streamzip			resize				     wait			    f95				   stapdyn
+ xpath				which				     unalias			    cc				   stapbpf
+ miniterm.py			gettext.sh			     umask			    c99				   kernel-install
+ miniterm-3.py			gettextize			     ulimit			    c89				   systemd-umount
+ miniterm-3.9.py		autopoint			     type			    x86_64-redhat-linux-gcc-11	   udevadm
+ distro				xgettext			     sh				    x86_64-redhat-linux-gcc	   timedatectl
+ pyinotify			recode-sr-latin			     read			    x86_64-redhat-linux-g++	   systemd-tty-ask-password-agent
+ jsonpatch-3.9			ngettext			     jobs			    x86_64-redhat-linux-c++	   systemd-tmpfiles
+ jsonpatch-3			msguniq				     hash			    gfortran			   systemd-sysusers
+ jsonpatch			msgunfmt			     getopts			    gcov-tool			   systemd-sysext
+ jsondiff-3.9			msgmerge			     fg				    gcov-dump			   systemd-stdio-bridge
+ jsondiff-3			msginit				     fc				    gcov			   systemd-socket-activate
+ jsondiff			msggrep				     command			    gcc-ranlib			   systemd-run
+ jsonschema			msgfmt				     cd				    gcc-nm			   systemd-repart
+ jsonpointer-3.9		msgfilter			     bg				    gcc-ar			   systemd-path
+ jsonpointer-3			msgexec				     bashbug			    gcc				   systemd-notify
+ jsonpointer			msgen				     alias			    g++				   systemd-mount
+ spent				msgconv				     bash			    cpp				   systemd-machine-id-setup
+ spam				msgcomm				     gracebat			    c++				   systemd-inhibit
+ sgmlnorm			msgcmp				     fdf2fit			    lto-dump			   systemd-id128
+ sgml2xml			msgcat				     convcal			    pdfunite			   systemd-hwdb
+ nsgmls				msgattrib			     xmgrace			    pdftotext			   systemd-firstboot
+ osx				gettext				     rpcinfo			    pdftops			   systemd-escape
+ ospent				envsubst			     rpcbind			    pdftoppm			   systemd-dissect
+ ospcat				tmux				     fwupdagent			    pdftohtml			   systemd-detect-virt
+ ospam				gst-typefind-1.0		     fwupdtool			    pdftocairo			   systemd-delta
+ osgmlnorm			gst-stats-1.0			     fwupdmgr			    pdfsig			   systemd-cryptenroll
+ onsgmls			gst-launch-1.0			     fwupdate			    pdfseparate			   systemd-creds
+ pinentry			gst-inspect-1.0			     dfu-tool			    pdfinfo			   systemd-cgtop
+ passwd				luac				     dbxtool			    pdfimages			   systemd-cgls
+ unwrapdiff			lua				     sestatus			    pdffonts			   systemd-cat
+ splitdiff			wpexec				     semodule_unpackage		    pdfdetach			   systemd-ask-password
+ recountdiff			wpctl				     semodule_package		    pdfattach			   systemd-analyze
+ fixcvsdiff			wireplumber			     semodule_link		    gdmflexiserver		   systemctl
+ espdiff			appstreamcli			     semodule_expand		    gdm-screenshot		   loginctl
+ editdiff			thunar-settings			     secon			    quotasync			   localectl
+ dehtmldiff			gpgv2				     chcat			    quota			   journalctl
+ patchview			gpg2				     audit2why			    ibus-setup			   hostnamectl
+ lsdiff				watchgnupg			     audit2allow		    ibus-daemon			   coredumpctl
+ grepdiff			gpgv				     lsusb.py			    ibus			   busctl
+ flipdiff			gpgtar				     usbhid-dump		    ndctl			   bootctl
+ combinediff			gpgsplit			     lsusb			    orc-bugreport		   brotli
+ rediff				gpgparsemail			     sushi			    pcre2-config		   sg
+ interdiff			gpgconf				     clevis-luks-unlock		    tapestat			   newuidmap
+ filterdiff			gpg-wks-server			     clevis-luks-report		    sar				   newgrp
+ pavucontrol			gpg-wks-client			     clevis-luks-regen		    sadf			   newgidmap
+ install-catalog		gpg-connect-agent		     clevis-luks-pass		    pidstat			   lastlog
+ paps				gpg-card			     clevis-luks-list		    mpstat			   gpasswd
+ patch				gpg-agent			     clevis-luks-edit		    iostat			   getsubids
+ dbiprof			gpg				     clevis-luks-bind		    cifsiostat			   chage
+ dbilogstrip			g13				     clevis-encrypt-tpm2	    auvirt			   kdumpctl
+ pnm2ppa			dirmngr-client			     clevis-encrypt-tang	    ausyscall			   cockpit-bridge
+ pbmtpg				dirmngr				     clevis-encrypt-null	    aulastlog			   tzselect
+ pbm2ppa			envml				     clevis-decrypt-tpm2	    aulast			   catchsegv
+ calibrate_ppa			totem-video-thumbnailer		     clevis-decrypt-tang	    vimtutor			   sotruss
+ pinfo				totem				     clevis-decrypt-null	    vimdiff			   ldd
+ pinentry-gnome3		gjs				     clevis-decrypt		    view			   ld.so
+ pinentry-curses		gjs-console			     clevis			    vi				   zdump
+ pkla-check-authorization	gnome-browser-connector-host	     withsctp			    rvim			   sprof
+ pkla-admin-identities		gnome-browser-connector		     sctp_test			    rview			   pldd
+ tek2plot			xfce4-screensaver-configure	     sctp_status		    rvi				   localedef
+ spline				xhlatex				     sctp_darn			    ex				   locale
+ plotfont			xelatex-dev			     checksctp			    xxd				   iconv
+ plot				xelatex				     oscap-chroot		    vim				   getent
+ pic2plot			texluac				     w3mman			    dnf-3			   getconf
+ ode				texlua				     w3m			    yum				   gencat
+ hersheydemo			texhash				     tkjpeg			    dnf				   driverless-fax
+ graph				simpdftex			     ptksh			    consolehelper		   driverless
+ double				r-mpost				     ptked			    libwacom-list-local-devices	   foomatic-rip
+ pstree.x11			pdflatex-dev			     pip3.9			    libwacom-list-devices	   ppdpo
+ pstree				pdfetex				     pip3			    lesspipe.sh			   ppdmerge
+ pslog				mktexfmt			     pip-3.9			    lesskey			   ppdi
+ prtstat			mk4ht				     pip-3			    lessecho			   ppdhtml
+ peekfd				mfplain				     pip			    less			   ppdc
+ killall			lualatex-dev			     sfddiff			    clang			   lpstat.cups
+ pstoedit			luacsplain			     fontlint			    clang-format-diff		   lprm.cups
+ yelp-new			latex-dev			     fontimage			    clang++-18			   lpr.cups
+ yelp-check			initex				     fontforge			    amdgpu-arch			   lpq.cups
+ yelp-build			inimf				     Xorg			    clang-tblgen		   lpoptions
+ rpcgen				htxetex				     X				    clang-scan-deps		   lp.cups
+ airscan-discover		htxelatex			     gtf			    clang-repl			   ipptool
+ setserial			httexi				     cvt			    clang-reorder-fields	   ippfind
+ setxkbmap			httex				     flatpak-coredumpctl	    clang-rename		   cupstestppd
+ mailx.s-nail			htmex				     flatpak-bisect		    clang-refactor		   cancel.cups
+ s-nail				htlatex				     pcre-config		    clang-query			   crontab
+ speech-dispatcher		htcontext			     oscap			    clang-pseudo		   cronnext
+ soundstretch			ht				     eu-make-debug-archive	    clang-offload-packager	   smbprint
+ symlinks			extractbb			     eu-unstrip			    clang-offload-bundler	   wspsearch
+ sed				etex				     eu-strip			    clang-move			   smbtree
+ switcherooctl			ebb				     eu-strings			    clang-linker-wrapper	   smbspool
+ txtconv			dvitomp				     eu-stack			    clang-include-fixer		   smbget
+ teckit_compile			dvipdfmx			     eu-srcfiles		    clang-include-cleaner	   smbcquotas
+ sfconv				dvipdfm				     eu-size			    clang-format		   smbclient
+ time				dviluatex			     eu-readelf			    clang-extdef-mapping	   smbcacls
+ tcutest			dvilualatex-dev			     eu-ranlib			    clang++			   sharesec
+ tcumttest			dvigif				     eu-objdump			    c-index-test		   samba-regedit
+ tcucodec			mkofm				     eu-nm			    clang-tidy			   rpcclient
+ tcttest			mkocp				     eu-findtextrel		    pp-trace			   regtree
+ tctmttest			mkindex				     eu-elflint			    nvptx-arch			   regshell
+ tctmgr				dvipdft				     eu-elfcompress		    modularize			   regpatch
+ tchtest			xdvi				     eu-elfcmp			    find-all-symbols		   regdiff
+ tchmttest			xetex				     eu-elfclassify		    diagtool			   oLschema2ldif
+ tchmgr				xdvipdfmx			     eu-ar			    clangd			   nmblookup
+ tcftest			xdvi-xaw			     eu-addr2line		    clang-change-namespace	   mvxattr
+ tcfmttest			vptovf				     debuginfod-find		    clang-doc			   mdsearch
+ tcfmgr				vftovp				     appstream-util		    clang-cpp			   dumpmscat
+ tcbtest			tftopl				     appstream-compose		    clang-cl			   dbwrap_tool
+ tcbmttest			tex4ht				     xmllint			    clang-check			   cifsdd
+ tcbmgr				tex				     xmlcatalog			    clang-apply-replacements	   skopeo
+ tcatest			t4ht				     gnome-screenshot		    clang-18			   krb5-config
+ tcamttest			pltotf				     gnome-control-center	    chronyc			   kvno
+ tcamgr				pktype				     mmdblookup			    qrap			   ktutil
+ ttmkfdir			pktogf				     lchsh			    pasta.avx2			   kswitch
+ url_handler.sh			pdftex				     lchfn			    pasta			   ksu
+ urlview			mpost				     setcifsacl			    passt.avx2			   kpasswd
+ xdg-user-dirs-update		mft				     getcifsacl			    passt			   klist
+ xkbcomp			mf-nowin			     cifscreds			    grub2-script-check		   kinit
+ xauth				mf				     boltctl			    grub2-mount			   kdestroy
+ xsetroot			makeindex			     gdk-pixbuf-thumbnailer	    grub2-mkrelpath		   kadmin
+ xset				luatex				     gdk-pixbuf-query-loaders-64    grub2-mkpasswd-pbkdf2	   buildah
+ xrdb				luahbtex			     udisksctl			    grub2-mkimage		   mutter
+ xrandr				kpsewhich			     xmlsec1			    grub2-menulst2cfg		   gnome-shell-perf-tool
+ xmodmap			kpsestat			     vmware-user		    grub2-file			   gnome-shell-extension-tool
+ xkill				kpsereadlink			     vmwgfxctrl			    grub2-editenv		   gnome-shell
+ xisxwayland			kpseaccess			     vmware-xferlogs		    strip			   gnome-extensions
+ xinput				gsftopk				     vmware-vmblock-fuse	    strings			   tracepath
+ xhost				gftype				     vmware-vgauth-cmd		    size			   ping
+ xgamma				gftopk				     vmware-user-suid-wrapper	    readelf			   clockdiff
+ startx				gftodvi				     vmware-toolbox-cmd		    ranlib			   arping
+ xinit				dvisvgm				     vmware-rpctool		    objdump			   stream
+ xdg-user-dirs-gtk-update	dvips				     vmware-namespace-cmd	    objcopy			   montage
+ gnome-help			dvipng				     vmware-hgfsclient		    nm				   mogrify
+ yelp				bibtex				     vmware-checkvm		    ld.gold			   import
+ xwininfo			afm2tfm				     vmware-alias-import	    ld.bfd			   identify
+ xvinfo				dvi2fax				     vmtoolsd			    gprof			   display
+ xprop				contextjit			     vmhgfs-fuse		    elfedit			   convert
+ xlsfonts			allneeded			     VGAuthService		    dwp				   conjure
+ xlsclients			allec				     clevis-luks-unbind		    c++filt			   composite
+ xlsatoms			allcm				     clevis-luks-common-functions   as				   compare
+ xev				tlmgr				     clevis-encrypt-sss		    ar				   animate
+ xdpyinfo			thumbpdf			     clevis-decrypt-sss		    addr2line			   trust
+ piconv				texlinks			     psfstriptable		    rpmverify			   p11-kit
+ encguess			texexec				     psfgettable		    rpmquery			   soelim
+ scp-dbus-service		texconfig-sys			     psfaddtable		    rpmspec			   ld
+ modulemd-validator		texconfig-dialog		     unicode_start		    rpmsign			   whatis
+ lsscsi				texconfig			     vlock			    rpmkeys			   man
+ upower				rungs				     showkey			    rpmdb			   apropos
+ monitor-sensor			repstopdf			     showconsolefont		    rpmbuild			   Rscript
+ icu-config-64			pslatex				     setvtrgb			    rpm2cpio			   xmlwf
+ icuinfo			ps2frag				     setmetamode		    rpm2archive			   vncviewer
+ grl-launch-0.3			pdfxmltex			     setleds			    rpm				   chafa
+ grl-inspect-0.3		pdflatex			     setkeycodes		    crun			   npx-22
+ grilo-test-ui-0.3		pdfjadetex			     setfont			    rustdoc			   npx
+ wnck-urgency-monitor		pdfatfi				     resizecons			    rustc			   npm-22
+ fprintd-verify			mtxrunjit			     psfxtable			    llvm-windres		   npm
+ fprintd-list			mtxrun				     openvt			    llvm-strip			   node
+ fprintd-enroll			mptopdf				     mapscrn			    llvm-readelf		   node-22
+ fprintd-delete			mktextfm			     loadunimap			    llvm-ranlib			   git-upload-pack
+ eog				mktexpk				     loadkeys			    llvm-otool			   git-upload-archive
+ tcsh				mktexlsr			     kbdrate			    llvm-lib			   git-receive-pack
+ csh				lwarpmk				     kbdinfo			    llvm-install-name-tool	   scalar
+ cpio				luatools			     kbd_mode			    llvm-dlltool		   git-shell
+ pic2graph			luaotfload-tool			     getkeycodes		    llvm-bitcode-strip		   git
+ pdfroff			lualatex			     fgconsole			    llvm-addr2line		   gofmt
+ nroff				latex2man			     dumpkeys			    sancov			   go
+ neqn				latex				     deallocvt			    opt				   podmansh
+ grap2graph			kpsexpand			     chvt			    obj2yaml			   podman
+ gdiffmk			kpsewhere			     jq				    llvm-undname		   shade-jar
+ eqn2graph			kpsetool			     gnome-software		    llvm-tblgen			   rebuild-jar-repository
+ zsoelim			kpsepath			     slirp4netns		    llvm-dwp			   find-jar
+ gtroff				jadetex				     pkttyagent			    llvm-dwarfutil		   diff-jars
+ gtbl				fmtutil-user			     pkexec			    llvm-dwarfdump		   create-jar-links
+ gsoelim			fmtutil-sys			     pkcheck			    llvm-dis			   clean-binary-files
+ grefer				fmtutil				     pkaction			    llvm-diff			   check-binary-files
+ gpic				epstopdf			     conmon			    llvm-debuginfod-find	   build-jar-repository
+ gnroff				e2pall				     Xwayland			    llvm-debuginfod		   build-classpath-directory
+ gneqn				dvired				     jose			    llvm-debuginfo-analyzer	   build-classpath
+ glookbib			dvilualatex			     yumdownloader		    llvm-cxxmap			   setup-nsssysinit.sh
+ gindxbib			xmltex				     yum-groups-manager		    llvm-cxxfilt		   setup-nsssysinit
+ geqn				updmap-user			     yum-debug-restore		    llvm-cxxdump		   ssltap
+ troff				updmap-sys			     yum-debug-dump		    llvm-cvtres			   signver
+ tfmtodit			updmap				     yum-config-manager		    llvm-cov			   pk12util
+ tbl				context				     yum-builddep		    llvm-cfi-verify		   nss-policy-check
+ soelim.groff			mktexmf				     repotrack			    llvm-cat			   modutil
+ refer				xflock4				     reposync			    llvm-c-test			   crlutil
+ preconv			xfconf-query			     repoquery			    llvm-bcanalyzer		   cmsutil
+ pre-grohtml			exo-open			     repomanage			    llvm-as			   certutil
+ post-grohtml			exo-desktop-item-edit		     repodiff			    bugpoint			   ant
+ pic				xfce4-popup-applicationsmenu	     repoclosure		    UnicodeNameMappingGenerator	   rofiles-fuse
+ pfbtops			xfce4-popup-directorymenu	     repo-graph			    FileCheck			   ostree
+ lookbib			xfce4-popup-windowmenu		     package-cleanup		    llvm-gsymutil		   rpm-ostree
+ lkbib				xfce4-panel			     needs-restarting		    llvm-extract		   pg_config
+ indxbib			xfrun4				     find-repos-of-install	    llvm-exegesis		   pg_server_config
+ hpftodit			xfce4-appfinder			     debuginfo-install		    dsymutil			   sss_ssh_knownhostsproxy
+ grotty				xfwm4-workspace-settings	     libtoolize			    yaml2obj			   sss_ssh_authorizedkeys
+ grops				xfwm4-tweaks-settings		     libtool			    verify-uselistorder		   rhc
+ grolj4				xfwm4-settings			     gstack			    split-file			   cloud-init-per
+ grolbp				xfwm4				     gdb-add-index		    sanstats			   cloud-init
+ groff				xfsettingsd			     gcore			    llvm-xray			   cloud-id
+ grodvi				xfce4-settings-manager		     pstack			    llvm-tli-checker		   erb
+ grn				xfce4-settings-editor		     gdb			    llvm-symbolizer		   ruby
+ eqn				xfce4-mouse-settings		     ima-setup			    llvm-strings		   ri
+ addftinfo			xfce4-mime-settings		     ima-add-sigs		    llvm-stress			   rdoc
+ m4				xfce4-mime-helper		     evmctl			    llvm-split			   gem
+ tree				xfce4-keyboard-settings		     ulockmgr_server		    llvm-size			   bundler
+ unpigz				xfce4-find-cursor		     fusermount			    llvm-sim			   bundle
+ pigz				xfce4-display-settings		     ifnames			    llvm-rtdyld			   crb
+ lastcomm			xfce4-color-settings		     autoupdate			    llvm-remarkutil		   python3
+ ac				xfce4-appearance-settings	     autoscan			    llvm-reduce			   pydoc3.9
+ exempi				xfce4-accessibility-settings	     autoreconf			    llvm-readtapi		   pydoc3
+ exiv2				Thunar				     autom4te			    llvm-readobj		   pydoc
+ gnome-terminal			thunar				     autoheader			    llvm-rc			   python3.9
+ xdg-settings			xfce4-power-manager-settings	     autoconf			    llvm-profgen		   python
+ xdg-screensaver		xfce4-power-manager		     run-clang-tidy		    llvm-profdata		   pydoc3.11
+ xdg-open			startxfce4			     hmaptool			    llvm-pdbutil		   python3.11
+ xdg-mime			xfce4-session-settings		     icewm-set-gnomewm		    llvm-opt-report		   btop
+ xdg-icon-resource		xfce4-session-logout		     icewm-menu-xrandr		    llvm-objdump		   firefox
+ xdg-email			xfce4-session			     powerprofilesctl		    llvm-objcopy		   WebKitWebDriver
+ xdg-desktop-menu		xfdesktop-settings		     icewmhint			    llvm-nm			   flashfetch
+ xdg-desktop-icon		xfdesktop			     icewmbg			    llvm-mt			   fastfetch
+ aec				thunar-volman-settings		     icewm-session		    llvm-modextract		   modulecmd
+ gpg-error			thunar-volman			     icewm-menu-fdo		    llvm-ml			   rmail
+ zstdless			xfce4-screensaver-preferences	     icewm			    llvm-mca			   newaliases
+ zstdgrep			xfce4-screensaver-command	     icesound			    llvm-mc			   mailq
+ notify-send			xfce4-screensaver		     icesh			    llvm-lto2			   whois
+ tidy				dbus-uuidgen			     icehelp			    llvm-lto			   nail
+ satyr				dbus-update-activation-environment   aserver			    llvm-lipo			   mailx
+ cpanel_json_xs			dbus-test-tool			     fusermount3		    llvm-link			   mail
+ xml2-config			dbus-send			     netstat			    llvm-libtool-darwin		   Mail
+ libwacom-update-db		dbus-run-session		     ps2eps			    llvm-jitlink-executor	   etags
+ reporter-upload		dbus-monitor			     deweb			    llvm-jitlink		   java
+ report-cli			dbus-daemon			     chkweb			    llvm-ifs			   rmiregistry
+ xsltproc			dbus-cleanup-sockets		     wovp2ovf			    llvm-ar			   keytool
+ neofetch			vdostats			     weave			    llvm-PerfectShuffle		   jcmd
+ catimg				vdosetuuid			     uptftopl			    lli				   alt-java
+ iceauth			vdoformat			     uptex			    llc				   emacs
+ zstdmt				vdoforcerebuild			     uppltotf			    tar				   emacs-lucid
+ zstdcat			vdodumpconfig			     upmpost			    gtar			   emacs-nox
+ unzstd				vdodmeventd			     upmendex			    yes				   lpr
+ zstd				speak-ng			     uplatex-dev		    whoami			   lp
+ pzstd				espeak-ng			     uplatex			    who				   lpstat
+ rpload				automake-1.16			     updvitype			    wc				   lprm
+ rpdump				automake			     updvitomp			    vdir			   lpq
+ pilot				aclocal-1.16			     upbibtex			    users			   cancel
+ pico				aclocal				     ttfdump			    unlink			   nc
+ alpine				usb-devices			     ttf2tfm			    uniq			   editor
+ xsetwacom			libinput			     ttf2pk			    unexpand			   rsync-ssl
+ isdv4-serial-inputattach	k5srvutil			     ttf2afm			    uname			   rsync
+ awk				json_verify			     tie			    tty				   nmtui-hostname
+ gawk				json_reformat			     tangle			    tsort			   nmtui-edit
+ gpgme-json			canberra-gtk-play		     r-upmpost			    truncate			   nmtui-connect
+ texi2dvi			canberra-boot			     ptftopl			    true			   nmtui
+ texindex			plymouth			     ptex			    tr				   nmcli
+ texi2any			ddcutil				     ppltotf			    touch			   nm-online
+ pod2texi			ipmitool			     pmpost			    timeout			   kvm_stat
+ makeinfo			authselect			     platex			    test			   cpupower
+ info				reset				     pdvitype			    tee				   centrino-decode
+ chardetect			infotocap			     pdvitomp			    tail			   tmon
+ xclip-pastefile		captoinfo			     pbibtex			    tac				   lsiio
+ xclip-cutfile			tset				     mendex			    sync			   x86_energy_perf_policy
+ xclip-copyfile			tput				     makejvf			    sum				   slabinfo
+ xclip				toe				     lacheck			    stty			   powernow-k8-decode
+ zsh				tic				     euptex			    stdbuf			   page_owner_sort
+ flexiblas64			tabs				     eptex			    stat			   lsgpio
+ flexiblas			infocmp				     cweave			    split			   iio_generic_buffer
+ xmlrpc-c-config		clear				     ctwill-twinx		    sort			   iio_event_monitor
+ gnome-shell-extension-prefs	hb-view				     ctwill-refsort		    sleep			   gpio-watch
+ xdg-dbus-proxy			hb-subset			     ctwill			    shuf			   gpio-hammer
+ run-parts			hb-shape			     ctie			    shred			   gpio-event-mon
+ batch				hb-ot-shape-closure		     ctangle			    sha512sum			   turbostat
+ atrm				img2txt				     chktex			    sha384sum			   intel-speed-select
+ atq				cacaview			     bbox			    sha256sum			   jmod
+ at				cacaserver			     convbkmk			    sha224sum			   jlink
+ wmctrl				cacaplay			     jade			    sha1sum			   jhsdb
+ fribidi			cacafire			     openjade			    seq				   jdeps
+ znew				cacademo			     katello-rhsm-consumer	    runcon			   jdeprscan
+ zmore				cacaclock			     fuse-overlayfs		    rmdir			   jdb
+ zless				msql2mysql			     firewall-offline-cmd	    rm				   jconsole
+ zgrep				mariadb-find-rows		     firewall-cmd		    realpath			   javap
+ zforce				mariadb-access			     alsaunmute			    readlink			   javadoc
+ zfgrep				mysqlslap			     arecord			    pwd				   javac
+ zegrep				mysqlshow			     speaker-test		    ptx				   jarsigner
+ zdiff				mysqlimport			     nhlt-dmic-info		    printf			   jar
+ zcmp				mysqldump			     iecset			    printenv			   serialver
+ zcat				mysqlcheck			     axfer			    pr				   jstatd
+ gzip				mysqlbinlog			     aseqsend			    pinky			   jstat
+ gzexe				mysqladmin			     aseqnet			    pathchk			   jstack
+ gunzip				mysql_waitpid			     aseqdump			    paste			   jshell
+ whois.md			mysql_plugin			     arecordmidi		    od				   jrunscript
+ gnome-system-monitor		mysql				     aplaymidi			    numfmt			   jps
+ zenity				mysqlaccess			     aplay			    nproc			   jpackage
+ xfce4-terminal			mysql_find_rows			     amixer			    nohup			   jmap
+ evince-thumbnailer		mariadb-slap			     amidi			    nl				   jinfo
+ evince-previewer		mariadb-show			     alsamixer			    nice			   jimage
+ evince				mariadb-plugin			     alsaloop			    mv				   jfr
+ hddtemp			mariadb-import			     aconnect			    mktemp
+ mirror_server_stop		mariadb-dump			     rnano			    mknod
+ mirror_server			mariadb-binlog			     nano			    mkfifo
+ h5diff				mariadb-waitpid			     xargs			    mkdir
+[Parent]: Child 1182856 finished with status code 0. Onward!.
+Selection #3: /bin [SUCCESS]
+Current reported directory: /usr/bin
+[Parent]: I am waiting for PID 1182857 to finish.
+ pwndbg				h5ls				     mariadb-admin		    find			   md5sum
+ detect_ppa			h5dump				     mariadb			    gnome-keyring		   ls
+ test_ppa			h5repart			     mariadb-check		    gnome-keyring-daemon	   logname
+ sgmlwhich			h5mkgrp				     rsvg-convert		    gnome-keyring-3		   ln
+ zipgrep			h5debug				     setfacl			    tss2_writeauthorizenv	   link
+ unicode_stop			h5clear				     getfacl			    tss2_verifysignature	   join
+ scsi_temperature		h5import			     chacl			    tss2_verifyquote		   install
+ scsi_stop			h5unjam				     toilet			    tss2_unseal			   id
+ scsi_start			h5repack			     nautilus-autorun-software	    tss2_sign			   hostid
+ scsi_ready			h5jam				     nautilus			    tss2_setdescription		   head
+ scsi_readcap			h5copy				     lsb_release		    tss2_setcertificate		   groups
+ xdg-user-dir			h5format_convert		     lsb-release		    tss2_setappdata		   fold
+ scsi_logging_level		h5stat				     ctest3			    tss2_quote			   fmt
+ scsi_mandat			h5perf_serial			     cpack3			    tss2_provision		   false
+ icu-config			h52gif				     cmake3			    tss2_pcrread		   factor
+ R				gif2h5				     ccmake3			    tss2_pcrextend		   expr
+ texi2pdf			h5watch				     cpack			    tss2_nvwrite		   expand
+ pdftexi2dvi			xzmore				     cmake			    tss2_nvsetbits		   env
+ spell				xzless				     ccmake			    tss2_nvread			   echo
+ prezip				xzgrep				     ctest			    tss2_nvincrement		   du
+ preunzip			xzdiff				     pflags			    tss2_nvextend		   dirname
+ precat				xzfgrep				     xmbind			    tss2_list			   dircolors
+ ispell				xzegrep				     uil			    tss2_import			   dir
+ gendiff			xzcmp				     mwm			    tss2_gettpmblobs		   df
+ svndiffview			xzcat				     perl5.32.1			    tss2_getrandom		   dd
+ svndiff			unxz				     perl			    tss2_getplatformcertificates   date
+ gitdiffview			xzdec				     file			    tss2_getinfo		   cut
+ gitdiff			xz				     nl-util-addr		    tss2_getdescription		   csplit
+ scsi_satl			ocprint				     nl-tctree-list		    tss2_getcertificate		   cp
+ bond2team			ncgen3				     nl-rule-list		    tss2_getappdata		   comm
+ strace-log-merge		ncgen				     nl-route-list		    tss2_exportpolicy		   cksum
+ gnome-session-custom-session	ncdump				     nl-route-get		    tss2_exportkey		   chown
+ scl_source			nccopy				     nl-route-delete		    tss2_encrypt		   chmod
+ scl_enabled			nc4print			     nl-route-add		    tss2_delete			   chgrp
+ run-with-aspell		freetype-config			     nl-qdisc-list		    tss2_decrypt		   chcon
+ word-list-compress		libgtop_server2			     nl-qdisc-delete		    tss2_createseal		   cat
+ prezip-bin			libgtop_daemon2			     nl-qdisc-add		    tss2_createnv		   basenc
+ aspell				wvunpack			     nl-pktloc-lookup		    tss2_createkey		   basename
+ asciidoc.py			wvtag				     nl-nh-list			    tss2_changeauth		   base64
+ asciidoc			wvgain				     nl-neightbl-list		    tss2_authorizepolicy	   base32
+ a2x.py				wavpack				     nl-neigh-list		    tss2			   b2sum
+ a2x				rescan-scsi-bus.sh		     nl-neigh-delete		    tpm2_zgen2phase		   arch
+ setfattr			sgp_dd				     nl-neigh-add		    tpm2_verifysignature	  '['
+ getfattr			sgm_dd				     nl-monitor			    tpm2_unseal			   kmod
+ attr				sginfo				     nl-list-sockets		    tpm2_testparms		   btrace
+ baobab				sg_zone				     nl-list-caches		    tpm2_stirrandom		   bno_plot.py
+ dc				sg_xcopy			     nl-link-stats		    tpm2_startup		   verify_blkparse
+ bc				sg_write_x			     nl-link-set		    tpm2_startauthsession	   btt
+ yacc				sg_write_verify			     nl-link-release		    tpm2_sign			   btreplay
+ byacc				sg_write_same			     nl-link-name2ifindex	    tpm2_shutdown		   btrecord
+ brltty-setcaps			sg_write_long			     nl-link-list		    tpm2_setprimarypolicy	   blktrace
+ brltty-prologue.sh		sg_write_buffer			     nl-link-ifindex2name	    tpm2_setcommandauditstatus	   blkrawverify
+ brltty-mkuser			sg_wr_mode			     nl-link-enslave		    tpm2_setclock		   blkparse
+ brltty-genkey			sg_vpd				     nl-fib-lookup		    tpm2_sessionconfig		   blkiomon
+ brltty-config.sh		sg_verify			     nl-cls-list		    tpm2_send			   lsinitrd
+ xbrlapi			sg_unmap			     nl-cls-delete		    tpm2_selftest		   dracut
+ vstp				sg_turs				     nl-cls-add			    tpm2_rsaencrypt		   redhat-access-insights
+ eutp				sg_timestamp			     nl-classid-lookup		    tpm2_rsadecrypt		   insights-client
+ brltty-tune			sg_test_rwbuf			     nl-class-list		    tpm2_readpublic		   update-ca-trust
+ brltty-ttb			sg_sync				     nl-class-delete		    tpm2_readclock		   ca-legacy
+ brltty-trtxt			sg_stream_ctl			     nl-class-add		    tpm2_rc_decode		   mkcomposefs
+ brltty-morse			sg_stpg				     nl-addr-list		    tpm2_quote			   composefs-info
+ brltty-lsinc			sg_start			     nl-addr-delete		    tpm2_print			   instperf
+ brltty-lscmds			sg_ses_microcode		     nl-addr-add		    tpm2_policyticket		   analog
+ brltty-ktb			sg_ses				     nf-queue			    tpm2_policytemplate		   anaconda-nm-disable-autocons
+ brltty-ctb			sg_senddiag			     nf-monitor			    tpm2_policysigned		   anaconda-disable-nm-ibft-plugin
+ brltty-clip			sg_seek				     nf-log			    tpm2_policysecret		   anaconda-cleanup
+ brltty-cldr			sg_scan				     nf-exp-list		    tpm2_policyrestart		   subscription-manager
+ brltty-atb			sg_sat_set_features		     nf-exp-delete		    tpm2_policypcr		   rhsm-debug
+ brltty				sg_sat_read_gplog		     nf-exp-add			    tpm2_policypassword		   rct
+ bzmore				sg_sat_phy_event		     nf-ct-list			    tpm2_policyor		   rhsmcertd
+ bzless				sg_sat_identify			     nf-ct-events		    tpm2_policynvwritten	   x86_64
+ bzip2recover			sg_sanitize			     nf-ct-add			    tpm2_policynv		   uname26
+ bzip2				sg_safte			     idiag-socket-details	    tpm2_policynamehash		   linux64
+ bzgrep				sg_rtpg				     genl-ctrl-list		    tpm2_policylocality		   linux32
+ bzfgrep			sg_rmsn				     find-debuginfo		    tpm2_policyduplicationselect   lastb
+ bzegrep			sg_reset_wp			     sepdebugcrcfix		    tpm2_policycphash		   i386
+ bzdiff				sg_reset			     find-debuginfo.sh		    tpm2_policycountertimer	   write
+ bzcmp				sg_requests			     debugedit			    tpm2_policycommandcode	   whereis
+ bzcat				sg_rep_zones			     tracer			    tpm2_policyauthvalue	   wdctl
+ bunzip2			sg_rep_pip			     vimdot			    tpm2_policyauthorizenv	   wall
+ cheese				sg_referrals			     twopi			    tpm2_policyauthorize	   uuidparse
+ bison				sg_reassign			     sfdp			    tpm2_pcrreset		   uuidgen
+ cd-convert			sg_readcap			     patchwork			    tpm2_pcrread		   utmpdump
+ colormgr			sg_read_long			     osage			    tpm2_pcrextend		   unshare
+ cd-it8				sg_read_buffer			     neato			    tpm2_pcrevent		   umount
+ cd-iccdump			sg_read_block_limits		     lneato			    tpm2_pcrallocate		   ul
+ cd-fix-profile			sg_read_attr			     gxl2dot			    tpm2_nvwritelock		   taskset
+ cd-create-profile		sg_read				     gvmap.sh			    tpm2_nvwrite		   su
+ dbus-binding-tool		sg_rdac				     gv2gxl			    tpm2_nvundefine		   setterm
+ dconf				sg_rbuf				     fdp			    tpm2_nvsetbits		   setsid
+ diffstat			sg_raw				     dotty			    tpm2_nvreadpublic		   setpriv
+ unix2mac			sg_prevent			     dot2gxl			    tpm2_nvreadlock		   setarch
+ unix2dos			sg_persist			     circo			    tpm2_nvread			   scriptreplay
+ mac2unix			sg_opcodes			     unflatten			    tpm2_nvincrement		   scriptlive
+ dos2unix			sg_modes			     tred			    tpm2_nvextend		   script
+ sdiff				sg_map26			     sccmap			    tpm2_nvdefine		   rev
+ diff3				sg_map				     prune			    tpm2_nvcertify		   renice
+ diff				sg_luns				     nop			    tpm2_makecredential		   rename
+ cmp				sg_logs				     mm2gv			    tpm2_loadexternal		   prlimit
+ red				sg_inq				     lefty			    tpm2_load			   nsenter
+ ed				sg_ident			     gxl2gv			    tpm2_incrementalselftest	   namei
+ dwz				sg_get_lba_status		     gvpr			    tpm2_import			   mountpoint
+ sliceprint			sg_get_elem_status		     gvpack			    tpm2_hmac			   mount
+ diffpp				sg_get_config			     gvmap			    tpm2_hierarchycontrol	   more
+ over				sg_format			     gvgen			    tpm2_hash			   mesg
+ states				sg_emc_trespass			     gvcolor			    tpm2_gettime		   mcookie
+ nenscript			sg_decode_sense			     gv2gml			    tpm2_gettestresult		   lsns
+ mkafmmap			sg_dd				     graphml2gv			    tpm2_getsessionauditdigest	   lsmem
+ enscript			sg_copy_results			     gml2gv			    tpm2_getrandom		   lslogins
+ enchant-lsmod-2		sg_compare_and_write		     gc				    tpm2_getpolicydigest	   lslocks
+ enchant-2			sg_bg_ctl			     edgepaint			    tpm2_getekcertificate	   lsirq
+ lex				scsi-rescan			     dot			    tpm2_geteccparameters	   lsipc
+ flex++				strace				     dijkstra			    tpm2_getcommandauditdigest	   lscpu
+ flex				update-desktop-database		     diffimg			    tpm2_getcap			   lsblk
+ foomatic-searchprinter		desktop-file-validate		     cluster			    tpm2_flushcontext		   look
+ foomatic-printjob		desktop-file-install		     ccomps			    tpm2_evictcontrol		   login
+ foomatic-ppdfile		desktop-file-edit		     bcomps			    tpm2_eventlog		   logger
+ foomatic-ppd-to-xml		tclsh				     acyclic			    tpm2_encryptdecrypt		   last
+ foomatic-ppd-options		tclsh8.6			     sm3hmac			    tpm2_encodeobject		   kill
+ foomatic-perl-data		wish				     sha512hmac			    tpm2_ecephemeral		   isosize
+ foomatic-datafile		wish8.6				     sha384hmac			    tpm2_ecdhzgen		   irqtop
+ foomatic-configure		umax_pp				     sha256hmac			    tpm2_ecdhkeygen		   ipcs
+ foomatic-compiledb		scanimage			     sha224hmac			    tpm2_duplicate		   ipcrm
+ foomatic-combo-xml		sane-find-scanner		     sha1hmac			    tpm2_dictionarylockout	   ipcmk
+ bluetooth-sendto		dbus-broker-launch		     gtk4-update-icon-cache	    tpm2_createprimary		   ionice
+ gcr-viewer			dbus-broker			     gtk4-launch		    tpm2_createpolicy		   hexdump
+ gedit				gnome-tour			     compile_et			    tpm2_createek		   hardlink
+ gnome-characters		cyrusbdb2current		     lsattr			    tpm2_createak		   getopt
+ gnome-calculator		autotrace			     fuse2fs			    tpm2_create			   flock
+ gcalccmd			apropos.man-db			     chattr			    tpm2_commit			   findmnt
+ gnome-thumbnail-font		whatis.man-db			     sedispol			    tpm2_clockrateadjust	   fincore
+ gnome-font-viewer		manpath				     sedismod			    tpm2_clearcontrol		   fallocate
+ gcm-viewer			mandb				     checkpolicy		    tpm2_clear			   eject
+ gcm-picker			man.man-db			     checkmodule		    tpm2_checkquote		   dmesg
+ gcm-inspect			man-recode			     adwaita-1-demo		    tpm2_changepps		   column
+ gcm-import			lexgrog				     sqlite3			    tpm2_changeeps		   colrm
+ gnome-disks			catman				     gnome-session		    tpm2_changeauth		   colcrt
+ gnome-disk-image-mounter	x86_64-redhat-linux-gnu-pkg-config   gnome-session-selector	    tpm2_certifycreation	   col
+ gr2fonttest			pkgconf				     gnome-session-quit		    tpm2_certifyX509certutil	   chsh
+ gsound-play			pkg-config			     gnome-session-inhibit	    tpm2_certify		   chrt
+ intltoolize			notmuch				     smime_keys			    tpm2_activatecredential	   choom
+ intltool-update		notmuch-emacs-mua		     pgpewrap			    tpm2			   chmem
+ intltool-prepare		keyctl				     mutt_pgpring		    iptc			   chfn
+ intltool-merge			xb-tool				     mutt			    ssh-copy-id			   cal
+ intltool-extract		growpart			     pkmon			    ssh-keyscan			   zipinfo
+ fgrep				orca				     pkcon			    ssh-keygen			   unzipsfx
+ egrep				mokutil				     htop			    ssh-agent			   unzip
+ grep				pango-view			     gst-transcoder-1.0		    ssh-add			   funzip
+ itstool			pango-segmentation		     pw-jack			    ssh				   curl-config
+ escputil			pango-list			     pw-record			    sftp			   curl
+ cups-calibrate			update-mime-database		     pw-play			    scp				   emacs-27.2-lucid.pdmp
+ ypdomainname			update-gtk-immodules		     pw-midirecord		    nping			   emacs-27.2-nox.pdmp
+ nisdomainname			gtk-query-immodules-2.0-64	     pw-midiplay		    nmap			   emacs-27.2.pdmp
+ hostname			tracker3			     pw-encplay			    ncat			   gctags
+ domainname			nm-connection-editor		     pw-dsdplay			    ps2ps2			   etags.emacs
+ dnsdomainname			nm-applet			     pipewire-vulkan		    ps2ps			   emacsclient
+ hunspell			osinfo-query			     pipewire-pulse		    ps2pdfwr			   emacs-27.2-nox
+ ipcalc				osinfo-install-script		     pipewire-avb		    ps2pdf14			   emacs-27.2-lucid
+ mmc-tool			osinfo-detect			     pipewire-aes67		    ps2pdf13			   emacs-27.2
+ iso-read			osinfo-db-validate		     spa-resample		    ps2pdf12			   ebrowse
+ iso-info			osinfo-db-path			     spa-monitor		    ps2pdf			   avahi-resolve-host-name
+ cdda-player			osinfo-db-import		     spa-json-dump		    ps2epsi			   avahi-resolve-address
+ cd-read			osinfo-db-export		     spa-inspect		    ps2ascii			   avahi-publish-service
+ cd-info			fc-cache			     spa-acp-tool		    printafm			   avahi-publish-address
+ cd-drive			fc-validate			     pw-top			    pphs			   avahi-browse-domains
+ cd-paranoia			fc-scan				     pw-reserve			    pfbtopfa			   avahi-set-host-name
+ printemf			fc-query			     pw-profiler		    pf2afm			   avahi-resolve
+ gkbd-keyboard-display		fc-pattern			     pw-mon			    pdf2ps			   avahi-publish
+ gsf-office-thumbnailer		fc-match			     pw-mididump		    pdf2dsc			   avahi-browse
+ libieee1284_test		fc-list				     pw-metadata		    gsnd			   micro
+ jcat-tool			fc-conflist			     pw-loopback		    gslp			   nsupdate
+ otfview			fc-cat				     pw-link			    gslj			   nslookup
+ otftobdf			fc-cache-64			     pw-dump			    gsdj500			   host
+ otflist			sscg				     pw-dot			    gsdj			   dnstap-read
+ otfdump			team2bond			     pw-config			    gsbj			   dig
+ pcap-config			teamnl				     pw-cli			    eps2eps			   delv
+ paperconf			teamdctl			     pw-cat			    ghostscript			   arpaname
+ libpng16-config		teamd				     pipewire			    gs				   qemu-ga
+ libpng-config			qmi-network			     watch			    ms_print			   bwrap
+ pngfix				qmicli				     w				    cg_merge			   flatpak
+ png-fix-itxt			qmi-firmware-update		     vmstat			    cg_diff			   sigtool
+ pwscore			oddjob_request			     uptime			    cg_annotate			   freshclam
+ pwmake				mmcli				     top			    callgrind_control		   clamsubmit
+ sndfile-resample		scl				     tload			    callgrind_annotate		   clamscan
+ secret-tool			mbim-network			     snice			    vgdb			   clamdtop
+ linuxdoc			mbimcli				     slabtop			    valgrind-listener		   clamdscan
+ sgmlsasp			zlib-flate			     skill			    valgrind-di-server		   clamconf
+ sgmlpre			qpdf				     pwdx			    valgrind			   clambc
+ sgmlcheck			fix-qdf				     ps				    wget			   update-crypto-policies
+ sgml2txt			paper				     pmap			    sim_lsmplugin		   fips-mode-setup
+ sgml2rtf			spice-vdagent			     pkill			    lsmcli			   fips-finish-install
+ sgml2lyx			pstops				     pidwait			    simc_lsmplugin		   renew-dummy-cert
+ sgml2latex			psselect			     pidof			    lsmd			   make-dummy-cert
+ sgml2info			psresize			     pgrep			    src-hilite-lesspipe.sh	   openssl
+ sgml2html			psnup				     free			    source-highlight-esc.sh	   gtester-report
+ rtf2rtf			psjoin				     sudoedit			    java2html			   glib-mkenums
+ sensors-conf-convert		psbook				     sudoreplay			    cpp2html			   glib-genmarshal
+ sensors			includeres			     sudo			    source-highlight-settings	   gdbus-codegen
+ ltrace				extractres			     cvtsudoers			    source-highlight		   glib-gettextize
+ lsof				epsffit				     smbtar			    check-regexp		   gtester
+ m17n-conv			pesign-client			     make			    mpris-proxy			   gsettings
+ luksmeta			pesign				     gmake			    l2ping			   gresource
+ xdriinfo			pesigcheck			     vm-support			    hex2hcd			   gobject-query
+ glxinfo64			efikeygen			     ldapadd			    btmon			   glib-compile-schemas
+ glxinfo			authvar				     ldapwhoami			    btmgmt			   glib-compile-resources
+ glxgears			gnome-logs			     ldapvc			    btattach			   gio-querymodules-64
+ mkfontdir			zipsplit			     ldapurl			    bluetoothctl		   gio
+ mkfontscale			zipnote				     ldapsearch			    bluemoon			   gdbus
+ updatedb			zipcloak			     ldappasswd			    avinfo			   gapplication
+ locate				zip				     ldapmodrdn			    newaliases.postfix		   stap-report
+ whiptail			sealert				     ldapmodify			    mailq.postfix		   stap-profile-annotate
+ pod2text			os-prober			     ldapexop			    rmail.postfix		   stap-prep
+ pod2man			linux-boot-prober		     ldapdelete			    gtk-update-icon-cache	   stap-merge
+ pod2usage			uxterm				     ldapcompare		    gtk-query-immodules-3.0-64	   stap
+ perldoc			koi8rxterm			     inxi			    gtk-launch			   stapsh
+ zipdetails			xterm				     bashbug-64			    ndptool			   staprun
+ streamzip			resize				     wait			    f95				   stapdyn
+ xpath				which				     unalias			    cc				   stapbpf
+ miniterm.py			gettext.sh			     umask			    c99				   kernel-install
+ miniterm-3.py			gettextize			     ulimit			    c89				   systemd-umount
+ miniterm-3.9.py		autopoint			     type			    x86_64-redhat-linux-gcc-11	   udevadm
+ distro				xgettext			     sh				    x86_64-redhat-linux-gcc	   timedatectl
+ pyinotify			recode-sr-latin			     read			    x86_64-redhat-linux-g++	   systemd-tty-ask-password-agent
+ jsonpatch-3.9			ngettext			     jobs			    x86_64-redhat-linux-c++	   systemd-tmpfiles
+ jsonpatch-3			msguniq				     hash			    gfortran			   systemd-sysusers
+ jsonpatch			msgunfmt			     getopts			    gcov-tool			   systemd-sysext
+ jsondiff-3.9			msgmerge			     fg				    gcov-dump			   systemd-stdio-bridge
+ jsondiff-3			msginit				     fc				    gcov			   systemd-socket-activate
+ jsondiff			msggrep				     command			    gcc-ranlib			   systemd-run
+ jsonschema			msgfmt				     cd				    gcc-nm			   systemd-repart
+ jsonpointer-3.9		msgfilter			     bg				    gcc-ar			   systemd-path
+ jsonpointer-3			msgexec				     bashbug			    gcc				   systemd-notify
+ jsonpointer			msgen				     alias			    g++				   systemd-mount
+ spent				msgconv				     bash			    cpp				   systemd-machine-id-setup
+ spam				msgcomm				     gracebat			    c++				   systemd-inhibit
+ sgmlnorm			msgcmp				     fdf2fit			    lto-dump			   systemd-id128
+ sgml2xml			msgcat				     convcal			    pdfunite			   systemd-hwdb
+ nsgmls				msgattrib			     xmgrace			    pdftotext			   systemd-firstboot
+ osx				gettext				     rpcinfo			    pdftops			   systemd-escape
+ ospent				envsubst			     rpcbind			    pdftoppm			   systemd-dissect
+ ospcat				tmux				     fwupdagent			    pdftohtml			   systemd-detect-virt
+ ospam				gst-typefind-1.0		     fwupdtool			    pdftocairo			   systemd-delta
+ osgmlnorm			gst-stats-1.0			     fwupdmgr			    pdfsig			   systemd-cryptenroll
+ onsgmls			gst-launch-1.0			     fwupdate			    pdfseparate			   systemd-creds
+ pinentry			gst-inspect-1.0			     dfu-tool			    pdfinfo			   systemd-cgtop
+ passwd				luac				     dbxtool			    pdfimages			   systemd-cgls
+ unwrapdiff			lua				     sestatus			    pdffonts			   systemd-cat
+ splitdiff			wpexec				     semodule_unpackage		    pdfdetach			   systemd-ask-password
+ recountdiff			wpctl				     semodule_package		    pdfattach			   systemd-analyze
+ fixcvsdiff			wireplumber			     semodule_link		    gdmflexiserver		   systemctl
+ espdiff			appstreamcli			     semodule_expand		    gdm-screenshot		   loginctl
+ editdiff			thunar-settings			     secon			    quotasync			   localectl
+ dehtmldiff			gpgv2				     chcat			    quota			   journalctl
+ patchview			gpg2				     audit2why			    ibus-setup			   hostnamectl
+ lsdiff				watchgnupg			     audit2allow		    ibus-daemon			   coredumpctl
+ grepdiff			gpgv				     lsusb.py			    ibus			   busctl
+ flipdiff			gpgtar				     usbhid-dump		    ndctl			   bootctl
+ combinediff			gpgsplit			     lsusb			    orc-bugreport		   brotli
+ rediff				gpgparsemail			     sushi			    pcre2-config		   sg
+ interdiff			gpgconf				     clevis-luks-unlock		    tapestat			   newuidmap
+ filterdiff			gpg-wks-server			     clevis-luks-report		    sar				   newgrp
+ pavucontrol			gpg-wks-client			     clevis-luks-regen		    sadf			   newgidmap
+ install-catalog		gpg-connect-agent		     clevis-luks-pass		    pidstat			   lastlog
+ paps				gpg-card			     clevis-luks-list		    mpstat			   gpasswd
+ patch				gpg-agent			     clevis-luks-edit		    iostat			   getsubids
+ dbiprof			gpg				     clevis-luks-bind		    cifsiostat			   chage
+ dbilogstrip			g13				     clevis-encrypt-tpm2	    auvirt			   kdumpctl
+ pnm2ppa			dirmngr-client			     clevis-encrypt-tang	    ausyscall			   cockpit-bridge
+ pbmtpg				dirmngr				     clevis-encrypt-null	    aulastlog			   tzselect
+ pbm2ppa			envml				     clevis-decrypt-tpm2	    aulast			   catchsegv
+ calibrate_ppa			totem-video-thumbnailer		     clevis-decrypt-tang	    vimtutor			   sotruss
+ pinfo				totem				     clevis-decrypt-null	    vimdiff			   ldd
+ pinentry-gnome3		gjs				     clevis-decrypt		    view			   ld.so
+ pinentry-curses		gjs-console			     clevis			    vi				   zdump
+ pkla-check-authorization	gnome-browser-connector-host	     withsctp			    rvim			   sprof
+ pkla-admin-identities		gnome-browser-connector		     sctp_test			    rview			   pldd
+ tek2plot			xfce4-screensaver-configure	     sctp_status		    rvi				   localedef
+ spline				xhlatex				     sctp_darn			    ex				   locale
+ plotfont			xelatex-dev			     checksctp			    xxd				   iconv
+ plot				xelatex				     oscap-chroot		    vim				   getent
+ pic2plot			texluac				     w3mman			    dnf-3			   getconf
+ ode				texlua				     w3m			    yum				   gencat
+ hersheydemo			texhash				     tkjpeg			    dnf				   driverless-fax
+ graph				simpdftex			     ptksh			    consolehelper		   driverless
+ double				r-mpost				     ptked			    libwacom-list-local-devices	   foomatic-rip
+ pstree.x11			pdflatex-dev			     pip3.9			    libwacom-list-devices	   ppdpo
+ pstree				pdfetex				     pip3			    lesspipe.sh			   ppdmerge
+ pslog				mktexfmt			     pip-3.9			    lesskey			   ppdi
+ prtstat			mk4ht				     pip-3			    lessecho			   ppdhtml
+ peekfd				mfplain				     pip			    less			   ppdc
+ killall			lualatex-dev			     sfddiff			    clang			   lpstat.cups
+ pstoedit			luacsplain			     fontlint			    clang-format-diff		   lprm.cups
+ yelp-new			latex-dev			     fontimage			    clang++-18			   lpr.cups
+ yelp-check			initex				     fontforge			    amdgpu-arch			   lpq.cups
+ yelp-build			inimf				     Xorg			    clang-tblgen		   lpoptions
+ rpcgen				htxetex				     X				    clang-scan-deps		   lp.cups
+ airscan-discover		htxelatex			     gtf			    clang-repl			   ipptool
+ setserial			httexi				     cvt			    clang-reorder-fields	   ippfind
+ setxkbmap			httex				     flatpak-coredumpctl	    clang-rename		   cupstestppd
+ mailx.s-nail			htmex				     flatpak-bisect		    clang-refactor		   cancel.cups
+ s-nail				htlatex				     pcre-config		    clang-query			   crontab
+ speech-dispatcher		htcontext			     oscap			    clang-pseudo		   cronnext
+ soundstretch			ht				     eu-make-debug-archive	    clang-offload-packager	   smbprint
+ symlinks			extractbb			     eu-unstrip			    clang-offload-bundler	   wspsearch
+ sed				etex				     eu-strip			    clang-move			   smbtree
+ switcherooctl			ebb				     eu-strings			    clang-linker-wrapper	   smbspool
+ txtconv			dvitomp				     eu-stack			    clang-include-fixer		   smbget
+ teckit_compile			dvipdfmx			     eu-srcfiles		    clang-include-cleaner	   smbcquotas
+ sfconv				dvipdfm				     eu-size			    clang-format		   smbclient
+ time				dviluatex			     eu-readelf			    clang-extdef-mapping	   smbcacls
+ tcutest			dvilualatex-dev			     eu-ranlib			    clang++			   sharesec
+ tcumttest			dvigif				     eu-objdump			    c-index-test		   samba-regedit
+ tcucodec			mkofm				     eu-nm			    clang-tidy			   rpcclient
+ tcttest			mkocp				     eu-findtextrel		    pp-trace			   regtree
+ tctmttest			mkindex				     eu-elflint			    nvptx-arch			   regshell
+ tctmgr				dvipdft				     eu-elfcompress		    modularize			   regpatch
+ tchtest			xdvi				     eu-elfcmp			    find-all-symbols		   regdiff
+ tchmttest			xetex				     eu-elfclassify		    diagtool			   oLschema2ldif
+ tchmgr				xdvipdfmx			     eu-ar			    clangd			   nmblookup
+ tcftest			xdvi-xaw			     eu-addr2line		    clang-change-namespace	   mvxattr
+ tcfmttest			vptovf				     debuginfod-find		    clang-doc			   mdsearch
+ tcfmgr				vftovp				     appstream-util		    clang-cpp			   dumpmscat
+ tcbtest			tftopl				     appstream-compose		    clang-cl			   dbwrap_tool
+ tcbmttest			tex4ht				     xmllint			    clang-check			   cifsdd
+ tcbmgr				tex				     xmlcatalog			    clang-apply-replacements	   skopeo
+ tcatest			t4ht				     gnome-screenshot		    clang-18			   krb5-config
+ tcamttest			pltotf				     gnome-control-center	    chronyc			   kvno
+ tcamgr				pktype				     mmdblookup			    qrap			   ktutil
+ ttmkfdir			pktogf				     lchsh			    pasta.avx2			   kswitch
+ url_handler.sh			pdftex				     lchfn			    pasta			   ksu
+ urlview			mpost				     setcifsacl			    passt.avx2			   kpasswd
+ xdg-user-dirs-update		mft				     getcifsacl			    passt			   klist
+ xkbcomp			mf-nowin			     cifscreds			    grub2-script-check		   kinit
+ xauth				mf				     boltctl			    grub2-mount			   kdestroy
+ xsetroot			makeindex			     gdk-pixbuf-thumbnailer	    grub2-mkrelpath		   kadmin
+ xset				luatex				     gdk-pixbuf-query-loaders-64    grub2-mkpasswd-pbkdf2	   buildah
+ xrdb				luahbtex			     udisksctl			    grub2-mkimage		   mutter
+ xrandr				kpsewhich			     xmlsec1			    grub2-menulst2cfg		   gnome-shell-perf-tool
+ xmodmap			kpsestat			     vmware-user		    grub2-file			   gnome-shell-extension-tool
+ xkill				kpsereadlink			     vmwgfxctrl			    grub2-editenv		   gnome-shell
+ xisxwayland			kpseaccess			     vmware-xferlogs		    strip			   gnome-extensions
+ xinput				gsftopk				     vmware-vmblock-fuse	    strings			   tracepath
+ xhost				gftype				     vmware-vgauth-cmd		    size			   ping
+ xgamma				gftopk				     vmware-user-suid-wrapper	    readelf			   clockdiff
+ startx				gftodvi				     vmware-toolbox-cmd		    ranlib			   arping
+ xinit				dvisvgm				     vmware-rpctool		    objdump			   stream
+ xdg-user-dirs-gtk-update	dvips				     vmware-namespace-cmd	    objcopy			   montage
+ gnome-help			dvipng				     vmware-hgfsclient		    nm				   mogrify
+ yelp				bibtex				     vmware-checkvm		    ld.gold			   import
+ xwininfo			afm2tfm				     vmware-alias-import	    ld.bfd			   identify
+ xvinfo				dvi2fax				     vmtoolsd			    gprof			   display
+ xprop				contextjit			     vmhgfs-fuse		    elfedit			   convert
+ xlsfonts			allneeded			     VGAuthService		    dwp				   conjure
+ xlsclients			allec				     clevis-luks-unbind		    c++filt			   composite
+ xlsatoms			allcm				     clevis-luks-common-functions   as				   compare
+ xev				tlmgr				     clevis-encrypt-sss		    ar				   animate
+ xdpyinfo			thumbpdf			     clevis-decrypt-sss		    addr2line			   trust
+ piconv				texlinks			     psfstriptable		    rpmverify			   p11-kit
+ encguess			texexec				     psfgettable		    rpmquery			   soelim
+ scp-dbus-service		texconfig-sys			     psfaddtable		    rpmspec			   ld
+ modulemd-validator		texconfig-dialog		     unicode_start		    rpmsign			   whatis
+ lsscsi				texconfig			     vlock			    rpmkeys			   man
+ upower				rungs				     showkey			    rpmdb			   apropos
+ monitor-sensor			repstopdf			     showconsolefont		    rpmbuild			   Rscript
+ icu-config-64			pslatex				     setvtrgb			    rpm2cpio			   xmlwf
+ icuinfo			ps2frag				     setmetamode		    rpm2archive			   vncviewer
+ grl-launch-0.3			pdfxmltex			     setleds			    rpm				   chafa
+ grl-inspect-0.3		pdflatex			     setkeycodes		    crun			   npx-22
+ grilo-test-ui-0.3		pdfjadetex			     setfont			    rustdoc			   npx
+ wnck-urgency-monitor		pdfatfi				     resizecons			    rustc			   npm-22
+ fprintd-verify			mtxrunjit			     psfxtable			    llvm-windres		   npm
+ fprintd-list			mtxrun				     openvt			    llvm-strip			   node
+ fprintd-enroll			mptopdf				     mapscrn			    llvm-readelf		   node-22
+ fprintd-delete			mktextfm			     loadunimap			    llvm-ranlib			   git-upload-pack
+ eog				mktexpk				     loadkeys			    llvm-otool			   git-upload-archive
+ tcsh				mktexlsr			     kbdrate			    llvm-lib			   git-receive-pack
+ csh				lwarpmk				     kbdinfo			    llvm-install-name-tool	   scalar
+ cpio				luatools			     kbd_mode			    llvm-dlltool		   git-shell
+ pic2graph			luaotfload-tool			     getkeycodes		    llvm-bitcode-strip		   git
+ pdfroff			lualatex			     fgconsole			    llvm-addr2line		   gofmt
+ nroff				latex2man			     dumpkeys			    sancov			   go
+ neqn				latex				     deallocvt			    opt				   podmansh
+ grap2graph			kpsexpand			     chvt			    obj2yaml			   podman
+ gdiffmk			kpsewhere			     jq				    llvm-undname		   shade-jar
+ eqn2graph			kpsetool			     gnome-software		    llvm-tblgen			   rebuild-jar-repository
+ zsoelim			kpsepath			     slirp4netns		    llvm-dwp			   find-jar
+ gtroff				jadetex				     pkttyagent			    llvm-dwarfutil		   diff-jars
+ gtbl				fmtutil-user			     pkexec			    llvm-dwarfdump		   create-jar-links
+ gsoelim			fmtutil-sys			     pkcheck			    llvm-dis			   clean-binary-files
+ grefer				fmtutil				     pkaction			    llvm-diff			   check-binary-files
+ gpic				epstopdf			     conmon			    llvm-debuginfod-find	   build-jar-repository
+ gnroff				e2pall				     Xwayland			    llvm-debuginfod		   build-classpath-directory
+ gneqn				dvired				     jose			    llvm-debuginfo-analyzer	   build-classpath
+ glookbib			dvilualatex			     yumdownloader		    llvm-cxxmap			   setup-nsssysinit.sh
+ gindxbib			xmltex				     yum-groups-manager		    llvm-cxxfilt		   setup-nsssysinit
+ geqn				updmap-user			     yum-debug-restore		    llvm-cxxdump		   ssltap
+ troff				updmap-sys			     yum-debug-dump		    llvm-cvtres			   signver
+ tfmtodit			updmap				     yum-config-manager		    llvm-cov			   pk12util
+ tbl				context				     yum-builddep		    llvm-cfi-verify		   nss-policy-check
+ soelim.groff			mktexmf				     repotrack			    llvm-cat			   modutil
+ refer				xflock4				     reposync			    llvm-c-test			   crlutil
+ preconv			xfconf-query			     repoquery			    llvm-bcanalyzer		   cmsutil
+ pre-grohtml			exo-open			     repomanage			    llvm-as			   certutil
+ post-grohtml			exo-desktop-item-edit		     repodiff			    bugpoint			   ant
+ pic				xfce4-popup-applicationsmenu	     repoclosure		    UnicodeNameMappingGenerator	   rofiles-fuse
+ pfbtops			xfce4-popup-directorymenu	     repo-graph			    FileCheck			   ostree
+ lookbib			xfce4-popup-windowmenu		     package-cleanup		    llvm-gsymutil		   rpm-ostree
+ lkbib				xfce4-panel			     needs-restarting		    llvm-extract		   pg_config
+ indxbib			xfrun4				     find-repos-of-install	    llvm-exegesis		   pg_server_config
+ hpftodit			xfce4-appfinder			     debuginfo-install		    dsymutil			   sss_ssh_knownhostsproxy
+ grotty				xfwm4-workspace-settings	     libtoolize			    yaml2obj			   sss_ssh_authorizedkeys
+ grops				xfwm4-tweaks-settings		     libtool			    verify-uselistorder		   rhc
+ grolj4				xfwm4-settings			     gstack			    split-file			   cloud-init-per
+ grolbp				xfwm4				     gdb-add-index		    sanstats			   cloud-init
+ groff				xfsettingsd			     gcore			    llvm-xray			   cloud-id
+ grodvi				xfce4-settings-manager		     pstack			    llvm-tli-checker		   erb
+ grn				xfce4-settings-editor		     gdb			    llvm-symbolizer		   ruby
+ eqn				xfce4-mouse-settings		     ima-setup			    llvm-strings		   ri
+ addftinfo			xfce4-mime-settings		     ima-add-sigs		    llvm-stress			   rdoc
+ m4				xfce4-mime-helper		     evmctl			    llvm-split			   gem
+ tree				xfce4-keyboard-settings		     ulockmgr_server		    llvm-size			   bundler
+ unpigz				xfce4-find-cursor		     fusermount			    llvm-sim			   bundle
+ pigz				xfce4-display-settings		     ifnames			    llvm-rtdyld			   crb
+ lastcomm			xfce4-color-settings		     autoupdate			    llvm-remarkutil		   python3
+ ac				xfce4-appearance-settings	     autoscan			    llvm-reduce			   pydoc3.9
+ exempi				xfce4-accessibility-settings	     autoreconf			    llvm-readtapi		   pydoc3
+ exiv2				Thunar				     autom4te			    llvm-readobj		   pydoc
+ gnome-terminal			thunar				     autoheader			    llvm-rc			   python3.9
+ xdg-settings			xfce4-power-manager-settings	     autoconf			    llvm-profgen		   python
+ xdg-screensaver		xfce4-power-manager		     run-clang-tidy		    llvm-profdata		   pydoc3.11
+ xdg-open			startxfce4			     hmaptool			    llvm-pdbutil		   python3.11
+ xdg-mime			xfce4-session-settings		     icewm-set-gnomewm		    llvm-opt-report		   btop
+ xdg-icon-resource		xfce4-session-logout		     icewm-menu-xrandr		    llvm-objdump		   firefox
+ xdg-email			xfce4-session			     powerprofilesctl		    llvm-objcopy		   WebKitWebDriver
+ xdg-desktop-menu		xfdesktop-settings		     icewmhint			    llvm-nm			   flashfetch
+ xdg-desktop-icon		xfdesktop			     icewmbg			    llvm-mt			   fastfetch
+ aec				thunar-volman-settings		     icewm-session		    llvm-modextract		   modulecmd
+ gpg-error			thunar-volman			     icewm-menu-fdo		    llvm-ml			   rmail
+ zstdless			xfce4-screensaver-preferences	     icewm			    llvm-mca			   newaliases
+ zstdgrep			xfce4-screensaver-command	     icesound			    llvm-mc			   mailq
+ notify-send			xfce4-screensaver		     icesh			    llvm-lto2			   whois
+ tidy				dbus-uuidgen			     icehelp			    llvm-lto			   nail
+ satyr				dbus-update-activation-environment   aserver			    llvm-lipo			   mailx
+ cpanel_json_xs			dbus-test-tool			     fusermount3		    llvm-link			   mail
+ xml2-config			dbus-send			     netstat			    llvm-libtool-darwin		   Mail
+ libwacom-update-db		dbus-run-session		     ps2eps			    llvm-jitlink-executor	   etags
+ reporter-upload		dbus-monitor			     deweb			    llvm-jitlink		   java
+ report-cli			dbus-daemon			     chkweb			    llvm-ifs			   rmiregistry
+ xsltproc			dbus-cleanup-sockets		     wovp2ovf			    llvm-ar			   keytool
+ neofetch			vdostats			     weave			    llvm-PerfectShuffle		   jcmd
+ catimg				vdosetuuid			     uptftopl			    lli				   alt-java
+ iceauth			vdoformat			     uptex			    llc				   emacs
+ zstdmt				vdoforcerebuild			     uppltotf			    tar				   emacs-lucid
+ zstdcat			vdodumpconfig			     upmpost			    gtar			   emacs-nox
+ unzstd				vdodmeventd			     upmendex			    yes				   lpr
+ zstd				speak-ng			     uplatex-dev		    whoami			   lp
+ pzstd				espeak-ng			     uplatex			    who				   lpstat
+ rpload				automake-1.16			     updvitype			    wc				   lprm
+ rpdump				automake			     updvitomp			    vdir			   lpq
+ pilot				aclocal-1.16			     upbibtex			    users			   cancel
+ pico				aclocal				     ttfdump			    unlink			   nc
+ alpine				usb-devices			     ttf2tfm			    uniq			   editor
+ xsetwacom			libinput			     ttf2pk			    unexpand			   rsync-ssl
+ isdv4-serial-inputattach	k5srvutil			     ttf2afm			    uname			   rsync
+ awk				json_verify			     tie			    tty				   nmtui-hostname
+ gawk				json_reformat			     tangle			    tsort			   nmtui-edit
+ gpgme-json			canberra-gtk-play		     r-upmpost			    truncate			   nmtui-connect
+ texi2dvi			canberra-boot			     ptftopl			    true			   nmtui
+ texindex			plymouth			     ptex			    tr				   nmcli
+ texi2any			ddcutil				     ppltotf			    touch			   nm-online
+ pod2texi			ipmitool			     pmpost			    timeout			   kvm_stat
+ makeinfo			authselect			     platex			    test			   cpupower
+ info				reset				     pdvitype			    tee				   centrino-decode
+ chardetect			infotocap			     pdvitomp			    tail			   tmon
+ xclip-pastefile		captoinfo			     pbibtex			    tac				   lsiio
+ xclip-cutfile			tset				     mendex			    sync			   x86_energy_perf_policy
+ xclip-copyfile			tput				     makejvf			    sum				   slabinfo
+ xclip				toe				     lacheck			    stty			   powernow-k8-decode
+ zsh				tic				     euptex			    stdbuf			   page_owner_sort
+ flexiblas64			tabs				     eptex			    stat			   lsgpio
+ flexiblas			infocmp				     cweave			    split			   iio_generic_buffer
+ xmlrpc-c-config		clear				     ctwill-twinx		    sort			   iio_event_monitor
+ gnome-shell-extension-prefs	hb-view				     ctwill-refsort		    sleep			   gpio-watch
+ xdg-dbus-proxy			hb-subset			     ctwill			    shuf			   gpio-hammer
+ run-parts			hb-shape			     ctie			    shred			   gpio-event-mon
+ batch				hb-ot-shape-closure		     ctangle			    sha512sum			   turbostat
+ atrm				img2txt				     chktex			    sha384sum			   intel-speed-select
+ atq				cacaview			     bbox			    sha256sum			   jmod
+ at				cacaserver			     convbkmk			    sha224sum			   jlink
+ wmctrl				cacaplay			     jade			    sha1sum			   jhsdb
+ fribidi			cacafire			     openjade			    seq				   jdeps
+ znew				cacademo			     katello-rhsm-consumer	    runcon			   jdeprscan
+ zmore				cacaclock			     fuse-overlayfs		    rmdir			   jdb
+ zless				msql2mysql			     firewall-offline-cmd	    rm				   jconsole
+ zgrep				mariadb-find-rows		     firewall-cmd		    realpath			   javap
+ zforce				mariadb-access			     alsaunmute			    readlink			   javadoc
+ zfgrep				mysqlslap			     arecord			    pwd				   javac
+ zegrep				mysqlshow			     speaker-test		    ptx				   jarsigner
+ zdiff				mysqlimport			     nhlt-dmic-info		    printf			   jar
+ zcmp				mysqldump			     iecset			    printenv			   serialver
+ zcat				mysqlcheck			     axfer			    pr				   jstatd
+ gzip				mysqlbinlog			     aseqsend			    pinky			   jstat
+ gzexe				mysqladmin			     aseqnet			    pathchk			   jstack
+ gunzip				mysql_waitpid			     aseqdump			    paste			   jshell
+ whois.md			mysql_plugin			     arecordmidi		    od				   jrunscript
+ gnome-system-monitor		mysql				     aplaymidi			    numfmt			   jps
+ zenity				mysqlaccess			     aplay			    nproc			   jpackage
+ xfce4-terminal			mysql_find_rows			     amixer			    nohup			   jmap
+ evince-thumbnailer		mariadb-slap			     amidi			    nl				   jinfo
+ evince-previewer		mariadb-show			     alsamixer			    nice			   jimage
+ evince				mariadb-plugin			     alsaloop			    mv				   jfr
+ hddtemp			mariadb-import			     aconnect			    mktemp
+ mirror_server_stop		mariadb-dump			     rnano			    mknod
+ mirror_server			mariadb-binlog			     nano			    mkfifo
+ h5diff				mariadb-waitpid			     xargs			    mkdir
+[Parent]: Child 1182857 finished with status code 0. Onward!.
+Selection #4: /proc [SUCCESS]
+Current reported directory: /proc
+[Parent]: I am waiting for PID 1182858 to finish.
+thread-self  956    836	  6666	570  46	  358  18      120249	      crypto	   misc		  283943   1172261  1173897  1175277  1179541  1181264	1182854
+sys	     923    809	  6665	569  45	  356  17      stat	      consoles	   mdstat	  283944   1172301  1173944  1176846  1179914  1181741
+self	     9	    807	  66	568  447  35   1619    tty	      kallsyms	   locks	  294982   1172310  1173972  1178978  1179919  1181966
+1	     879    796	  64	567  446  34   1618    net	      irq	   kpageflags	  294984   1172311  1173983  1178979  1179921  1182031
+swaps	     873    795	  63	566  44	  32   1610    diskstats      ioports	   scsi		  756995   1172325  1173997  1179073  1179935  1182107
+806	     872    794	  62	564  43	  31   1601    vmstat	      iomem	   schedstat	  756997   1172326  1174031  1179069  1179936  1182106
+844	     861    793	  617	56   425  30   16      loadavg	      interrupts   partitions	  757071   1172435  1174101  1179122  1179989  1182104
+845	     85870  792	  616	559  424  3    1573    cmdline	      fs	   pagetypeinfo	  816644   1172437  1174095  1179126  1179969  1182193
+847	     85868  791	  615	557  42	  28   15      cpuinfo	      filesystems  mtrr		  1146182  1172531  1174307  1179127  1180021  1182249
+946	     853    790	  614	551  41	  26   14      cgroups	      fb	   mounts	  1171789  1172527  1174384  1179174  1180017  1182470
+950	     85257  789	  613	543  40	  25   13      bus	      execdomains  slabinfo	  1171791  1172580  1174386  1179202  1180068  1182504
+959	     85255  78	  612	542  4	  24   1293    buddyinfo      kpagecount   softirqs	  1171885  1172591  1174480  1179213  1180075  1182506
+1608	     850    735	  611	51   39	  23   1271    bootconfig     kpagecgroup  sysvipc	  1171881  1173708  1174476  1179224  1180090  1182502
+83828	     849    7	  610	50   38	  22   1270    acpi	      kmsg	   sysrq-trigger  1172015  1173710  1174540  1179257  1180119  1182632
+111213	     848    68	  609	5    37	  20   111138  dynamic_debug  keys	   timer_list	  1172026  1173804  1174790  1179331  1180127  1182771
+719	     841    67	  608	49   361  2    11      driver	      key-users	   zoneinfo	  1172039  1173800  1175043  1179510  1180193  1182770
+uptime	     840    6668  6	48   360  19   120225  dma	      kcore	   vmallocinfo	  1172070  1173853  1175079  1179525  1180459  1182789
+meminfo	     83829  6667  571	47   359  189  120250  devices	      modules	   version	  1172132  1173896  1175256  1179533  1181149  1182858
+[Parent]: Child 1182858 finished with status code 0. Onward!.
+Selection #5: /usr [SUCCESS]
+Current reported directory: /usr
+[Parent]: I am waiting for PID 1182859 to finish.
+tmp  games  unixadmin  satellite  src  share  local  lib  libexec  lib64  sbin	include	 bin
+[Parent]: Child 1182859 finished with status code 0. Onward!.
+[bjpeters@ccc-app-p-u50 project_1]$ ./slug 1
+[Slug PID: 1182911] Read seed value: 12345
+[Slug PID: 1182911] Read seed value (converted to integer): 12345
+[Slug PID: 1182911] Delay time is 6 seconds. Coin flip: 1
+[Slug PID: 1182911] I,ll get the job done. Eventually...
+[Slug PID: 1182911] Break time is over! I am running the 'id -group' command.
+1882600513
+[bjpeters@ccc-app-p-u50 project_1]$ ./slugrace
+[Parent]: I forked off child 1183007.
+[Parent]: I forked off child 1183008.
+	[Child, spoon: 1183007]: Executing './slug 1' command...
+	[Child, spoon: 1183008]: Executing './slug 2' command...
+[Parent]: I forked off child 1183009.
+	[Child, spoon: 1183009]: Executing './slug 3' command...
+[Parent]: I forked off child 1183010.
+	[Child, spoon: 1183010]: Executing './slug 4' command...
+The race is ongoing. The following children are still racing: 1183007 1183008 1183009 1183010
+[Slug PID: 1183009] Read seed value: 12534
+[Slug PID: 1183009] Read seed value (converted to integer): 12534
+[Slug PID: 1183009] Delay time is 2 seconds. Coin flip: 1
+[Slug PID: 1183009] I,ll get the job done. Eventually...
+[Slug PID: 1183008] Read seed value: 12354
+[Slug PID: 1183008] Read seed value (converted to integer): 12354
+[Slug PID: 1183008] Delay time is 6 seconds. Coin flip: 0
+[Slug PID: 1183008] I,ll get the job done. Eventually...
+[Slug PID: 1183007] Read seed value: 12345
+[Slug PID: 1183007] Read seed value (converted to integer): 12345
+[Slug PID: 1183007] Delay time is 6 seconds. Coin flip: 1
+[Slug PID: 1183007] I,ll get the job done. Eventually...
+[Slug PID: 1183010] Read seed value: 15234
+[Slug PID: 1183010] Read seed value (converted to integer): 15234
+[Slug PID: 1183010] Delay time is 6 seconds. Coin flip: 0
+[Slug PID: 1183010] I,ll get the job done. Eventually...
+The race is ongoing. The following children are still racing: 1183007 1183008 1183009 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183009 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183009 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183009 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183009 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183009 1183010
+[Slug PID: 1183009] Break time is over! I am running the 'id -group' command.
+1882600513
+Child 1183009 has crossed the finish line! It took 2.311719 seconds
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+The race is ongoing. The following children are still racing: 1183007 1183008 1183010
+[Slug PID: 1183008] Break time is over! I am running the 'last -i -x' command.
+[Slug PID: 1183007] Break time is over! I am running the 'id -group' command.
+[Slug PID: 1183010] Break time is over! I am running the 'last -i -x' command.
+1882600513
+zweissma pts/26	      10.217.64.17     Mon Jan 27 22:36 - 23:35	 (00:58)
+dsbradbu pts/24	      130.215.9.88     Mon Jan 27 21:48 - 22:48	 (00:59)
+ttpham3	 pts/19	      130.215.249.123  Mon Jan 27 19:50	  still logged in
+ejfinley pts/1	      130.215.215.230  Mon Jan 27 19:13 - 19:35	 (00:21)
+bkdionne pts/1	      130.215.172.210  Mon Jan 27 16:30 - 18:44	 (02:14)
+lbzaki	 pts/20	      130.215.223.153  Mon Jan 27 16:08 - 16:14	 (00:06)
+khkyer	 pts/19	      10.217.64.106    Mon Jan 27 15:51 - 18:05	 (02:13)
+kjdoll	 pts/19	      130.215.222.190  Mon Jan 27 14:03 - 15:18	 (01:15)
+ttpham3	 pts/12	      130.215.217.77   Mon Jan 27 13:02 - 14:45	 (01:42)
+dsbradbu pts/21	      130.215.9.88     Mon Jan 27 11:08 - 11:31	 (00:23)
+jbtasick pts/2	      130.215.173.37   Mon Jan 27 11:00 - 11:07	 (00:07)
+jbtasick pts/2	      130.215.173.37   Mon Jan 27 10:58 - 10:59	 (00:01)
+satellit pts/2	      130.215.202.27   Mon Jan 27 10:10 - 10:10	 (00:00)
+adrockwe pts/4	      130.215.15.190   Mon Jan 27 09:49 - 11:20	 (01:31)
+zweissma pts/2	      130.215.221.33   Mon Jan 27 09:45 - 10:07	 (00:21)
+rsmith4	 pts/1	      10.217.64.250    Mon Jan 27 08:56 - 11:38	 (02:41)
+satellit pts/1	      130.215.202.27   Mon Jan 27 08:37 - 08:38	 (00:01)
+satellit pts/1	      130.215.202.27   Mon Jan 27 08:34 - 08:34	 (00:00)
+satellit pts/1	      130.215.202.27   Mon Jan 27 08:34 - 08:34	 (00:00)
+kjschmot pts/1	      10.217.64.85     Sun Jan 26 22:14 - 22:15	 (00:01)
+zweissma pts/23	      10.217.64.31     Sun Jan 26 17:29 - 17:31	 (00:02)
+dpsetlur pts/2	      10.217.64.33     Sat Jan 25 21:50 - 00:18	 (02:28)
+dpsetlur pts/1	      10.217.64.33     Sat Jan 25 21:25 - 23:38	 (02:12)
+cwang23	 pts/10	      130.215.124.210  Sat Jan 25 12:45 - 18:20	 (05:35)
+kerabbit pts/1	      10.217.64.87     Sat Jan 25 11:47 - 12:06	 (00:19)
+kerabbit pts/1	      10.217.64.87     Sat Jan 25 11:41 - 11:46	 (00:04)
+ejfinley pts/1	      10.217.64.73     Fri Jan 24 23:28 - 23:54	 (00:26)
+tdavidso pts/2	      10.217.64.88     Fri Jan 24 22:54 - 01:25	 (02:30)
+ejfinley pts/1	      10.217.64.73     Fri Jan 24 22:47 - 23:11	 (00:23)
+dpsetlur pts/22	      130.215.218.95   Fri Jan 24 14:43 - 19:21	 (04:37)
+zweissma pts/26	      10.217.64.17     Mon Jan 27 22:36 - 23:35	 (00:58)
+dsbradbu pts/24	      130.215.9.88     Mon Jan 27 21:48 - 22:48	 (00:59)
+wkroboth pts/19	      130.215.9.175    Fri Jan 24 10:45 - 10:59	 (00:13)
+wkroboth pts/19	      130.215.9.175    Fri Jan 24 10:36 - 10:41	 (00:05)
+satellit pts/1	      130.215.36.16    Fri Jan 24 07:00 - 07:00	 (00:00)
+satellit pts/1	      130.215.36.16    Fri Jan 24 07:00 - 07:00	 (00:00)
+dsmith3	 pts/34	      130.215.10.56    Thu Jan 23 23:42 - 23:52	 (00:09)
+ttpham3	 pts/12	      130.215.249.123  Thu Jan 23 21:24 - 21:25	 (00:01)
+ttpham3	 pts/12	      130.215.249.123  Thu Jan 23 21:06 - 21:10	 (00:04)
+dgfaini	 pts/1	      10.217.64.11     Thu Jan 23 19:05 - 19:35	 (00:30)
+bdweber	 pts/7	      130.215.13.171   Thu Jan 23 18:51 - 18:52	 (00:00)
+bdweber	 pts/34	      130.215.13.171   Thu Jan 23 18:46 - 18:48	 (00:01)
+ttpham3	 pts/19	      130.215.249.123  Mon Jan 27 19:50	  still logged in
+ejfinley pts/1	      130.215.215.230  Mon Jan 27 19:13 - 19:35	 (00:21)
+bkdionne pts/1	      130.215.172.210  Mon Jan 27 16:30 - 18:44	 (02:14)
+lbzaki	 pts/20	      130.215.223.153  Mon Jan 27 16:08 - 16:14	 (00:06)
+khkyer	 pts/19	      10.217.64.106    Mon Jan 27 15:51 - 18:05	 (02:13)
+kjdoll	 pts/19	      130.215.222.190  Mon Jan 27 14:03 - 15:18	 (01:15)
+ttpham3	 pts/12	      130.215.217.77   Mon Jan 27 13:02 - 14:45	 (01:42)
+dsbradbu pts/21	      130.215.9.88     Mon Jan 27 11:08 - 11:31	 (00:23)
+jbtasick pts/2	      130.215.173.37   Mon Jan 27 11:00 - 11:07	 (00:07)
+jbtasick pts/2	      130.215.173.37   Mon Jan 27 10:58 - 10:59	 (00:01)
+satellit pts/2	      130.215.202.27   Mon Jan 27 10:10 - 10:10	 (00:00)
+adrockwe pts/4	      130.215.15.190   Mon Jan 27 09:49 - 11:20	 (01:31)
+zweissma pts/2	      130.215.221.33   Mon Jan 27 09:45 - 10:07	 (00:21)
+rsmith4	 pts/1	      10.217.64.250    Mon Jan 27 08:56 - 11:38	 (02:41)
+satellit pts/1	      130.215.202.27   Mon Jan 27 08:37 - 08:38	 (00:01)
+satellit pts/1	      130.215.202.27   Mon Jan 27 08:34 - 08:34	 (00:00)
+satellit pts/1	      130.215.202.27   Mon Jan 27 08:34 - 08:34	 (00:00)
+kjschmot pts/1	      10.217.64.85     Sun Jan 26 22:14 - 22:15	 (00:01)
+wkroboth pts/12	      130.215.9.175    Thu Jan 23 15:27 - 15:34	 (00:06)
+zweissma pts/23	      10.217.64.31     Sun Jan 26 17:29 - 17:31	 (00:02)
+dpsetlur pts/2	      10.217.64.33     Sat Jan 25 21:50 - 00:18	 (02:28)
+lmshrayb pts/4	      130.215.127.145  Thu Jan 23 13:43 - 18:02	 (04:18)
+dpsetlur pts/1	      10.217.64.33     Sat Jan 25 21:25 - 23:38	 (02:12)
+cwang23	 pts/10	      130.215.124.210  Sat Jan 25 12:45 - 18:20	 (05:35)
+jkingsle pts/21	      130.215.49.49    Thu Jan 23 11:48 - 11:53	 (00:04)
+kerabbit pts/1	      10.217.64.87     Sat Jan 25 11:47 - 12:06	 (00:19)
+dsbradbu pts/1	      130.215.9.88     Thu Jan 23 11:34 - 12:09	 (00:35)
+kerabbit pts/1	      10.217.64.87     Sat Jan 25 11:41 - 11:46	 (00:04)
+smobert	 pts/1	      130.215.126.214  Thu Jan 23 09:59 - 10:08	 (00:09)
+ejfinley pts/1	      10.217.64.73     Fri Jan 24 23:28 - 23:54	 (00:26)
+sjmartin pts/20	      130.215.217.164  Thu Jan 23 09:26 - 09:32	 (00:05)
+tdavidso pts/2	      10.217.64.88     Fri Jan 24 22:54 - 01:25	 (02:30)
+satellit pts/2	      130.215.36.16    Thu Jan 23 05:28 - 05:29	 (00:00)
+ejfinley pts/1	      10.217.64.73     Fri Jan 24 22:47 - 23:11	 (00:23)
+satellit pts/2	      130.215.36.16    Thu Jan 23 05:28 - 05:28	 (00:00)
+dpsetlur pts/22	      130.215.218.95   Fri Jan 24 14:43 - 19:21	 (04:37)
+wkroboth pts/19	      130.215.9.175    Fri Jan 24 10:45 - 10:59	 (00:13)
+wkroboth pts/19	      130.215.9.175    Fri Jan 24 10:36 - 10:41	 (00:05)
+satellit pts/1	      130.215.36.16    Fri Jan 24 07:00 - 07:00	 (00:00)
+jsantacr pts/8	      10.217.64.78     Wed Jan 22 21:28 - 23:54	 (02:25)
+satellit pts/1	      130.215.36.16    Fri Jan 24 07:00 - 07:00	 (00:00)
+msheahan pts/22	      10.217.64.76     Wed Jan 22 20:45 - 00:03	 (03:17)
+rcboyle	 pts/18	      130.215.127.193  Wed Jan 22 18:57 - 21:35	 (02:37)
+ttpham3	 pts/1	      130.215.9.144    Wed Jan 22 18:55 - 19:10	 (00:15)
+dsmith3	 pts/34	      130.215.10.56    Thu Jan 23 23:42 - 23:52	 (00:09)
+ttpham3	 pts/12	      130.215.249.123  Thu Jan 23 21:24 - 21:25	 (00:01)
+ttpham3	 pts/26	      130.215.9.144    Wed Jan 22 17:34 - 18:15	 (00:41)
+ttpham3	 pts/12	      130.215.249.123  Thu Jan 23 21:06 - 21:10	 (00:04)
+dgfaini	 pts/1	      10.217.64.11     Thu Jan 23 19:05 - 19:35	 (00:30)
+askillor pts/18	      130.215.214.228  Wed Jan 22 16:42 - 18:31	 (01:48)
+bdweber	 pts/7	      130.215.13.171   Thu Jan 23 18:51 - 18:52	 (00:00)
+bdweber	 pts/34	      130.215.13.171   Thu Jan 23 18:46 - 18:48	 (00:01)
+wkroboth pts/12	      130.215.9.175    Thu Jan 23 15:27 - 15:34	 (00:06)
+ejfinley pts/4	      130.215.213.250  Wed Jan 22 15:32 - 15:38	 (00:06)
+lmshrayb pts/4	      130.215.127.145  Thu Jan 23 13:43 - 18:02	 (04:18)
+ejfinley pts/4	      130.215.213.250  Wed Jan 22 15:22 - 15:29	 (00:06)
+jkingsle pts/21	      130.215.49.49    Thu Jan 23 11:48 - 11:53	 (00:04)
+dsbradbu pts/1	      130.215.9.88     Thu Jan 23 11:34 - 12:09	 (00:35)
+smobert	 pts/1	      130.215.126.214  Thu Jan 23 09:59 - 10:08	 (00:09)
+sjmartin pts/20	      130.215.217.164  Thu Jan 23 09:26 - 09:32	 (00:05)
+satellit pts/2	      130.215.36.16    Thu Jan 23 05:28 - 05:29	 (00:00)
+satellit pts/2	      130.215.36.16    Thu Jan 23 05:28 - 05:28	 (00:00)
+laherrer pts/23	      130.215.223.177  Wed Jan 22 14:39 - 15:00	 (00:21)
+jsantacr pts/8	      10.217.64.78     Wed Jan 22 21:28 - 23:54	 (02:25)
+lmshrayb pts/18	      130.215.127.145  Wed Jan 22 14:14 - 16:29	 (02:14)
+kjschmot pts/19	      130.215.222.76   Wed Jan 22 14:10 - 15:31	 (01:20)
+msheahan pts/22	      10.217.64.76     Wed Jan 22 20:45 - 00:03	 (03:17)
+rcboyle	 pts/18	      130.215.127.193  Wed Jan 22 18:57 - 21:35	 (02:37)
+ttpham3	 pts/1	      130.215.9.144    Wed Jan 22 18:55 - 19:10	 (00:15)
+ttpham3	 pts/26	      130.215.9.144    Wed Jan 22 17:34 - 18:15	 (00:41)
+askillor pts/18	      130.215.214.228  Wed Jan 22 16:42 - 18:31	 (01:48)
+ejfinley pts/4	      130.215.213.250  Wed Jan 22 15:32 - 15:38	 (00:06)
+ejfinley pts/4	      130.215.213.250  Wed Jan 22 15:22 - 15:29	 (00:06)
+laherrer pts/23	      130.215.223.177  Wed Jan 22 14:39 - 15:00	 (00:21)
+lmshrayb pts/18	      130.215.127.145  Wed Jan 22 14:14 - 16:29	 (02:14)
+kjschmot pts/19	      130.215.222.76   Wed Jan 22 14:10 - 15:31	 (01:20)
+wkroboth pts/18	      130.215.9.175    Wed Jan 22 14:08 - 14:13	 (00:05)
+pwatson	 pts/12	      130.215.15.81    Wed Jan 22 14:02 - 14:55	 (00:53)
+askillor pts/10	      130.215.214.228  Wed Jan 22 13:55 - 14:29	 (00:34)
+sjohnpau pts/4	      130.215.168.224  Wed Jan 22 12:16 - 14:18	 (02:01)
+wkroboth pts/18	      130.215.9.175    Wed Jan 22 14:08 - 14:13	 (00:05)
+kjschmot pts/4	      130.215.222.76   Wed Jan 22 12:15 - 12:15	 (00:00)
+ebrown1	 pts/0	      130.215.120.34   Wed Jan 22 11:55 - 12:44	 (00:49)
+pwatson	 pts/12	      130.215.15.81    Wed Jan 22 14:02 - 14:55	 (00:53)
+sharte	 pts/4	      10.217.64.13     Wed Jan 22 11:49 - 11:58	 (00:08)
+askillor pts/10	      130.215.214.228  Wed Jan 22 13:55 - 14:29	 (00:34)
+amlatsko pts/21	      130.215.211.160  Wed Jan 22 11:27 - 11:50	 (00:23)
+jsteinme pts/19	      130.215.169.88   Wed Jan 22 11:13 - 13:25	 (02:12)
+sjohnpau pts/4	      130.215.168.224  Wed Jan 22 12:16 - 14:18	 (02:01)
+lbzaki	 pts/18	      130.215.223.153  Wed Jan 22 11:11 - 11:38	 (00:26)
+kjschmot pts/4	      130.215.222.76   Wed Jan 22 12:15 - 12:15	 (00:00)
+ebrown1	 pts/0	      130.215.120.34   Wed Jan 22 11:55 - 12:44	 (00:49)
+hmbradle pts/12	      130.215.17.169   Wed Jan 22 11:05 - 11:43	 (00:37)
+tradabau pts/10	      130.215.215.61   Wed Jan 22 11:05 - 12:26	 (01:21)
+mspace	 pts/8	      130.215.208.244  Wed Jan 22 11:04 - 15:45	 (04:40)
+jdmello	 pts/4	      130.215.171.200  Wed Jan 22 11:04 - 11:49	 (00:44)
+sharte	 pts/4	      10.217.64.13     Wed Jan 22 11:49 - 11:58	 (00:08)
+szlochow pts/2	      130.215.123.41   Wed Jan 22 11:04 - 14:26	 (03:21)
+jsantacr pts/0	      130.215.214.42   Wed Jan 22 11:00 - 11:54	 (00:53)
+ebrown1	 pts/2	      130.215.120.34   Wed Jan 22 10:39 - 10:52	 (00:12)
+jbtasick pts/7	      130.215.122.143  Wed Jan 22 09:54 - 14:44	 (04:49)
+amlatsko pts/21	      130.215.211.160  Wed Jan 22 11:27 - 11:50	 (00:23)
+szlochow pts/4	      10.217.65.243    Wed Jan 22 09:32 - 09:56	 (00:23)
+wsgerlac pts/2	      130.215.209.51   Wed Jan 22 09:31 - 10:12	 (00:41)
+jsteinme pts/19	      130.215.169.88   Wed Jan 22 11:13 - 13:25	 (02:12)
+sjmartin pts/1	      130.215.217.164  Wed Jan 22 09:24 - 17:41	 (08:16)
+drakhat	 pts/0	      130.215.209.255  Wed Jan 22 09:16 - 10:52	 (01:36)
+lbzaki	 pts/18	      130.215.223.153  Wed Jan 22 11:11 - 11:38	 (00:26)
+jsantacr pts/0	      130.215.214.42   Wed Jan 22 07:59 - 07:59	 (00:00)
+satellit pts/0	      130.215.36.16    Wed Jan 22 05:16 - 05:19	 (00:03)
+satellit pts/0	      130.215.36.16    Wed Jan 22 05:16 - 05:16	 (00:00)
+hmbradle pts/12	      130.215.17.169   Wed Jan 22 11:05 - 11:43	 (00:37)
+dsbradbu pts/8	      130.215.9.88     Tue Jan 21 22:47 - 02:30	 (03:43)
+dsbradbu pts/8	      130.215.9.88     Tue Jan 21 22:40 - 22:46	 (00:06)
+drelliot pts/1	      130.215.215.47   Tue Jan 21 15:44 - 15:45	 (00:01)
+ealpert	 pts/2	      130.215.208.72   Tue Jan 21 14:16 - 14:16	 (00:00)
+jpeismei pts/10	      10.217.64.207    Tue Jan 21 11:11 - 11:11	 (00:00)
+msheahan pts/1	      130.215.68.0     Tue Jan 21 07:55 - 09:52	 (01:57)
+msheahan pts/0	      130.215.68.0     Tue Jan 21 07:53 - 09:52	 (01:58)
+svjasmin pts/7	      10.217.65.132    Mon Jan 20 12:05 - 12:32	 (00:26)
+ecwilber pts/18	      130.215.124.69   Sun Jan 19 17:43 - 05:58	 (12:15)
+heineman pts/0	      130.215.28.181   Sat Jan 18 10:57 - 13:08	 (02:11)
+tradabau pts/10	      130.215.215.61   Wed Jan 22 11:05 - 12:26	 (01:21)
+mspace	 pts/8	      130.215.208.244  Wed Jan 22 11:04 - 15:45	 (04:40)
+jdmello	 pts/4	      130.215.171.200  Wed Jan 22 11:04 - 11:49	 (00:44)
+szlochow pts/2	      130.215.123.41   Wed Jan 22 11:04 - 14:26	 (03:21)
+jsantacr pts/0	      130.215.214.42   Wed Jan 22 11:00 - 11:54	 (00:53)
+mmalone	 pts/8	      130.215.71.151   Fri Jan 17 13:09 - 13:10	 (00:01)
+ehughsba pts/0	      130.215.174.11   Fri Jan 17 10:01 - 10:27	 (00:25)
+jpeismei pts/0	      10.217.64.207    Fri Jan 17 09:32 - 09:32	 (00:00)
+satellit pts/0	      130.215.36.16    Fri Jan 17 05:55 - 05:56	 (00:00)
+satellit pts/0	      130.215.36.16    Fri Jan 17 05:55 - 05:55	 (00:00)
+cewarzoc pts/3	      130.215.127.210  Thu Jan 16 15:35 - 17:49	 (02:13)
+bfeinber pts/11	      130.215.210.151  Thu Jan 16 14:58 - 14:58	 (00:00)
+pmrust	 pts/25	      130.215.208.67   Thu Jan 16 13:20 - 14:04	 (00:44)
+satellit pts/0	      130.215.36.16    Thu Jan 16 06:04 - 06:04	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan 16 06:04 - 06:04	 (00:00)
+staneja	 pts/0	      130.215.76.7     Wed Jan 15 15:10 - 15:51	 (00:41)
+ecwilber pts/0	      130.215.124.69   Wed Jan 15 14:59 - 14:59	 (00:00)
+jpeismei pts/6	      10.217.64.207    Wed Jan 15 13:09 - 13:10	 (00:00)
+ttpham3	 pts/0	      130.215.9.144    Wed Jan 15 11:48 - 14:35	 (02:46)
+jpeismei pts/0	      10.217.64.207    Mon Jan 13 11:34 - 11:34	 (00:00)
+satellit pts/0	      130.215.36.16    Fri Jan 10 09:47 - 09:47	 (00:00)
+satellit pts/0	      130.215.36.16    Fri Jan 10 09:47 - 09:47	 (00:00)
+jpeismei pts/0	      10.217.64.207    Thu Jan	9 14:04 - 07:10	 (17:05)
+satellit pts/0	      130.215.36.16    Thu Jan	9 05:22 - 05:23	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	9 05:22 - 05:22	 (00:00)
+runlevel (to lvl 3)   0.0.0.0	       Wed Jan	8 11:47	  still running
+reboot	 system boot  0.0.0.0	       Wed Jan	8 11:46	  still running
+shutdown system down  0.0.0.0	       Wed Jan	8 11:46 - 11:46	 (00:00)
+jpeismei pts/0	      10.217.64.207    Wed Jan	8 11:46 - 11:46	 (00:00)
+satellit pts/0	      130.215.36.16    Wed Jan	8 07:52 - 07:56	 (00:03)
+satellit pts/0	      130.215.36.16    Wed Jan	8 07:52 - 07:52	 (00:00)
+jpeismei pts/0	      10.217.64.207    Tue Jan	7 13:00 - 13:00	 (00:00)
+runlevel (to lvl 3)   0.0.0.0	       Tue Jan	7 13:00 - 11:46	 (22:46)
+reboot	 system boot  0.0.0.0	       Tue Jan	7 13:00 - 11:46	 (22:46)
+shutdown system down  0.0.0.0	       Tue Jan	7 12:59 - 13:00	 (00:00)
+jpeismei pts/0	      10.217.64.207    Tue Jan	7 12:59 - 12:59	 (00:00)
+jpeismei pts/0	      10.217.64.207    Tue Jan	7 09:37 - 09:38	 (00:00)
+jpeismei pts/0	      10.217.64.207    Tue Jan	7 06:00 - 06:00	 (00:00)
+ebrown1	 pts/2	      130.215.120.34   Wed Jan 22 10:39 - 10:52	 (00:12)
+jpeismei pts/0	      10.217.64.207    Mon Jan	6 15:39 - 15:39	 (00:00)
+jpeismei pts/0	      130.215.37.131   Thu Jan	2 14:34 - 14:34	 (00:00)
+jbtasick pts/7	      130.215.122.143  Wed Jan 22 09:54 - 14:44	 (04:49)
+runlevel (to lvl 3)   0.0.0.0	       Thu Jan	2 14:34 - 12:59 (4+22:25)
+reboot	 system boot  0.0.0.0	       Thu Jan	2 14:34 - 12:59 (4+22:25)
+szlochow pts/4	      10.217.65.243    Wed Jan 22 09:32 - 09:56	 (00:23)
+shutdown system down  0.0.0.0	       Thu Jan	2 14:34 - 14:34	 (00:00)
+jpeismei pts/0	      130.215.37.131   Thu Jan	2 14:32 - 14:34	 (00:01)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:55	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:54	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:54	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:54	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:54	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:53 - 13:53	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:53 - 13:53	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:52 - 13:52	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:52 - 13:52	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:52 - 13:52	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:52 - 13:52	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:51 - 13:51	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:51 - 13:51	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:50 - 13:50	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:50 - 13:50	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:49 - 13:49	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:49 - 13:49	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:49 - 13:49	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:48 - 13:48	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:48	 (00:00)
+wsgerlac pts/2	      130.215.209.51   Wed Jan 22 09:31 - 10:12	 (00:41)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+sjmartin pts/1	      130.215.217.164  Wed Jan 22 09:24 - 17:41	 (08:16)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+drakhat	 pts/0	      130.215.209.255  Wed Jan 22 09:16 - 10:52	 (01:36)
+jsantacr pts/0	      130.215.214.42   Wed Jan 22 07:59 - 07:59	 (00:00)
+satellit pts/0	      130.215.36.16    Wed Jan 22 05:16 - 05:19	 (00:03)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      130.215.36.16    Wed Jan 22 05:16 - 05:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:46 - 13:46	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:46 - 13:46	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:45 - 13:45	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:45 - 13:45	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+dsbradbu pts/8	      130.215.9.88     Tue Jan 21 22:47 - 02:30	 (03:43)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+dsbradbu pts/8	      130.215.9.88     Tue Jan 21 22:40 - 22:46	 (00:06)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+drelliot pts/1	      130.215.215.47   Tue Jan 21 15:44 - 15:45	 (00:01)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:17	 (00:00)
+ealpert	 pts/2	      130.215.208.72   Tue Jan 21 14:16 - 14:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:11 - 13:16	 (00:05)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:10 - 13:11	 (00:01)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:10 - 13:10	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:10 - 13:10	 (00:00)
+satellit pts/1	      10.217.64.207    Thu Jan	2 13:02 - 13:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:59 - 13:07	 (00:08)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:58 - 12:59	 (00:00)
+jpeismei pts/10	      10.217.64.207    Tue Jan 21 11:11 - 11:11	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:58 - 12:58	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:55 - 12:56	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:55 - 12:55	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 09:01 - 09:02	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 09:01 - 09:01	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:57 - 08:57	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:57 - 08:57	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:55 - 08:55	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:55 - 08:55	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:46 - 08:46	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:46 - 08:46	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:39 - 08:39	 (00:00)
+msheahan pts/1	      130.215.68.0     Tue Jan 21 07:55 - 09:52	 (01:57)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:39 - 08:39	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:37 - 08:37	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:37 - 08:37	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:35 - 08:35	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:35 - 08:35	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:32 - 08:32	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:32 - 08:32	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:29 - 08:29	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:29 - 08:29	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:43 - 13:44	 (00:00)
+msheahan pts/0	      130.215.68.0     Tue Jan 21 07:53 - 09:52	 (01:58)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:43 - 13:43	 (00:00)
+jpeismei pts/0	      10.128.134.76    Thu Dec 19 12:45 - 12:45	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 12:28 - 12:28	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 12:28 - 12:28	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+runlevel (to lvl 3)   0.0.0.0	       Thu Dec 19 11:00 - 14:34 (14+03:33)
+reboot	 system boot  0.0.0.0	       Thu Dec 19 11:00 - 14:34 (14+03:33)
+shutdown system down  0.0.0.0	       Thu Dec 19 11:00 - 11:00	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:24 - 10:25	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:24 - 10:24	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:19 - 10:22	 (00:02)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:19 - 10:19	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:17 - 10:17	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:17 - 10:17	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:16 - 10:17	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:16 - 10:16	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+root	 pts/0	      10.128.134.34    Thu Dec 19 10:04 - 11:00	 (00:55)
+runlevel (to lvl 3)   0.0.0.0	       Thu Dec 19 10:00 - 11:00	 (00:59)
+reboot	 system boot  0.0.0.0	       Thu Dec 19 10:00 - 11:00	 (00:59)
+svjasmin pts/7	      10.217.65.132    Mon Jan 20 12:05 - 12:32	 (00:26)
+
+wtmp begins Thu Dec 19 10:00:39 2024
+ecwilber pts/18	      130.215.124.69   Sun Jan 19 17:43 - 05:58	 (12:15)
+heineman pts/0	      130.215.28.181   Sat Jan 18 10:57 - 13:08	 (02:11)
+mmalone	 pts/8	      130.215.71.151   Fri Jan 17 13:09 - 13:10	 (00:01)
+ehughsba pts/0	      130.215.174.11   Fri Jan 17 10:01 - 10:27	 (00:25)
+jpeismei pts/0	      10.217.64.207    Fri Jan 17 09:32 - 09:32	 (00:00)
+satellit pts/0	      130.215.36.16    Fri Jan 17 05:55 - 05:56	 (00:00)
+satellit pts/0	      130.215.36.16    Fri Jan 17 05:55 - 05:55	 (00:00)
+cewarzoc pts/3	      130.215.127.210  Thu Jan 16 15:35 - 17:49	 (02:13)
+bfeinber pts/11	      130.215.210.151  Thu Jan 16 14:58 - 14:58	 (00:00)
+pmrust	 pts/25	      130.215.208.67   Thu Jan 16 13:20 - 14:04	 (00:44)
+satellit pts/0	      130.215.36.16    Thu Jan 16 06:04 - 06:04	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan 16 06:04 - 06:04	 (00:00)
+staneja	 pts/0	      130.215.76.7     Wed Jan 15 15:10 - 15:51	 (00:41)
+ecwilber pts/0	      130.215.124.69   Wed Jan 15 14:59 - 14:59	 (00:00)
+jpeismei pts/6	      10.217.64.207    Wed Jan 15 13:09 - 13:10	 (00:00)
+ttpham3	 pts/0	      130.215.9.144    Wed Jan 15 11:48 - 14:35	 (02:46)
+jpeismei pts/0	      10.217.64.207    Mon Jan 13 11:34 - 11:34	 (00:00)
+satellit pts/0	      130.215.36.16    Fri Jan 10 09:47 - 09:47	 (00:00)
+satellit pts/0	      130.215.36.16    Fri Jan 10 09:47 - 09:47	 (00:00)
+jpeismei pts/0	      10.217.64.207    Thu Jan	9 14:04 - 07:10	 (17:05)
+satellit pts/0	      130.215.36.16    Thu Jan	9 05:22 - 05:23	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	9 05:22 - 05:22	 (00:00)
+runlevel (to lvl 3)   0.0.0.0	       Wed Jan	8 11:47	  still running
+reboot	 system boot  0.0.0.0	       Wed Jan	8 11:46	  still running
+shutdown system down  0.0.0.0	       Wed Jan	8 11:46 - 11:46	 (00:00)
+jpeismei pts/0	      10.217.64.207    Wed Jan	8 11:46 - 11:46	 (00:00)
+satellit pts/0	      130.215.36.16    Wed Jan	8 07:52 - 07:56	 (00:03)
+satellit pts/0	      130.215.36.16    Wed Jan	8 07:52 - 07:52	 (00:00)
+jpeismei pts/0	      10.217.64.207    Tue Jan	7 13:00 - 13:00	 (00:00)
+runlevel (to lvl 3)   0.0.0.0	       Tue Jan	7 13:00 - 11:46	 (22:46)
+reboot	 system boot  0.0.0.0	       Tue Jan	7 13:00 - 11:46	 (22:46)
+shutdown system down  0.0.0.0	       Tue Jan	7 12:59 - 13:00	 (00:00)
+jpeismei pts/0	      10.217.64.207    Tue Jan	7 12:59 - 12:59	 (00:00)
+jpeismei pts/0	      10.217.64.207    Tue Jan	7 09:37 - 09:38	 (00:00)
+jpeismei pts/0	      10.217.64.207    Tue Jan	7 06:00 - 06:00	 (00:00)
+jpeismei pts/0	      10.217.64.207    Mon Jan	6 15:39 - 15:39	 (00:00)
+jpeismei pts/0	      130.215.37.131   Thu Jan	2 14:34 - 14:34	 (00:00)
+runlevel (to lvl 3)   0.0.0.0	       Thu Jan	2 14:34 - 12:59 (4+22:25)
+reboot	 system boot  0.0.0.0	       Thu Jan	2 14:34 - 12:59 (4+22:25)
+shutdown system down  0.0.0.0	       Thu Jan	2 14:34 - 14:34	 (00:00)
+jpeismei pts/0	      130.215.37.131   Thu Jan	2 14:32 - 14:34	 (00:01)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:55	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:54	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:54	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:54	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:54 - 13:54	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:53 - 13:53	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:53 - 13:53	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:52 - 13:52	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:52 - 13:52	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:52 - 13:52	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:52 - 13:52	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:51 - 13:51	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:51 - 13:51	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:50 - 13:50	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:50 - 13:50	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:49 - 13:49	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:49 - 13:49	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:49 - 13:49	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:48 - 13:48	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:48	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:47 - 13:47	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:46 - 13:46	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:46 - 13:46	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:45 - 13:45	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:45 - 13:45	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:17 - 13:17	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:17	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:16 - 13:16	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:11 - 13:16	 (00:05)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:10 - 13:11	 (00:01)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:10 - 13:10	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 13:10 - 13:10	 (00:00)
+satellit pts/1	      10.217.64.207    Thu Jan	2 13:02 - 13:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:59 - 13:07	 (00:08)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:58 - 12:59	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:58 - 12:58	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:55 - 12:56	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Jan	2 12:55 - 12:55	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 09:01 - 09:02	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 09:01 - 09:01	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:57 - 08:57	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:57 - 08:57	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:55 - 08:55	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:55 - 08:55	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:46 - 08:46	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:46 - 08:46	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:39 - 08:39	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:39 - 08:39	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:37 - 08:37	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:37 - 08:37	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:35 - 08:35	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:35 - 08:35	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:32 - 08:32	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:32 - 08:32	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:29 - 08:29	 (00:00)
+satellit pts/0	      130.215.36.16    Thu Jan	2 08:29 - 08:29	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:44 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:43 - 13:44	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 13:43 - 13:43	 (00:00)
+jpeismei pts/0	      10.128.134.76    Thu Dec 19 12:45 - 12:45	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 12:28 - 12:28	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 12:28 - 12:28	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+satellit pts/0	      10.128.134.76    Thu Dec 19 11:02 - 11:02	 (00:00)
+runlevel (to lvl 3)   0.0.0.0	       Thu Dec 19 11:00 - 14:34 (14+03:33)
+reboot	 system boot  0.0.0.0	       Thu Dec 19 11:00 - 14:34 (14+03:33)
+shutdown system down  0.0.0.0	       Thu Dec 19 11:00 - 11:00	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:24 - 10:25	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:24 - 10:24	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:19 - 10:22	 (00:02)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:19 - 10:19	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:17 - 10:17	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:17 - 10:17	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:16 - 10:17	 (00:00)
+satellit pts/1	      10.128.134.76    Thu Dec 19 10:16 - 10:16	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+unixadmi pts/1	      10.128.134.76    Thu Dec 19 10:12 - 10:12	 (00:00)
+root	 pts/0	      10.128.134.34    Thu Dec 19 10:04 - 11:00	 (00:55)
+runlevel (to lvl 3)   0.0.0.0	       Thu Dec 19 10:00 - 11:00	 (00:59)
+reboot	 system boot  0.0.0.0	       Thu Dec 19 10:00 - 11:00	 (00:59)
+
+wtmp begins Thu Dec 19 10:00:39 2024
+Child 1183007 has crossed the finish line! It took 6.273160 seconds
+Child 1183008 has crossed the finish line! It took 6.273194 seconds
+Child 1183010 has crossed the finish line! It took 6.273206 seconds
+The race is over! It took 6.273206 seconds
+[bjpeters@ccc-app-p-u50 project_1]$ exit
+exit
+
+Script done on 2025-01-27 23:42:23-05:00 [COMMAND_EXIT_CODE="0"]

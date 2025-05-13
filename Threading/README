@@ -1,0 +1,75 @@
+Further explanations of the code can be found in the comments throughout
+
+1. prolific.c
+    Q: Explain how does the choice to generate random numbers before forking affect process behavior? 
+
+    A: The choice to generate the number before the forking allows for the generated number to 
+    be accessed by each child process.
+
+    EXPLANATION:
+        I first read my seed and then I  calculated my number of children. I then used that number as a 
+        size of an arraywhich I then used to store the random numbers to be accessed by the children. 
+        In the child code I calculated the exit code and wait time, waited the derived number of 
+        seconds and then exited.
+
+2. generation.c
+    Q: What would happen if child processes did not wait for their descendants?
+
+    A: If a child process did not wait for its deceendents it would orphan the decendents and exit 
+    before them. It would also not recieve the correct exit code of the decendent
+
+    EXPLANATION:
+        My main function is relatively compact as I chose to use recursion to generate my family tree.
+        In my main function I generate my random lifespan number, print some output and call the 
+        create family function and pass lifespan into it. In the recursive function is strated with the 
+        base case of lifespan <= 0 which would cause whatever process running to exit with the exit code
+        0. Then I fork. The parent waits for its child to finish and the child calls creatFamily and 
+        passes lifespan - 1. Lifespan eventually hits 0 which is caught by the base case and that 
+        starts the chain reaction of processes exiting.
+
+3. explorer.c
+    Q: Describe the debugging steps you would follow if ”The Explorer” produced incorrect 
+    directory listings. How would you validate each step?
+
+    A: I would manually travel to the directories being selected, via the terminal, in order to 
+    verify the program.
+
+    EXPLANATION:
+        Firstly I read my seed. I then created an array of strings which held the different directories 
+        I was going to visit. I also mallocated a char pointer to hold the current working directory. 
+        I also made an array to be used by the execvp funtion later. Then I bengin my loop. Firstly 
+        I get a random number 0-5 and use that as the index to the before mentiond array of directories.
+        I then use chdir to change into that directory, print output and then fork. The parent waits for 
+        the child while the child calls execvp on the instructions and then exits. This loop runs 5 times.
+
+
+4. slug.c
+    Q: Why is using different seed files critical when running parallel processes in ”The Slug Race”?
+
+    A: If I didin't use different seed files the parallel processes would all generate the same number
+
+    EXPLANTION:
+        I first determine which slug seed to read based off the command line arguments using a formatted 
+        string. Then I generate my random numbers and declare a bunch of arrays and char pointers. The array
+        "faces" holds the instructions to be called by execv. The char pointers "heads" and "tails is strings
+        that are to be later printed in the output. and finaly format is an array that holds heads and tails
+        for easier access. I then print the necessary outputs, sleep and then call execvp to execute the commands
+        determined by the random numbers. 
+
+
+5. slugrace.c
+    Q: Imagine a real-world application for ”The Slug Race” concept. How would you implement additional logging
+    or monitoring?
+
+    A: A real world application could be trying to test the speed of different processes against 
+    eachother to see which is most time efficient. To implement more logging or monitoring I would
+    add more print statements that have updates throughout the code.
+
+    EXPLANATION:
+        First I declared a function to find the time difference between 2 timespec structs which are provided
+        by time.h. I then start my main function by initializing some key values. I record the start time of 
+        the code to be used later. I then run the loop that makes all my slugs for the race. Then I run another
+        loop that runs until the amount of slugs who completed the race is 4, the total number of slugs. In this
+        I check to see if any slugs have finished and increment the amount of slugs who finished accordingly.
+        I then print the status of the race and sleep for .33 seconds. Finally once the loop is broken I declare
+        the race over.
